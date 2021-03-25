@@ -1,0 +1,37 @@
+#FILES FOR INTELLIJ IDEA AND OTHER IDEAS
+#=======================
+**/.idea/workspace.xml
+**/.idea/tasks.xml
+**/.idea/uiDesigner.xml
+**/.idea/gradle.xml
+**/.idea/modules.xml
+**/.idea/deployment.xml
+**/.idea/discord.xml
+**/.idea/shelf
+.idea/
+.settings/
+
+#FILES FOR GRADLE
+#=======================
+.gradle
+/build/
+**/build/
+.gradle/
+build/
+
+#FILES FOR DEV WORKSPACE
+#===============================
+/logs
+run/
+
+#MACOS
+#=====================
+.DS_Store
+.AppleDouble
+.LSOverride
+
+#SYSTEM AND JAVA FILES
+#=====================
+Thumbs.db
+debug.log
+hs_err_pid*
