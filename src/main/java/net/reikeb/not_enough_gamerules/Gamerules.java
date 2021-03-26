@@ -13,6 +13,9 @@ public class Gamerules {
     public static final GameRules.RuleKey<GameRules.BooleanValue> DO_TRANSFORMATIONS = GameRules
             .register("doTransformations", GameRules.Category.MOBS, NotEnoughGamerules.create(true));
 
+    public static final GameRules.RuleKey<GameRules.BooleanValue> EXPLOSION_DAMAGE = GameRules
+            .register("explosionDamage", GameRules.Category.PLAYER, NotEnoughGamerules.create(true));
+
     public static final GameRules.RuleKey<GameRules.BooleanValue> NATURAL_HUNGER = GameRules
             .register("naturalHunger", GameRules.Category.PLAYER, NotEnoughGamerules.create(true));
 
