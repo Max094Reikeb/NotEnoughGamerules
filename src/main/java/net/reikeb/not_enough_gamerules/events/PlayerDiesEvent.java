@@ -19,11 +19,12 @@ public class PlayerDiesEvent {
             if (!event.getSource().isBypassInvul()) {
                 PlayerEntity player = (PlayerEntity) event.getEntity();
                 if (player.level.getLevelData().getGameRules().getBoolean(Gamerules.DEATH_EXPLOSION)) {
-                    int delay = 0;
-                    do {
-                        delay += 1;
-                    } while (delay < player.level.getLevelData().getGameRules().getInt(Gamerules.DEATH_EXPLOSION_TIME));
-                    player.level.explode(null, player.getX(), player.getY(), player.getZ(), 20, Explosion.Mode.BREAK);
+
+                    int counter = player.level.getLevelData().getGameRules().getInt(Gamerules.DEATH_EXPLOSION_TIME) * 20;
+                    while(counter > 0) {
+                        counter--;
+                    }
+                    player.level.explode(null, player.getX(), player.getY(), player.getZ(), 10, Explosion.Mode.BREAK);
                 }
             }
         }
