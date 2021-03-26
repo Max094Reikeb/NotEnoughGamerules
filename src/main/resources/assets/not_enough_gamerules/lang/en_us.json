@@ -1,5 +1,6 @@
 {
   "death.attack.sky_high": "%1$s died because he wasn\u0027t high enough!",
+  "gamerule.anvilDamage": "Deal anvil damage",
   "gamerule.deathExplosion": "Explosion on death",
   "gamerule.deathExplosion.description": "Defines if an explosion occurs X seconds after the death of a player",
   "gamerule.deathExplosionTime": "Delay of death explosion",

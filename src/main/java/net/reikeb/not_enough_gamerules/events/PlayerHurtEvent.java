@@ -2,6 +2,7 @@ package net.reikeb.not_enough_gamerules.events;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.util.DamageSource;
 import net.minecraft.world.GameRules;
 
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
@@ -20,12 +21,13 @@ public class PlayerHurtEvent {
             Entity entity = event.getEntity();
             Entity sourceentity = event.getSource().getEntity();
             GameRules gamerules = entity.level.getLevelData().getGameRules();
-            if ((!gamerules.getBoolean(Gamerules.PVP))
-                    && (entity instanceof PlayerEntity) && (sourceentity instanceof PlayerEntity)) {
+            if ((!gamerules.getBoolean(Gamerules.PVP)) && (entity instanceof PlayerEntity) && (sourceentity instanceof PlayerEntity)) {
                 event.setCanceled(event.isCancelable());
             }
-            if ((!gamerules.getBoolean(Gamerules.EXPLOSION_DAMAGE))
-                    && (event.getSource().isExplosion())) {
+            if ((!gamerules.getBoolean(Gamerules.EXPLOSION_DAMAGE)) && (event.getSource().isExplosion())) {
+                event.setCanceled(event.isCancelable());
+            }
+            if ((!gamerules.getBoolean(Gamerules.ANVIL_DAMAGE)) && (event.getSource() == DamageSource.ANVIL)) {
                 event.setCanceled(event.isCancelable());
             }
         }

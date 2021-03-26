@@ -4,6 +4,9 @@ import net.minecraft.world.GameRules;
 
 public class Gamerules {
 
+    public static final GameRules.RuleKey<GameRules.BooleanValue> ANVIL_DAMAGE = GameRules
+            .register("anvilDamage", GameRules.Category.PLAYER, NotEnoughGamerules.create(true));
+
     public static final GameRules.RuleKey<GameRules.BooleanValue> DEATH_EXPLOSION = GameRules
             .register("deathExplosion", GameRules.Category.MISC, NotEnoughGamerules.create(false));
 
