@@ -7,6 +7,7 @@
   "gamerule.deathExplosionTime.description": "Defines how much time (in seconds) passes before the explosion after the death of a player",
   "gamerule.doTransformations": "Entity transformations",
   "gamerule.doTransformations.description": "Defines if entities can transform (Zombies to Drowned, Villages to Witches, ...)",
+  "gamerule.dragonBreathDamage": "Deal dragon breath damage",
   "gamerule.explosionDamage": "Deal explosion damage",
   "gamerule.naturalHunger": "Food loose",
   "gamerule.pvp": "PVP",

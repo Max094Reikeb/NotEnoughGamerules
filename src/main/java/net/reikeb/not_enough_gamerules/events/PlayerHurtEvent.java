@@ -30,6 +30,9 @@ public class PlayerHurtEvent {
             if ((!gamerules.getBoolean(Gamerules.ANVIL_DAMAGE)) && (event.getSource() == DamageSource.ANVIL)) {
                 event.setCanceled(event.isCancelable());
             }
+            if ((!gamerules.getBoolean(Gamerules.DRAGON_BREATH_DAMAGE)) && (event.getSource() == DamageSource.DRAGON_BREATH)) {
+                event.setCanceled(event.isCancelable());
+            }
         }
     }
 }
