@@ -14,7 +14,7 @@ import net.reikeb.not_enough_gamerules.NotEnoughGamerules;
 public class PlayerHurtEvent {
 
     @SubscribeEvent
-    public void onEntityAttacked(LivingAttackEvent event) {
+    public static void onEntityAttacked(LivingAttackEvent event) {
         if (event != null && event.getEntity() != null) {
             Entity entity = event.getEntity();
             Entity sourceentity = event.getSource().getEntity();
