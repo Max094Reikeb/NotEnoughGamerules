@@ -4,5 +4,12 @@
   "gamerule.deathExplosion.description": "Defines if an explosion occurs X ticks after the death of a player",
   "gamerule.deathExplosionTime": "Delay of death explosion",
   "gamerule.deathExplosionTime.description": "Defines how much time passes before the explosion after the death of a player",
-  "gamerule.naturalHunger": "Loose food"
+  "gamerule.naturalHunger": "Food loose",
+  "gamerule.pvp": "PVP",
+  "gamerule.pvp.description": "Defines if two players can hurt each other",
+  "gamerule.rawMeatHunger": "Eating again",
+  "gamerule.rawMeatHunger.description": "Defines the percentage of change your have to get hunger effect if you eat raw meat",
+  "gamerule.skyHigh": "SkyHigh",
+  "gamerule.skyHigh.description": "Defines the minimal high the player has to be before taking damages",
+  "message.not_enough_gamerules.sky_high_warning": "WARNING: You\u0027re not high enough! You will take damages every 10 seconds."
 }
