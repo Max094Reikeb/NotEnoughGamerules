@@ -1,6 +1,7 @@
 {
   "death.attack.sky_high": "%1$s died because he wasn\u0027t high enough!",
   "gamerule.anvilDamage": "Deal anvil damage",
+  "gamerule.disableDimensionChange": "Disable dimension change",
   "gamerule.disablePistons": "Disable pistons",
   "gamerule.doTransformations": "Entity transformations",
   "gamerule.doTransformations.description": "Defines if entities can transform (Zombies to Drowned, Villages to Witches, ...)",
