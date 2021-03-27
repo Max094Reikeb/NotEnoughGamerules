@@ -2,8 +2,8 @@ package net.reikeb.not_enough_gamerules.events;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.TNTEntity;
-
 import net.minecraft.world.GameRules;
+
 import net.minecraftforge.event.world.ExplosionEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;

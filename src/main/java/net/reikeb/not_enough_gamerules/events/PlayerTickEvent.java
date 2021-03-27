@@ -2,8 +2,8 @@ package net.reikeb.not_enough_gamerules.events;
 
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.DamageSource;
-
 import net.minecraft.util.text.TranslationTextComponent;
+
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
