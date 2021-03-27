@@ -33,4 +33,7 @@ public class Gamerules {
 
     public static final GameRules.RuleKey<GameRules.IntegerValue> SKY_HIGH = GameRules
             .register("skyHigh", GameRules.Category.MISC, NotEnoughGamerules.create(-64));
+
+    public static final GameRules.RuleKey<GameRules.BooleanValue> TNT_EXPLODES = GameRules
+            .register("tntExplodes", GameRules.Category.MISC, NotEnoughGamerules.create(true));
 }
