@@ -7,12 +7,6 @@ public class Gamerules {
     public static final GameRules.RuleKey<GameRules.BooleanValue> ANVIL_DAMAGE = GameRules
             .register("anvilDamage", GameRules.Category.PLAYER, NotEnoughGamerules.create(true));
 
-    public static final GameRules.RuleKey<GameRules.BooleanValue> DEATH_EXPLOSION = GameRules
-            .register("deathExplosion", GameRules.Category.MISC, NotEnoughGamerules.create(false));
-
-    public static final GameRules.RuleKey<GameRules.IntegerValue> DEATH_EXPLOSION_TIME = GameRules
-            .register("deathExplosionTime", GameRules.Category.MISC, NotEnoughGamerules.create(10));
-
     public static final GameRules.RuleKey<GameRules.BooleanValue> DO_TRANSFORMATIONS = GameRules
             .register("doTransformations", GameRules.Category.MOBS, NotEnoughGamerules.create(true));
 
