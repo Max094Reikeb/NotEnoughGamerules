@@ -29,7 +29,7 @@ public class NotEnoughGamerules {
 
     public static GameRules.RuleType<GameRules.BooleanValue> create(boolean defaultValue) {
         try {
-            Method createGameruleMethod = ObfuscationReflectionHelper.findMethod(GameRules.BooleanValue.class, "create", boolean.class);
+            Method createGameruleMethod = ObfuscationReflectionHelper.findMethod(GameRules.BooleanValue.class, "func_223568_b", boolean.class);
             createGameruleMethod.setAccessible(true);
             return (GameRules.RuleType<GameRules.BooleanValue>) createGameruleMethod.invoke(null, defaultValue);
         } catch (Exception e) {
@@ -40,7 +40,7 @@ public class NotEnoughGamerules {
 
     public static GameRules.RuleType<GameRules.IntegerValue> create(int defaultValue) {
         try {
-            Method createGameruleMethod = ObfuscationReflectionHelper.findMethod(GameRules.IntegerValue.class, "create", int.class);
+            Method createGameruleMethod = ObfuscationReflectionHelper.findMethod(GameRules.IntegerValue.class, "func_223559_b", int.class);
             createGameruleMethod.setAccessible(true);
             return (GameRules.RuleType<GameRules.IntegerValue>) createGameruleMethod.invoke(null, defaultValue);
         } catch (Exception e) {
