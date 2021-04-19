@@ -15,6 +15,9 @@ public class Gamerules {
 
     public static final GameRules.RuleKey<GameRules.BooleanValue> DISABLE_PISTONS = GameRules
             .register("disablePistons", GameRules.Category.UPDATES, NotEnoughGamerules.create(false));
+    
+    public static final GameRules.RuleKey<GameRules.BooleanValue> DO_BABIES_SPAWN = GameRules
+            .register("doBabiesSpawn", GameRules.Category.SPAWNING, NotEnoughGamerules.create(true));
 
     public static final GameRules.RuleKey<GameRules.BooleanValue> DO_TRANSFORMATIONS = GameRules
             .register("doTransformations", GameRules.Category.MOBS, NotEnoughGamerules.create(true));

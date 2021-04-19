@@ -4,6 +4,8 @@
   "gamerule.disableChat": "Disable player chat",
   "gamerule.disableDimensionChange": "Disable dimension change",
   "gamerule.disablePistons": "Disable pistons",
+  "gamerule.doBabiesSpawn": "Baby spawning",
+  "gamerule.doBabiesSpawn.description": "Defines if babies can spawn",
   "gamerule.doTransformations": "Entity transformations",
   "gamerule.doTransformations.description": "Defines if entities can transform (Zombies to Drowned, Villages to Witches, ...)",
   "gamerule.dragonBreathDamage": "Deal dragon breath damage",
