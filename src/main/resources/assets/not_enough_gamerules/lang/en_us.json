@@ -1,6 +1,7 @@
 {
   "death.attack.sky_high": "%1$s died because he wasn\u0027t high enough!",
   "gamerule.anvilDamage": "Deal anvil damage",
+  "gamerule.disableChat": "Disable player chat",
   "gamerule.disableDimensionChange": "Disable dimension change",
   "gamerule.disablePistons": "Disable pistons",
   "gamerule.doTransformations": "Entity transformations",

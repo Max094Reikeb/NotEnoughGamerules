@@ -7,6 +7,9 @@ public class Gamerules {
     public static final GameRules.RuleKey<GameRules.BooleanValue> ANVIL_DAMAGE = GameRules
             .register("anvilDamage", GameRules.Category.PLAYER, NotEnoughGamerules.create(true));
 
+    public static final GameRules.RuleKey<GameRules.BooleanValue> DISABLE_CHAT = GameRules
+            .register("disableChat", GameRules.Category.PLAYER, NotEnoughGamerules.create(false));
+
     public static final GameRules.RuleKey<GameRules.BooleanValue> DISABLE_DIMENSION_CHANGE = GameRules
             .register("disableDimensionChange", GameRules.Category.PLAYER, NotEnoughGamerules.create(false));
 
