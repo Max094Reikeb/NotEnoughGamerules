@@ -3,6 +3,7 @@
   "gamerule.anvilDamage": "Deal anvil damage",
   "gamerule.disableChat": "Disable player chat",
   "gamerule.disableDimensionChange": "Disable dimension change",
+  "gamerule.disableKnockback": "Disable knockback",
   "gamerule.disablePistons": "Disable pistons",
   "gamerule.doBabiesSpawn": "Baby spawning",
   "gamerule.doBabiesSpawn.description": "Defines if babies can spawn",

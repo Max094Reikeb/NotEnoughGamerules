@@ -13,9 +13,12 @@ public class Gamerules {
     public static final GameRules.RuleKey<GameRules.BooleanValue> DISABLE_DIMENSION_CHANGE = GameRules
             .register("disableDimensionChange", GameRules.Category.PLAYER, NotEnoughGamerules.create(false));
 
+    public static final GameRules.RuleKey<GameRules.BooleanValue> DISABLE_KNOCKBACK = GameRules
+            .register("disableKnockback", GameRules.Category.PLAYER, NotEnoughGamerules.create(false));
+
     public static final GameRules.RuleKey<GameRules.BooleanValue> DISABLE_PISTONS = GameRules
             .register("disablePistons", GameRules.Category.UPDATES, NotEnoughGamerules.create(false));
-    
+
     public static final GameRules.RuleKey<GameRules.BooleanValue> DO_BABIES_SPAWN = GameRules
             .register("doBabiesSpawn", GameRules.Category.SPAWNING, NotEnoughGamerules.create(true));
 

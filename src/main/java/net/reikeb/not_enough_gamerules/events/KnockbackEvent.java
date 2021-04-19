@@ -1,9 +1,9 @@
 package net.reikeb.not_enough_gamerules.events;
 
-import net.minecraft.entity.AgeableEntity;
+import net.minecraft.entity.Entity;
 import net.minecraft.world.GameRules;
 
-import net.minecraftforge.event.entity.living.BabyEntitySpawnEvent;
+import net.minecraftforge.event.entity.living.LivingKnockBackEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
@@ -11,14 +11,13 @@ import net.reikeb.not_enough_gamerules.Gamerules;
 import net.reikeb.not_enough_gamerules.NotEnoughGamerules;
 
 @Mod.EventBusSubscriber(modid = NotEnoughGamerules.MODID)
-public class BabySpawnEvent {
+public class KnockbackEvent {
 
     @SubscribeEvent
-    public static void onBabySpawn(BabyEntitySpawnEvent event) {
-        AgeableEntity baby = event.getChild();
-        if (baby == null) return;
-        GameRules gameRules = baby.level.getLevelData().getGameRules();
-        if (!gameRules.getBoolean(Gamerules.DO_BABIES_SPAWN)) {
+    public static void onKnockback(LivingKnockBackEvent event) {
+        Entity entity = event.getEntity();
+        GameRules gameRules = entity.level.getLevelData().getGameRules();
+        if (gameRules.getBoolean(Gamerules.DISABLE_KNOCKBACK)) {
             event.setCanceled(event.isCancelable());
         }
     }
