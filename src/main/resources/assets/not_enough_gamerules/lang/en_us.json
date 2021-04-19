@@ -8,6 +8,7 @@
   "gamerule.doTransformations.description": "Defines if entities can transform (Zombies to Drowned, Villages to Witches, ...)",
   "gamerule.dragonBreathDamage": "Deal dragon breath damage",
   "gamerule.explosionDamage": "Deal explosion damage",
+  "gamerule.lightningDamage": "Deal lightning damage",
   "gamerule.naturalHunger": "Food degeneration",
   "gamerule.pvp": "PVP",
   "gamerule.pvp.description": "Defines if two players can hurt each other",
