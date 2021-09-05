@@ -1,7 +1,7 @@
 package net.reikeb.not_enough_gamerules.events;
 
-import net.minecraft.entity.player.ServerPlayerEntity;
-import net.minecraft.world.GameRules;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.level.GameRules;
 
 import net.minecraftforge.event.ServerChatEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -15,7 +15,7 @@ public class ChatEvent {
 
     @SubscribeEvent
     public static void onChat(ServerChatEvent event) {
-        ServerPlayerEntity playerEntity = event.getPlayer();
+        ServerPlayer playerEntity = event.getPlayer();
         GameRules gameRules = playerEntity.level.getLevelData().getGameRules();
         if (gameRules.getBoolean(Gamerules.DISABLE_CHAT)) {
             event.setCanceled(event.isCancelable());

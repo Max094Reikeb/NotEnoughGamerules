@@ -1,7 +1,7 @@
 package net.reikeb.not_enough_gamerules.events;
 
-import net.minecraft.entity.Entity;
-import net.minecraft.world.GameRules;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.level.GameRules;
 
 import net.minecraftforge.event.entity.living.LivingKnockBackEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
