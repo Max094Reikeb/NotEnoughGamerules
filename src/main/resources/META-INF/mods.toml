@@ -1,10 +1,10 @@
 modLoader="javafml"
-loaderVersion="[36,)"
+loaderVersion="[37,)"
 license="All rights reserved"
 
 [[mods]]
 modId="not_enough_gamerules"
-version="1.16.5-r1.1.0"
+version="1.17.1-r1.2.2"
 displayName="Not Enough Gamerules"
 credits="Credits are on mod's page."
 authors="Max094_Reikeb"
@@ -15,13 +15,13 @@ Not Enough Gamerules is a very simple mod that adds Gamerules.
 [[dependencies.not_enough_gamerules]] #optional
     modId="forge"
     mandatory=true
-    versionRange="[36,)"
+    versionRange="[37.1.1,)"
     ordering="NONE"
     side="BOTH"
 
 [[dependencies.not_enough_gamerules]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.16.5,1.17)"
+    versionRange="[1.17.1,1.18)"
     ordering="NONE"
     side="BOTH"
