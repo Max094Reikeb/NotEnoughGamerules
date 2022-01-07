@@ -8,6 +8,7 @@ import net.minecraftforge.fml.util.ObfuscationReflectionHelper;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.jetbrains.annotations.NotNull;
 
 import java.lang.reflect.Method;
 
@@ -27,6 +28,7 @@ public class NotEnoughGamerules {
         MinecraftForge.EVENT_BUS.register(this);
     }
 
+    @NotNull
     public static GameRules.Type<GameRules.BooleanValue> create(boolean defaultValue) {
         try {
             Method createGameruleMethod = ObfuscationReflectionHelper.findMethod(GameRules.BooleanValue.class, "create", boolean.class);
@@ -38,6 +40,7 @@ public class NotEnoughGamerules {
         return null;
     }
 
+    @NotNull
     public static GameRules.Type<GameRules.IntegerValue> create(int defaultValue) {
         try {
             Method createGameruleMethod = ObfuscationReflectionHelper.findMethod(GameRules.IntegerValue.class, "create", int.class);
