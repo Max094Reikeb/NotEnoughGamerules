@@ -1,13 +1,13 @@
 package net.reikeb.not_enough_gamerules.events;
 
 import net.minecraft.network.chat.TranslatableComponent;
-import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.player.Player;
 
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
+import net.reikeb.not_enough_gamerules.DamageSources;
 import net.reikeb.not_enough_gamerules.Gamerules;
 import net.reikeb.not_enough_gamerules.NotEnoughGamerules;
 
@@ -26,7 +26,7 @@ public class PlayerTickEvent {
                 entity.displayClientMessage(new TranslatableComponent("message.not_enough_gamerules.sky_high_warning"), true);
 
                 if (entity.level.getGameTime() % 200 == 0 && entity.tickCount > 199) {
-                    entity.hurt(new DamageSource("sky_high").bypassArmor(), (float) 10);
+                    entity.hurt(DamageSources.SKY_HIGH, (float) 10);
                 }
             }
         }

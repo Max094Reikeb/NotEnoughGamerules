@@ -9,6 +9,7 @@ import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
+import net.reikeb.not_enough_gamerules.DamageSources;
 import net.reikeb.not_enough_gamerules.Gamerules;
 import net.reikeb.not_enough_gamerules.NotEnoughGamerules;
 
@@ -26,7 +27,7 @@ public class PlayerHurtEvent {
             }
             if ((gamerules.getInt(Gamerules.EXPLOSION_DAMAGE) != -1) && (event.getSource().isExplosion())) {
                 event.setCanceled(event.isCancelable());
-                entity.hurt(event.getSource(), gamerules.getInt(Gamerules.EXPLOSION_DAMAGE));
+                entity.hurt(DamageSources.EXPLOSION, (float) gamerules.getInt(Gamerules.EXPLOSION_DAMAGE));
             }
             if ((!gamerules.getBoolean(Gamerules.ANVIL_DAMAGE)) && (event.getSource() == DamageSource.ANVIL)) {
                 event.setCanceled(event.isCancelable());

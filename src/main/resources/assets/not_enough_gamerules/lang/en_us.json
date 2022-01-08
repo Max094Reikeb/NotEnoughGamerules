@@ -1,4 +1,5 @@
 {
+  "death.attack.explosion": "%1$s was blown up",
   "death.attack.sky_high": "%1$s died because he wasn\u0027t high enough!",
   "gamerule.anvilDamage": "Deal anvil damage",
   "gamerule.disableChat": "Disable player chat",
@@ -11,6 +12,7 @@
   "gamerule.doTransformations.description": "Defines if entities can transform (Zombies to Drowned, Villages to Witches, ...)",
   "gamerule.dragonBreathDamage": "Deal dragon breath damage",
   "gamerule.explosionDamage": "Deal explosion damage",
+  "gamerule.explosionDamage.description": "Set to -1 to use vanilla values",
   "gamerule.lightningDamage": "Deal lightning damage",
   "gamerule.naturalHunger": "Food degeneration",
   "gamerule.pvp": "PVP",
