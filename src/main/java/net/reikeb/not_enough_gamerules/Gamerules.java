@@ -25,8 +25,8 @@ public class Gamerules {
     public static final GameRules.Key<GameRules.BooleanValue> DO_TRANSFORMATIONS = GameRules
             .register("doTransformations", GameRules.Category.MOBS, NotEnoughGamerules.create(true));
 
-    public static final GameRules.Key<GameRules.BooleanValue> DRAGON_BREATH_DAMAGE = GameRules
-            .register("dragonBreathDamage", GameRules.Category.PLAYER, NotEnoughGamerules.create(true));
+    public static final GameRules.Key<GameRules.IntegerValue> DRAGON_BREATH_DAMAGE = GameRules
+            .register("dragonBreathDamage", GameRules.Category.PLAYER, NotEnoughGamerules.create(-1));
 
     public static final GameRules.Key<GameRules.IntegerValue> EXPLOSION_DAMAGE = GameRules
             .register("explosionDamage", GameRules.Category.PLAYER, NotEnoughGamerules.create(-1));
