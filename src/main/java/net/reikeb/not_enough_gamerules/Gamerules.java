@@ -31,8 +31,8 @@ public class Gamerules {
     public static final GameRules.Key<GameRules.IntegerValue> EXPLOSION_DAMAGE = GameRules
             .register("explosionDamage", GameRules.Category.PLAYER, NotEnoughGamerules.create(-1));
 
-    public static final GameRules.Key<GameRules.BooleanValue> LIGHTNING_DAMAGE = GameRules
-            .register("lightningDamage", GameRules.Category.PLAYER, NotEnoughGamerules.create(true));
+    public static final GameRules.Key<GameRules.IntegerValue> LIGHTNING_DAMAGE = GameRules
+            .register("lightningDamage", GameRules.Category.PLAYER, NotEnoughGamerules.create(-1));
 
     public static final GameRules.Key<GameRules.BooleanValue> NATURAL_HUNGER = GameRules
             .register("naturalHunger", GameRules.Category.PLAYER, NotEnoughGamerules.create(true));

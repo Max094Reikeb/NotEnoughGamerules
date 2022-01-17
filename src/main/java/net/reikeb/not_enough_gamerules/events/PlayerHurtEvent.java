@@ -34,7 +34,7 @@ public class PlayerHurtEvent {
             }
             if ((gamerules.getInt(Gamerules.DRAGON_BREATH_DAMAGE) != -1) && (event.getSource() == DamageSource.DRAGON_BREATH)) {
                 event.setCanceled(event.isCancelable());
-                entity.hurt(DamageSources.DRAGON_BREATH, (float) gamerules.getInt(Gamerules.DRAGON_BREATH_DAMAGE));
+                entity.hurt(DamageSource.DRAGON_BREATH, (float) gamerules.getInt(Gamerules.DRAGON_BREATH_DAMAGE));
             }
         }
     }
