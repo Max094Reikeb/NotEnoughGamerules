@@ -18,7 +18,7 @@ public class LightningEvent {
     public static void onLightning(EntityStruckByLightningEvent event) {
         LightningBolt boltEntity = event.getLightning();
         GameRules gameRules = boltEntity.level.getLevelData().getGameRules();
-        if (gameRules.getInt(Gamerules.LIGHTNING_DAMAGE) != -1) {
+        if (gameRules.getInt(Gamerules.LIGHTNING_DAMAGE) > -1) {
             event.setCanceled(event.isCancelable());
             event.getEntity().hurt(DamageSource.LIGHTNING_BOLT, (float) gameRules.getInt(Gamerules.LIGHTNING_DAMAGE));
         }
