@@ -18,9 +18,12 @@ public class PlayerTickEvent {
     public static void onPlayerTick(TickEvent.PlayerTickEvent event) {
         if (event.phase == TickEvent.Phase.END && !event.player.level.isClientSide) {
             Player entity = event.player;
-            if ((entity.getFoodData().getFoodLevel() < 20)
-                    && !entity.level.getLevelData().getGameRules().getBoolean(Gamerules.NATURAL_HUNGER)) {
-                entity.getFoodData().setFoodLevel(20);
+
+            int naturalHunger = entity.level.getLevelData().getGameRules().getInt(Gamerules.NATURAL_HUNGER);
+            if (naturalHunger > -1) {
+                if (entity.getFoodData().getFoodLevel() < naturalHunger) {
+                    entity.getFoodData().setFoodLevel(20);
+                }
             }
             if (entity.getY() < entity.level.getLevelData().getGameRules().getInt(Gamerules.SKY_HIGH)) {
                 entity.displayClientMessage(new TranslatableComponent("message.not_enough_gamerules.sky_high_warning"), true);
