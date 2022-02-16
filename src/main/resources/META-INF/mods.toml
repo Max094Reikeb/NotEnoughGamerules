@@ -15,7 +15,7 @@ Not Enough Gamerules is a very simple mod that adds Gamerules.
 [[dependencies.not_enough_gamerules]] #optional
     modId="forge"
     mandatory=true
-    versionRange="[39.0.66,)"
+    versionRange="[39.0.79,)"
     ordering="NONE"
     side="BOTH"
 
