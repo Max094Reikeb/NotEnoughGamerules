@@ -4,7 +4,7 @@ license="All rights reserved"
 
 [[mods]]
 modId="not_enough_gamerules"
-version="1.18.1-r1.3.4"
+version="1.18.1-r1.3.5"
 displayName="Not Enough Gamerules"
 credits="Credits are on mod's page."
 authors="Max094_Reikeb"
@@ -15,7 +15,7 @@ Not Enough Gamerules is a very simple mod that adds Gamerules.
 [[dependencies.not_enough_gamerules]] #optional
     modId="forge"
     mandatory=true
-    versionRange="[39.0.79,)"
+    versionRange="[39.0.88,)"
     ordering="NONE"
     side="BOTH"
 

@@ -2,6 +2,8 @@
   "death.attack.explosion": "%1$s was blown up",
   "death.attack.sky_high": "%1$s died because he wasn\u0027t high enough!",
   "gamerule.anvilDamage": "Deal anvil damage",
+  "gamerule.canPlayerSleep": "Can player sleep",
+  "gamerule.canPlayerSleep.description": "Defines if players can enter bed",
   "gamerule.disableChat": "Disable player chat",
   "gamerule.disableDimensionChange": "Disable dimension change",
   "gamerule.disableKnockback": "Disable knockback",
