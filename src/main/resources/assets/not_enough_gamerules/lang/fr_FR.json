@@ -2,6 +2,8 @@
   "death.attack.explosion": "%1$s a explosé",
   "death.attack.sky_high": "%1$s est mort car il n'était pas assez haut !",
   "gamerule.anvilDamage": "Dégâts d'enclume",
+  "gamerule.canPlayerSleep": "Sommeil du joueur",
+  "gamerule.canPlayerSleep.description": "Définit si le joueur peut entrer dans le lit",
   "gamerule.disableChat": "Désactiver le chat",
   "gamerule.disableDimensionChange": "Désactiver le changement de dimension",
   "gamerule.disableKnockback": "Désactiver le recul",
