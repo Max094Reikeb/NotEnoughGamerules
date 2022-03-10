@@ -7,6 +7,9 @@ public class Gamerules {
     public static final GameRules.Key<GameRules.BooleanValue> ANVIL_DAMAGE = GameRules
             .register("anvilDamage", GameRules.Category.PLAYER, NotEnoughGamerules.create(true));
 
+    public static final GameRules.Key<GameRules.BooleanValue> CAN_PLAYER_SLEEP = GameRules
+            .register("canPlayerSleep", GameRules.Category.PLAYER, NotEnoughGamerules.create(true));
+
     public static final GameRules.Key<GameRules.BooleanValue> DISABLE_CHAT = GameRules
             .register("disableChat", GameRules.Category.PLAYER, NotEnoughGamerules.create(false));
 
@@ -25,17 +28,17 @@ public class Gamerules {
     public static final GameRules.Key<GameRules.BooleanValue> DO_TRANSFORMATIONS = GameRules
             .register("doTransformations", GameRules.Category.MOBS, NotEnoughGamerules.create(true));
 
-    public static final GameRules.Key<GameRules.BooleanValue> DRAGON_BREATH_DAMAGE = GameRules
-            .register("dragonBreathDamage", GameRules.Category.PLAYER, NotEnoughGamerules.create(true));
+    public static final GameRules.Key<GameRules.IntegerValue> DRAGON_BREATH_DAMAGE = GameRules
+            .register("dragonBreathDamage", GameRules.Category.PLAYER, NotEnoughGamerules.create(-1));
 
-    public static final GameRules.Key<GameRules.BooleanValue> EXPLOSION_DAMAGE = GameRules
-            .register("explosionDamage", GameRules.Category.PLAYER, NotEnoughGamerules.create(true));
+    public static final GameRules.Key<GameRules.IntegerValue> EXPLOSION_DAMAGE = GameRules
+            .register("explosionDamage", GameRules.Category.PLAYER, NotEnoughGamerules.create(-1));
 
-    public static final GameRules.Key<GameRules.BooleanValue> LIGHTNING_DAMAGE = GameRules
-            .register("lightningDamage", GameRules.Category.PLAYER, NotEnoughGamerules.create(true));
+    public static final GameRules.Key<GameRules.IntegerValue> LIGHTNING_DAMAGE = GameRules
+            .register("lightningDamage", GameRules.Category.PLAYER, NotEnoughGamerules.create(-1));
 
-    public static final GameRules.Key<GameRules.BooleanValue> NATURAL_HUNGER = GameRules
-            .register("naturalHunger", GameRules.Category.PLAYER, NotEnoughGamerules.create(true));
+    public static final GameRules.Key<GameRules.IntegerValue> NATURAL_HUNGER = GameRules
+            .register("naturalHunger", GameRules.Category.PLAYER, NotEnoughGamerules.create(-1));
 
     public static final GameRules.Key<GameRules.BooleanValue> PVP = GameRules
             .register("pvp", GameRules.Category.PLAYER, NotEnoughGamerules.create(true));
