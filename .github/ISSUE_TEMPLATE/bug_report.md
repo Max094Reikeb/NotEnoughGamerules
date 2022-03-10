@@ -22,7 +22,7 @@ A clear and concise description of what you expected to happen.
 If applicable, add screenshots to help explain your problem.
 
 **Mod informations (please complete the following information):**
- - Mod Version [e.g. r1.1]
+ - Mod Version [e.g. r1.4]
  - Minecraft Version [e.g. 1.16.4]
  - Forge Version [e.g. 16.0.1]
 
