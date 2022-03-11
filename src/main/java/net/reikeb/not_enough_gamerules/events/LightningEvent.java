@@ -1,6 +1,7 @@
 package net.reikeb.not_enough_gamerules.events;
 
 import net.minecraft.entity.effect.LightningBoltEntity;
+import net.minecraft.util.DamageSource;
 import net.minecraft.world.GameRules;
 
 import net.minecraftforge.event.entity.EntityStruckByLightningEvent;
@@ -17,8 +18,9 @@ public class LightningEvent {
     public static void onLightning(EntityStruckByLightningEvent event) {
         LightningBoltEntity boltEntity = event.getLightning();
         GameRules gameRules = boltEntity.level.getLevelData().getGameRules();
-        if (!gameRules.getBoolean(Gamerules.LIGHTNING_DAMAGE)) {
+        if (gameRules.getInt(Gamerules.LIGHTNING_DAMAGE) > -1) {
             event.setCanceled(event.isCancelable());
+            event.getEntity().hurt(DamageSource.LIGHTNING_BOLT, (float) gameRules.getInt(Gamerules.LIGHTNING_DAMAGE));
         }
     }
 }
