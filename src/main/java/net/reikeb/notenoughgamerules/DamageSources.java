@@ -1,8 +1,8 @@
-package net.reikeb.not_enough_gamerules;
+package net.reikeb.notenoughgamerules;
 
 import net.minecraft.entity.damage.DamageSource;
 
-import net.reikeb.not_enough_gamerules.mixin.DamageSourceAccessor;
+import net.reikeb.notenoughgamerules.mixin.DamageSourceAccessor;
 
 public class DamageSources {
 

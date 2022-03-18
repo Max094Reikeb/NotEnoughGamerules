@@ -1,9 +1,9 @@
-package net.reikeb.not_enough_gamerules;
+package net.reikeb.notenoughgamerules;
 
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.entity.event.v1.EntitySleepEvents;
 
-import net.reikeb.not_enough_gamerules.events.PlayerSleepsListener;
+import net.reikeb.notenoughgamerules.events.PlayerSleepsListener;
 
 public class NotEnoughGamerules implements ModInitializer {
 

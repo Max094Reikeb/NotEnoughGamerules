@@ -16,11 +16,11 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "net.reikeb.not_enough_gamerules.NotEnoughGamerules"
+      "net.reikeb.notenoughgamerules.NotEnoughGamerules"
     ]
   },
   "mixins": [
-    "net.reikeb.not_enough_gamerules.mixins.json"
+    "not_enough_gamerules.mixins.json"
   ],
 
   "depends": {

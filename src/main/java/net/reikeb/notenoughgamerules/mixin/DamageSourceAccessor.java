@@ -1,4 +1,4 @@
-package net.reikeb.not_enough_gamerules.mixin;
+package net.reikeb.notenoughgamerules.mixin;
 
 import net.minecraft.entity.damage.DamageSource;
 

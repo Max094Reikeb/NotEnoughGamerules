@@ -1,4 +1,4 @@
-package net.reikeb.not_enough_gamerules;
+package net.reikeb.notenoughgamerules;
 
 import net.fabricmc.fabric.api.gamerule.v1.GameRuleFactory;
 import net.fabricmc.fabric.api.gamerule.v1.GameRuleRegistry;

@@ -1,4 +1,4 @@
-package net.reikeb.not_enough_gamerules.events;
+package net.reikeb.notenoughgamerules.events;
 
 import net.fabricmc.fabric.api.entity.event.v1.EntitySleepEvents;
 
@@ -6,7 +6,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.GameRules;
 
-import net.reikeb.not_enough_gamerules.Gamerules;
+import net.reikeb.notenoughgamerules.Gamerules;
 
 import org.jetbrains.annotations.Nullable;
 
