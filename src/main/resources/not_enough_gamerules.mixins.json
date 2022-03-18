@@ -4,6 +4,7 @@
   "package": "net.reikeb.notenoughgamerules.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "ChatMixin",
     "DamageSourceAccessor",
     "EntityMixin",
     "TntEntityMixin",
