@@ -23,8 +23,8 @@ If applicable, add screenshots to help explain your problem.
 
 **Mod informations (please complete the following information):**
  - Mod Version [e.g. r1.4]
- - Minecraft Version [e.g. 1.18.1]
- - Forge Version [e.g. 39.1.0]
+ - Minecraft Version [e.g. 1.18.2]
+ - Fabric Version [e.g. 0.48.0]
 
 **Additional context**
 Add any other context about the problem here.
