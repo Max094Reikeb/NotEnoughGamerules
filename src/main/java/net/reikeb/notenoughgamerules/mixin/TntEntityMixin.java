@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(TntEntity.class)
-public class TntEntityMixin extends EntityMixin {
+public abstract class TntEntityMixin extends EntityMixin {
     @Inject(at = @At("HEAD"), method = "explode", cancellable = true)
     private void explode(CallbackInfo ci) {
         GameRules gameRules = this.world.getGameRules();

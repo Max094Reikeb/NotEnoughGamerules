@@ -3,9 +3,34 @@ package net.reikeb.notenoughgamerules;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.entity.event.v1.EntitySleepEvents;
 
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.world.GameRules;
+
 import net.reikeb.notenoughgamerules.events.PlayerSleepsListener;
 
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+
 public class NotEnoughGamerules implements ModInitializer {
+
+    public static void damageGamerule(Entity entity, DamageSource source, CallbackInfoReturnable<Boolean> cir) {
+        GameRules gameRules = entity.getWorld().getGameRules();
+        if ((!gameRules.getBoolean(Gamerules.PVP)) && (entity instanceof PlayerEntity) && (source.getSource() instanceof PlayerEntity)) {
+            cir.cancel();
+        }
+        if ((gameRules.getInt(Gamerules.EXPLOSION_DAMAGE) > -1) && (source.isExplosive())) {
+            entity.damage(DamageSources.EXPLOSION, (float) gameRules.getInt(Gamerules.EXPLOSION_DAMAGE));
+            cir.cancel();
+        }
+        if ((!gameRules.getBoolean(Gamerules.ANVIL_DAMAGE)) && (source == DamageSource.ANVIL)) {
+            cir.cancel();
+        }
+        if ((gameRules.getInt(Gamerules.DRAGON_BREATH_DAMAGE) > -1) && (source == DamageSource.DRAGON_BREATH)) {
+            entity.damage(DamageSource.DRAGON_BREATH, (float) gameRules.getInt(Gamerules.DRAGON_BREATH_DAMAGE));
+            cir.cancel();
+        }
+    }
 
     @Override
     public void onInitialize() {

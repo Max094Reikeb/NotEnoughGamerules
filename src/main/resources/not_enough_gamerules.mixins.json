@@ -6,9 +6,13 @@
   "mixins": [
     "AnimalMixin",
     "ChatMixin",
+    "ClientPlayerMixin",
     "DamageSourceAccessor",
     "EntityMixin",
     "FoxBreadMixin",
+    "LivingEntityMixin",
+    "LocalPlayerMixin",
+    "PlayerMixin",
     "TntEntityMixin",
     "TntMinecartEntityMixin"
   ],
