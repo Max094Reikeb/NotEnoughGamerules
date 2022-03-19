@@ -4,17 +4,17 @@
   "package": "net.reikeb.notenoughgamerules.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "AnimalMixin",
+    "entities.AnimalMixin",
     "ChatMixin",
-    "ClientPlayerMixin",
+    "player.ClientPlayerMixin",
     "DamageSourceAccessor",
-    "EntityMixin",
-    "FoxBreadMixin",
-    "LivingEntityMixin",
-    "LocalPlayerMixin",
-    "PlayerMixin",
-    "TntEntityMixin",
-    "TntMinecartEntityMixin"
+    "entities.EntityMixin",
+    "entities.FoxBreadMixin",
+    "entities.LivingEntityMixin",
+    "player.LocalPlayerMixin",
+    "player.PlayerMixin",
+    "entities.TntEntityMixin",
+    "entities.TntMinecartEntityMixin"
   ],
   "client": [
   ],

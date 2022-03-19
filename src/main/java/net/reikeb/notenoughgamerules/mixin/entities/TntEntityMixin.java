@@ -1,4 +1,4 @@
-package net.reikeb.notenoughgamerules.mixin;
+package net.reikeb.notenoughgamerules.mixin.entities;
 
 import net.minecraft.entity.TntEntity;
 import net.minecraft.world.GameRules;
