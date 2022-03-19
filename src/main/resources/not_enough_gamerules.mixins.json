@@ -21,7 +21,8 @@
     "entities.ZombieVillagerMixin",
     "player.ClientPlayerMixin",
     "player.LocalPlayerMixin",
-    "player.PlayerMixin"
+    "player.PlayerMixin",
+    "player.ServerPlayerMixin"
   ],
   "client": [
   ],
