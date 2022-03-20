@@ -15,6 +15,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public class NotEnoughGamerules implements ModInitializer {
 
     public static void damageGamerule(Entity entity, DamageSource source, CallbackInfoReturnable<Boolean> cir) {
+        if (entity == null) return;
         GameRules gameRules = entity.getWorld().getGameRules();
         if ((!gameRules.getBoolean(Gamerules.PVP)) && (entity instanceof PlayerEntity) && (source.getSource() instanceof PlayerEntity)) {
             cir.cancel();
