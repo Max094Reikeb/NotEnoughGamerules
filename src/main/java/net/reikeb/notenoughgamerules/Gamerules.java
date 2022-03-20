@@ -12,7 +12,7 @@ public class Gamerules {
     public static GameRules.Key<GameRules.BooleanRule> DISABLE_CHAT;
     public static GameRules.Key<GameRules.BooleanRule> DISABLE_DIMENSION_CHANGE;
     public static GameRules.Key<GameRules.BooleanRule> DISABLE_KNOCKBACK;
-    // public static GameRules.Key<GameRules.BooleanRule> DISABLE_PISTONS;
+    public static GameRules.Key<GameRules.BooleanRule> DISABLE_PISTONS;
     public static GameRules.Key<GameRules.BooleanRule> DO_BABIES_SPAWN;
     public static GameRules.Key<GameRules.BooleanRule> DO_TRANSFORMATIONS;
     public static GameRules.Key<GameRules.IntRule> DRAGON_BREATH_DAMAGE;
@@ -30,7 +30,7 @@ public class Gamerules {
         DISABLE_CHAT = GameRuleRegistry.register("disableChat", GameRules.Category.PLAYER, GameRuleFactory.createBooleanRule(false));
         DISABLE_DIMENSION_CHANGE = GameRuleRegistry.register("disableDimensionChange", GameRules.Category.PLAYER, GameRuleFactory.createBooleanRule(false));
         DISABLE_KNOCKBACK = GameRuleRegistry.register("disableKnockback", GameRules.Category.PLAYER, GameRuleFactory.createBooleanRule(false));
-        // DISABLE_PISTONS = GameRuleRegistry.register("disablePistons", GameRules.Category.UPDATES, GameRuleFactory.createBooleanRule(false));
+        DISABLE_PISTONS = GameRuleRegistry.register("disablePistons", GameRules.Category.UPDATES, GameRuleFactory.createBooleanRule(false));
         DO_BABIES_SPAWN = GameRuleRegistry.register("doBabiesSpawn", GameRules.Category.SPAWNING, GameRuleFactory.createBooleanRule(true));
         DO_TRANSFORMATIONS = GameRuleRegistry.register("doTransformations", GameRules.Category.MOBS, GameRuleFactory.createBooleanRule(true));
         DRAGON_BREATH_DAMAGE = GameRuleRegistry.register("dragonBreathDamage", GameRules.Category.PLAYER, GameRuleFactory.createIntRule(-1));

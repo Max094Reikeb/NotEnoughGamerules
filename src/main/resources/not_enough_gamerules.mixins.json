@@ -19,6 +19,7 @@
     "entities.VillagerMixin",
     "entities.ZombieMixin",
     "entities.ZombieVillagerMixin",
+    "PistonMixin",
     "player.ClientPlayerMixin",
     "player.LocalPlayerMixin",
     "player.PlayerMixin",
