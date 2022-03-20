@@ -18,6 +18,9 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(Entity.class)
 public abstract class EntityMixin {
     @Shadow
+    public int age;
+
+    @Shadow
     public World world;
 
     @Shadow
@@ -29,6 +32,9 @@ public abstract class EntityMixin {
 
     @Shadow
     public abstract boolean damage(DamageSource source, float amount);
+
+    @Shadow
+    public abstract double getY();
 
     @Inject(at = @At("HEAD"), method = "onStruckByLightning", cancellable = true)
     private void onStruckByLightning(ServerWorld world, LightningEntity lightning, CallbackInfo ci) {
