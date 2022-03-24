@@ -34,6 +34,9 @@ public class Gamerules {
     public static final GameRules.RuleKey<GameRules.IntegerValue> EXPLOSION_DAMAGE = GameRules
             .register("explosionDamage", GameRules.Category.PLAYER, NotEnoughGamerules.create(-1));
 
+    public static final GameRules.RuleKey<GameRules.BooleanValue> KEEP_EFFECTS = GameRules
+            .register("keepEffects", GameRules.Category.PLAYER, NotEnoughGamerules.create(false));
+
     public static final GameRules.RuleKey<GameRules.IntegerValue> LIGHTNING_DAMAGE = GameRules
             .register("lightningDamage", GameRules.Category.PLAYER, NotEnoughGamerules.create(-1));
 
