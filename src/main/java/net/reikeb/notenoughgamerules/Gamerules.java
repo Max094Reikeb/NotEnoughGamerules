@@ -23,6 +23,7 @@ public class Gamerules {
     public static GameRules.Key<GameRules.IntRule> RAW_MEAT_HUNGER;
     public static GameRules.Key<GameRules.IntRule> SKY_HIGH;
     public static GameRules.Key<GameRules.BooleanRule> TNT_EXPLODES;
+    public static GameRules.Key<GameRules.BooleanRule> KEEP_EFFECTS;
 
     public static void setupGamerules() {
         ANVIL_DAMAGE = GameRuleRegistry.register("anvilDamage", GameRules.Category.PLAYER, GameRuleFactory.createBooleanRule(true));
@@ -41,5 +42,6 @@ public class Gamerules {
         RAW_MEAT_HUNGER = GameRuleRegistry.register("rawMeatHunger", GameRules.Category.PLAYER, GameRuleFactory.createIntRule(30));
         SKY_HIGH = GameRuleRegistry.register("skyHigh", GameRules.Category.MISC, GameRuleFactory.createIntRule(-64));
         TNT_EXPLODES = GameRuleRegistry.register("tntExplodes", GameRules.Category.MISC, GameRuleFactory.createBooleanRule(true));
+        KEEP_EFFECTS = GameRuleRegistry.register("keepEffects", GameRules.Category.PLAYER, GameRuleFactory.createBooleanRule(false));
     }
 }
