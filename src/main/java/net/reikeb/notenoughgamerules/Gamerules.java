@@ -17,13 +17,13 @@ public class Gamerules {
     public static GameRules.Key<GameRules.BooleanRule> DO_TRANSFORMATIONS;
     public static GameRules.Key<GameRules.IntRule> DRAGON_BREATH_DAMAGE;
     public static GameRules.Key<GameRules.IntRule> EXPLOSION_DAMAGE;
+    public static GameRules.Key<GameRules.BooleanRule> KEEP_EFFECTS;
     public static GameRules.Key<GameRules.IntRule> LIGHTNING_DAMAGE;
     public static GameRules.Key<GameRules.IntRule> NATURAL_HUNGER;
     public static GameRules.Key<GameRules.BooleanRule> PVP;
     public static GameRules.Key<GameRules.IntRule> RAW_MEAT_HUNGER;
     public static GameRules.Key<GameRules.IntRule> SKY_HIGH;
     public static GameRules.Key<GameRules.BooleanRule> TNT_EXPLODES;
-    public static GameRules.Key<GameRules.BooleanRule> KEEP_EFFECTS;
 
     public static void setupGamerules() {
         ANVIL_DAMAGE = GameRuleRegistry.register("anvilDamage", GameRules.Category.PLAYER, GameRuleFactory.createBooleanRule(true));
