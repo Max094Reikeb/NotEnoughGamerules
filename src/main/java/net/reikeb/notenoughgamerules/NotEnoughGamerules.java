@@ -2,8 +2,8 @@ package net.reikeb.notenoughgamerules;
 
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.entity.event.v1.EntitySleepEvents;
-
 import net.fabricmc.fabric.api.entity.event.v1.ServerPlayerEvents;
+
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.player.PlayerEntity;

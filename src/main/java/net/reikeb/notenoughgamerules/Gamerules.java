@@ -36,12 +36,12 @@ public class Gamerules {
         DO_TRANSFORMATIONS = GameRuleRegistry.register("doTransformations", GameRules.Category.MOBS, GameRuleFactory.createBooleanRule(true));
         DRAGON_BREATH_DAMAGE = GameRuleRegistry.register("dragonBreathDamage", GameRules.Category.PLAYER, GameRuleFactory.createIntRule(-1));
         EXPLOSION_DAMAGE = GameRuleRegistry.register("explosionDamage", GameRules.Category.PLAYER, GameRuleFactory.createIntRule(-1));
+        KEEP_EFFECTS = GameRuleRegistry.register("keepEffects", GameRules.Category.PLAYER, GameRuleFactory.createBooleanRule(false));
         LIGHTNING_DAMAGE = GameRuleRegistry.register("lightningDamage", GameRules.Category.PLAYER, GameRuleFactory.createIntRule(-1));
         NATURAL_HUNGER = GameRuleRegistry.register("naturalHunger", GameRules.Category.PLAYER, GameRuleFactory.createIntRule(-1));
         PVP = GameRuleRegistry.register("pvp", GameRules.Category.PLAYER, GameRuleFactory.createBooleanRule(true));
         RAW_MEAT_HUNGER = GameRuleRegistry.register("rawMeatHunger", GameRules.Category.PLAYER, GameRuleFactory.createIntRule(30));
         SKY_HIGH = GameRuleRegistry.register("skyHigh", GameRules.Category.MISC, GameRuleFactory.createIntRule(-64));
         TNT_EXPLODES = GameRuleRegistry.register("tntExplodes", GameRules.Category.MISC, GameRuleFactory.createBooleanRule(true));
-        KEEP_EFFECTS = GameRuleRegistry.register("keepEffects", GameRules.Category.PLAYER, GameRuleFactory.createBooleanRule(false));
     }
 }
