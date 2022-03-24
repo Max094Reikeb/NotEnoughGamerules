@@ -24,5 +24,7 @@
   "gamerule.skyHigh": "SkyHigh",
   "gamerule.skyHigh.description": "Defines the minimal high the player has to be before taking damages",
   "gamerule.tntExplodes": "TNT explosions",
+  "gamerule.keepEffects": "Keep effects",
+  "gamerule.keepEffects.description": "Keeps player's effects after death",
   "message.not_enough_gamerules.sky_high_warning": "WARNING: You\u0027re not high enough! You will take damages every 10 seconds."
 }
