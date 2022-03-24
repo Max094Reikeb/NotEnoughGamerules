@@ -2,12 +2,14 @@ package net.reikeb.notenoughgamerules;
 
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.entity.event.v1.EntitySleepEvents;
+import net.fabricmc.fabric.api.entity.event.v1.ServerPlayerEvents;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.world.GameRules;
 
+import net.reikeb.notenoughgamerules.events.AfterRespawnListener;
 import net.reikeb.notenoughgamerules.events.PlayerSleepsListener;
 
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
@@ -37,5 +39,6 @@ public class NotEnoughGamerules implements ModInitializer {
     public void onInitialize() {
         Gamerules.setupGamerules();
         EntitySleepEvents.ALLOW_SLEEPING.register(new PlayerSleepsListener());
+        ServerPlayerEvents.AFTER_RESPAWN.register(new AfterRespawnListener());
     }
 }

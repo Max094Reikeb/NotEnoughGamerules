@@ -17,6 +17,7 @@ public class Gamerules {
     public static GameRules.Key<GameRules.BooleanRule> DO_TRANSFORMATIONS;
     public static GameRules.Key<GameRules.IntRule> DRAGON_BREATH_DAMAGE;
     public static GameRules.Key<GameRules.IntRule> EXPLOSION_DAMAGE;
+    public static GameRules.Key<GameRules.BooleanRule> KEEP_EFFECTS;
     public static GameRules.Key<GameRules.IntRule> LIGHTNING_DAMAGE;
     public static GameRules.Key<GameRules.IntRule> NATURAL_HUNGER;
     public static GameRules.Key<GameRules.BooleanRule> PVP;
@@ -35,6 +36,7 @@ public class Gamerules {
         DO_TRANSFORMATIONS = GameRuleRegistry.register("doTransformations", GameRules.Category.MOBS, GameRuleFactory.createBooleanRule(true));
         DRAGON_BREATH_DAMAGE = GameRuleRegistry.register("dragonBreathDamage", GameRules.Category.PLAYER, GameRuleFactory.createIntRule(-1));
         EXPLOSION_DAMAGE = GameRuleRegistry.register("explosionDamage", GameRules.Category.PLAYER, GameRuleFactory.createIntRule(-1));
+        KEEP_EFFECTS = GameRuleRegistry.register("keepEffects", GameRules.Category.PLAYER, GameRuleFactory.createBooleanRule(false));
         LIGHTNING_DAMAGE = GameRuleRegistry.register("lightningDamage", GameRules.Category.PLAYER, GameRuleFactory.createIntRule(-1));
         NATURAL_HUNGER = GameRuleRegistry.register("naturalHunger", GameRules.Category.PLAYER, GameRuleFactory.createIntRule(-1));
         PVP = GameRuleRegistry.register("pvp", GameRules.Category.PLAYER, GameRuleFactory.createBooleanRule(true));
