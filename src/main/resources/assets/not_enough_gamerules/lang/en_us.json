@@ -16,7 +16,7 @@
   "gamerule.explosionDamage": "Deal explosion damage",
   "gamerule.explosionDamage.description": "Set to -1 to use vanilla values",
   "gamerule.keepEffects": "Keep mob effects after death",
-  "gamerule.keepEffects.description": "Keeps only mob effects after death",
+  "gamerule.keepEffects.description": "Keeps only player's effects after death",
   "gamerule.keepInventory.description": "Keeps only player's inventory after death",
   "gamerule.keepXp": "Keep experience after death",
   "gamerule.keepXp.description": "Keeps only player's experience after death",
