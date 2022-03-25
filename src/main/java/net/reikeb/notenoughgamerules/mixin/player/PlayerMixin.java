@@ -6,16 +6,20 @@ import net.minecraft.entity.player.HungerManager;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
+import net.minecraft.world.GameRules;
 
 import net.reikeb.notenoughgamerules.DamageSources;
 import net.reikeb.notenoughgamerules.Gamerules;
 import net.reikeb.notenoughgamerules.NotEnoughGamerules;
 import net.reikeb.notenoughgamerules.mixin.entities.LivingEntityMixin;
 
+import org.objectweb.asm.Opcodes;
+
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
@@ -29,6 +33,12 @@ public abstract class PlayerMixin extends LivingEntityMixin {
 
     @Shadow
     public abstract boolean damage(DamageSource source, float amount);
+
+    @Shadow public float experienceProgress;
+
+    @Shadow public int experienceLevel;
+
+    @Shadow public int totalExperience;
 
     @Inject(at = @At("HEAD"), method = "damage", cancellable = true)
     private void damage(DamageSource source, float amount, CallbackInfoReturnable<Boolean> cir) {
@@ -52,5 +62,10 @@ public abstract class PlayerMixin extends LivingEntityMixin {
                 this.damage(DamageSources.SKY_HIGH, (float) 10);
             }
         }
+    }
+
+    @Redirect(at = @At(value = "FIELD", target = "Lnet/minecraft/world/GameRules;KEEP_INVENTORY:Lnet/minecraft/world/GameRules$Key;", opcode = Opcodes.GETSTATIC), method = "getXpToDrop")
+    private GameRules.Key<GameRules.BooleanRule> getXpToDrop() {
+        return Gamerules.KEEP_XP;
     }
 }
