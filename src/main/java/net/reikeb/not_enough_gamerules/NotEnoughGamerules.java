@@ -6,16 +6,10 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
 import java.lang.reflect.Method;
 
 @Mod(NotEnoughGamerules.MODID)
 public class NotEnoughGamerules {
-
-    // Directly reference a log4j logger.
-    private static final Logger LOGGER = LogManager.getLogger();
 
     // Register the modid
     public static final String MODID = "not_enough_gamerules";

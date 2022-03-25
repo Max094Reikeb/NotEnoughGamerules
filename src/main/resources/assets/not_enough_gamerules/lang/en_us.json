@@ -15,8 +15,6 @@
   "gamerule.dragonBreathDamage": "Deal dragon breath damage",
   "gamerule.explosionDamage": "Deal explosion damage",
   "gamerule.explosionDamage.description": "Set to -1 to use vanilla values",
-  "gamerule.keepEffects": "Keep effects",
-  "gamerule.keepEffects.description": "Keeps player's effects after death",
   "gamerule.lightningDamage": "Deal lightning damage",
   "gamerule.naturalHunger": "Food degeneration",
   "gamerule.pvp": "PVP",
