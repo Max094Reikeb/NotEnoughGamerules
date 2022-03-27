@@ -7,6 +7,7 @@ import net.minecraft.world.GameRules;
 
 public class Gamerules {
 
+    public static GameRules.Key<GameRules.BooleanRule> ALWAYS_SPAWN_DRAGON_EGG;
     public static GameRules.Key<GameRules.BooleanRule> ANVIL_DAMAGE;
     public static GameRules.Key<GameRules.BooleanRule> CAN_PLAYER_SLEEP;
     public static GameRules.Key<GameRules.BooleanRule> DISABLE_CHAT;
@@ -27,6 +28,7 @@ public class Gamerules {
     public static GameRules.Key<GameRules.BooleanRule> TNT_EXPLODES;
 
     public static void setupGamerules() {
+        ALWAYS_SPAWN_DRAGON_EGG = GameRuleRegistry.register("alwaysSpawnDragonEgg", GameRules.Category.MOBS, GameRuleFactory.createBooleanRule(false));
         ANVIL_DAMAGE = GameRuleRegistry.register("anvilDamage", GameRules.Category.PLAYER, GameRuleFactory.createBooleanRule(true));
         CAN_PLAYER_SLEEP = GameRuleRegistry.register("canPlayerSleep", GameRules.Category.PLAYER, GameRuleFactory.createBooleanRule(true));
         DISABLE_CHAT = GameRuleRegistry.register("disableChat", GameRules.Category.PLAYER, GameRuleFactory.createBooleanRule(false));
@@ -46,4 +48,5 @@ public class Gamerules {
         SKY_HIGH = GameRuleRegistry.register("skyHigh", GameRules.Category.MISC, GameRuleFactory.createIntRule(-64));
         TNT_EXPLODES = GameRuleRegistry.register("tntExplodes", GameRules.Category.MISC, GameRuleFactory.createBooleanRule(true));
     }
+
 }

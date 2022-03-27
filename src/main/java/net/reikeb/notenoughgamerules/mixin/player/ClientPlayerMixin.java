@@ -14,7 +14,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(ClientPlayerEntity.class)
 public abstract class ClientPlayerMixin extends LivingEntityMixin {
-    @Inject(at = @At("HEAD"), method = "damage", cancellable = true)
+    @Inject(method = "damage", at = @At("HEAD"), cancellable = true)
     private void damage(DamageSource source, float amount, CallbackInfoReturnable<Boolean> cir) {
         Entity entity = this.world.getEntityById(this.getId());
         assert entity != null;

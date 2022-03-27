@@ -12,7 +12,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(HoglinEntity.class)
 public abstract class HoglinMixin extends EntityMixin {
-    @Inject(at = @At("RETURN"), method = "canConvert", cancellable = true)
+    @Inject(method = "canConvert", at = @At("RETURN"), cancellable = true)
     private void canConvert(CallbackInfoReturnable<Boolean> cir) {
         GameRules gameRules = this.world.getGameRules();
         if (!gameRules.getBoolean(Gamerules.DO_TRANSFORMATIONS)) cir.setReturnValue(false);

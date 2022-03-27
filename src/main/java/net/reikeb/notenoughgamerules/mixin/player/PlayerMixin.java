@@ -40,14 +40,14 @@ public abstract class PlayerMixin extends LivingEntityMixin {
     @Shadow
     public abstract boolean damage(DamageSource source, float amount);
 
-    @Inject(at = @At("HEAD"), method = "damage", cancellable = true)
+    @Inject(method = "damage", at = @At("HEAD"), cancellable = true)
     private void damage(DamageSource source, float amount, CallbackInfoReturnable<Boolean> cir) {
         Entity entity = this.world.getEntityById(this.getId());
         assert entity != null;
         NotEnoughGamerules.damageGamerule(entity, source, cir);
     }
 
-    @Inject(at = @At("TAIL"), method = "tick", cancellable = true)
+    @Inject(method = "tick", at = @At("TAIL"), cancellable = true)
     private void tick(CallbackInfo ci) {
         if (this.world.isClient) ci.cancel();
 
@@ -64,7 +64,7 @@ public abstract class PlayerMixin extends LivingEntityMixin {
         }
     }
 
-    @Redirect(at = @At(value = "FIELD", target = "Lnet/minecraft/world/GameRules;KEEP_INVENTORY:Lnet/minecraft/world/GameRules$Key;", opcode = Opcodes.GETSTATIC), method = "getXpToDrop")
+    @Redirect(method = "getXpToDrop", at = @At(value = "FIELD", target = "Lnet/minecraft/world/GameRules;KEEP_INVENTORY:Lnet/minecraft/world/GameRules$Key;", opcode = Opcodes.GETSTATIC))
     private GameRules.Key<GameRules.BooleanRule> getXpToDrop() {
         return Gamerules.KEEP_XP;
     }

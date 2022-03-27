@@ -15,7 +15,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(PistonBlock.class)
 public class PistonMixin {
-    @Inject(at = @At("HEAD"), method = "shouldExtend", cancellable = true)
+    @Inject(method = "shouldExtend", at = @At("HEAD"), cancellable = true)
     private void shouldExtend(World world, BlockPos pos, Direction pistonFace, CallbackInfoReturnable<Boolean> cir) {
         GameRules gameRules = world.getGameRules();
         if (gameRules.getBoolean(Gamerules.DISABLE_PISTONS)) cir.setReturnValue(false);

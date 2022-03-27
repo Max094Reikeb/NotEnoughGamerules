@@ -18,7 +18,7 @@ public class FoxBreadMixin {
     @Final
     FoxEntity field_17973;
 
-    @Inject(at = @At("HEAD"), method = "breed", cancellable = true)
+    @Inject(method = "breed", at = @At("HEAD"), cancellable = true)
     private void bread(CallbackInfo ci) {
         GameRules gameRules = this.field_17973.world.getGameRules();
         if (!gameRules.getBoolean(Gamerules.DO_BABIES_SPAWN)) ci.cancel();

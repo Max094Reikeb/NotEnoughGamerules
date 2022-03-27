@@ -36,7 +36,7 @@ public abstract class EntityMixin {
     @Shadow
     public abstract double getY();
 
-    @Inject(at = @At("HEAD"), method = "onStruckByLightning", cancellable = true)
+    @Inject(method = "onStruckByLightning", at = @At("HEAD"), cancellable = true)
     private void onStruckByLightning(ServerWorld world, LightningEntity lightning, CallbackInfo ci) {
         GameRules gameRules = lightning.getWorld().getGameRules();
         if (gameRules.getInt(Gamerules.LIGHTNING_DAMAGE) > -1) {

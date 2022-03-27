@@ -6,6 +6,8 @@
   "mixins": [
     "ChatMixin",
     "DamageSourceAccessor",
+    "EnderDragonFightMixin",
+    "PistonMixin",
     "entities.AnimalMixin",
     "entities.EntityMixin",
     "entities.FoxBreadMixin",
@@ -19,7 +21,6 @@
     "entities.VillagerMixin",
     "entities.ZombieMixin",
     "entities.ZombieVillagerMixin",
-    "PistonMixin",
     "player.ClientPlayerMixin",
     "player.LocalPlayerMixin",
     "player.PlayerMixin",
