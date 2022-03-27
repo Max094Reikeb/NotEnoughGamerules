@@ -45,11 +45,14 @@ public abstract class ServerPlayerMixin extends PlayerMixin {
     }
 
     @Redirect(at = @At(value = "FIELD", target = "Lnet/minecraft/server/network/ServerPlayerEntity;experienceLevel:I", opcode = Opcodes.PUTFIELD, ordinal = 1), method = "copyFrom")
-    private void copyFromExperienceLevel(ServerPlayerEntity instance, int value) {}
+    private void copyFromExperienceLevel(ServerPlayerEntity instance, int value) {
+    }
 
     @Redirect(at = @At(value = "FIELD", target = "Lnet/minecraft/server/network/ServerPlayerEntity;totalExperience:I", opcode = Opcodes.PUTFIELD, ordinal = 1), method = "copyFrom")
-    private void copyFromTotalExperience(ServerPlayerEntity instance, int value) {}
+    private void copyFromTotalExperience(ServerPlayerEntity instance, int value) {
+    }
 
     @Redirect(at = @At(value = "FIELD", target = "Lnet/minecraft/server/network/ServerPlayerEntity;experienceProgress:F", opcode = Opcodes.PUTFIELD, ordinal = 1), method = "copyFrom")
-    private void copyFromExperienceProgress(ServerPlayerEntity instance, float value) {}
+    private void copyFromExperienceProgress(ServerPlayerEntity instance, float value) {
+    }
 }

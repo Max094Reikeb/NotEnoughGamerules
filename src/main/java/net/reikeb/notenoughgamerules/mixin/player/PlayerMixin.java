@@ -26,6 +26,12 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(PlayerEntity.class)
 public abstract class PlayerMixin extends LivingEntityMixin {
     @Shadow
+    public float experienceProgress;
+    @Shadow
+    public int experienceLevel;
+    @Shadow
+    public int totalExperience;
+    @Shadow
     protected HungerManager hungerManager;
 
     @Shadow
@@ -33,12 +39,6 @@ public abstract class PlayerMixin extends LivingEntityMixin {
 
     @Shadow
     public abstract boolean damage(DamageSource source, float amount);
-
-    @Shadow public float experienceProgress;
-
-    @Shadow public int experienceLevel;
-
-    @Shadow public int totalExperience;
 
     @Inject(at = @At("HEAD"), method = "damage", cancellable = true)
     private void damage(DamageSource source, float amount, CallbackInfoReturnable<Boolean> cir) {
