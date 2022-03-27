@@ -37,6 +37,9 @@ public class Gamerules {
     public static final GameRules.Key<GameRules.IntegerValue> LIGHTNING_DAMAGE = GameRules
             .register("lightningDamage", GameRules.Category.PLAYER, NotEnoughGamerules.create(-1));
 
+    public static final GameRules.Key<GameRules.BooleanValue> KEEP_EFFECTS = GameRules
+            .register("keepEffects", GameRules.Category.PLAYER, NotEnoughGamerules.create(false));
+
     public static final GameRules.Key<GameRules.IntegerValue> NATURAL_HUNGER = GameRules
             .register("naturalHunger", GameRules.Category.PLAYER, NotEnoughGamerules.create(-1));
 
