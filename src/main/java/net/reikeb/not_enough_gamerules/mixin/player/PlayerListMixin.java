@@ -1,4 +1,4 @@
-package net.reikeb.not_enough_gamerules.mixin;
+package net.reikeb.not_enough_gamerules.mixin.player;
 
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.server.players.PlayerList;
@@ -14,7 +14,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(PlayerList.class)
-public class PlayerMixin {
+public class PlayerListMixin {
 
     @Inject(method = "respawn", at = @At("TAIL"))
     private void respawn(ServerPlayer s, boolean f1, CallbackInfoReturnable<ServerPlayer> cir) {
