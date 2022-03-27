@@ -18,7 +18,7 @@ public class ChatMixin {
     @Shadow
     public ServerPlayerEntity player;
 
-    @Inject(at = @At("HEAD"), method = "handleMessage", cancellable = true)
+    @Inject(method = "handleMessage", at = @At("HEAD"), cancellable = true)
     private void handleMessage(TextStream.Message message, CallbackInfo ci) {
         GameRules gameRules = this.player.getWorld().getGameRules();
         if ((!message.getRaw().startsWith("/")) && (gameRules.getBoolean(Gamerules.DISABLE_CHAT))) ci.cancel();

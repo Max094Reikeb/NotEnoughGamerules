@@ -25,20 +25,20 @@ public abstract class LivingEntityMixin extends EntityMixin {
     @Shadow
     protected ItemStack activeItemStack;
 
-    @Inject(at = @At("HEAD"), method = "damage", cancellable = true)
+    @Inject(method = "damage", at = @At("HEAD"), cancellable = true)
     private void damage(DamageSource source, float amount, CallbackInfoReturnable<Boolean> cir) {
         Entity entity = this.world.getEntityById(this.getId());
         assert entity != null;
         NotEnoughGamerules.damageGamerule(entity, source, cir);
     }
 
-    @Inject(at = @At("HEAD"), method = "takeKnockback", cancellable = true)
+    @Inject(method = "takeKnockback", at = @At("HEAD"), cancellable = true)
     private void takeKnockback(double strength, double x, double z, CallbackInfo ci) {
         GameRules gameRules = this.world.getGameRules();
         if (gameRules.getBoolean(Gamerules.DISABLE_KNOCKBACK)) ci.cancel();
     }
 
-    @Inject(at = @At(value = "INVOKE", target = "Lnet/minecraft/item/ItemStack;finishUsing(Lnet/minecraft/world/World;Lnet/minecraft/entity/LivingEntity;)Lnet/minecraft/item/ItemStack;", shift = At.Shift.AFTER), method = "consumeItem")
+    @Inject(method = "consumeItem", at = @At(value = "INVOKE", target = "Lnet/minecraft/item/ItemStack;finishUsing(Lnet/minecraft/world/World;Lnet/minecraft/entity/LivingEntity;)Lnet/minecraft/item/ItemStack;", shift = At.Shift.AFTER))
     private void consumeItem(CallbackInfo ci) {
         ItemStack itemStack = this.activeItemStack;
         Entity entity = this.world.getEntityById(this.getId());

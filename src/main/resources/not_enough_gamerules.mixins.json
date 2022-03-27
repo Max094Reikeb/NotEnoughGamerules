@@ -6,6 +6,7 @@
   "mixins": [
     "ChatMixin",
     "DamageSourceAccessor",
+    "EnderDragonFightMixin",
     "entities.AnimalMixin",
     "entities.EntityMixin",
     "entities.FoxBreadMixin",

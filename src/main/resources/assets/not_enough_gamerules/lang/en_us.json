@@ -1,6 +1,8 @@
 {
   "death.attack.explosion": "%1$s was blown up",
   "death.attack.sky_high": "%1$s died because he wasn\u0027t high enough!",
+  "gamerule.alwaysSpawnDragonEgg": "Always spawn Dragon Egg",
+  "gamerule.alwaysSpawnDragonEgg.description": "Defines if the Dragon Egg always spawns when the Ender Dragon is killed",
   "gamerule.anvilDamage": "Deal anvil damage",
   "gamerule.canPlayerSleep": "Can player sleep",
   "gamerule.canPlayerSleep.description": "Defines if players can enter bed",
