@@ -22,7 +22,7 @@ A clear and concise description of what you expected to happen.
 If applicable, add screenshots to help explain your problem.
 
 **Mod informations (please complete the following information):**
- - Mod Version [e.g. r1.4]
+ - Mod Version [e.g. r1.4.1]
  - Minecraft Version [e.g. 1.18.2]
  - Fabric Version [e.g. 0.48.0]
 
