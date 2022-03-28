@@ -24,7 +24,8 @@
     "player.ClientPlayerMixin",
     "player.LocalPlayerMixin",
     "player.PlayerMixin",
-    "player.ServerPlayerMixin"
+    "player.ServerPlayerMixin",
+    "StatusEffectMixin"
   ],
   "client": [
   ],
