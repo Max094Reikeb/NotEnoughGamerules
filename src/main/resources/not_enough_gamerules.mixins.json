@@ -7,8 +7,6 @@
     "ChatMixin",
     "DamageSourceAccessor",
     "EnderDragonFightMixin",
-    "PistonMixin",
-    "StatusEffectMixin",
     "entities.AnimalMixin",
     "entities.EntityMixin",
     "entities.FoxBreadMixin",
@@ -22,10 +20,12 @@
     "entities.VillagerMixin",
     "entities.ZombieMixin",
     "entities.ZombieVillagerMixin",
+    "PistonMixin",
     "player.ClientPlayerMixin",
     "player.LocalPlayerMixin",
     "player.PlayerMixin",
-    "player.ServerPlayerMixin"
+    "player.ServerPlayerMixin",
+    "StatusEffectMixin"
   ],
   "client": [
   ],
