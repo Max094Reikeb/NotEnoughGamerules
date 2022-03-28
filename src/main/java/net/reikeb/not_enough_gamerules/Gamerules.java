@@ -4,6 +4,9 @@ import net.minecraft.world.level.GameRules;
 
 public class Gamerules {
 
+    public static final GameRules.Key<GameRules.BooleanValue> ALWAYS_SPAWN_DRAGON_EGG = GameRules
+            .register("alwaysSpawnDragonEgg", GameRules.Category.MOBS, NotEnoughGamerules.create(false));
+
     public static final GameRules.Key<GameRules.BooleanValue> ANVIL_DAMAGE = GameRules
             .register("anvilDamage", GameRules.Category.PLAYER, NotEnoughGamerules.create(true));
 

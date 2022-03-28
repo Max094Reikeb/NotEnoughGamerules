@@ -4,6 +4,7 @@
   "compatibilityLevel": "JAVA_17",
   "refmap": "not_enough_gamerules.refmap.json",
   "mixins": [
+    "EndDragonFightMixin",
     "player.PlayerListMixin",
     "player.PlayerMixin",
     "player.ServerPlayerMixin"
