@@ -24,6 +24,8 @@
   "gamerule.keepXp.description": "Keeps only player's experience after death",
   "gamerule.lightningDamage": "Deal lightning damage",
   "gamerule.naturalHunger": "Food degeneration",
+  "gamerule.poisonHealth": "Poison health",
+  "gamerule.poisonHealth.description": "Number of life points let by poison effect",
   "gamerule.pvp": "PVP",
   "gamerule.pvp.description": "Defines if two players can hurt each other",
   "gamerule.rawMeatHunger": "Do not eat raw meat!",

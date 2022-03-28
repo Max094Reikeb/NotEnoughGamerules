@@ -49,6 +49,9 @@ public class Gamerules {
     public static final GameRules.Key<GameRules.IntegerValue> NATURAL_HUNGER = GameRules
             .register("naturalHunger", GameRules.Category.PLAYER, NotEnoughGamerules.create(-1));
 
+    public static final GameRules.Key<GameRules.IntegerValue> POISON_HEALTH = GameRules
+            .register("poisonHealth", GameRules.Category.PLAYER, NotEnoughGamerules.create(1));
+
     public static final GameRules.Key<GameRules.BooleanValue> PVP = GameRules
             .register("pvp", GameRules.Category.PLAYER, NotEnoughGamerules.create(true));
 
