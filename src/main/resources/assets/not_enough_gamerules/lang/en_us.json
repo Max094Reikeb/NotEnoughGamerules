@@ -4,6 +4,8 @@
   "gamerule.alwaysSpawnDragonEgg": "Always spawn Dragon Egg",
   "gamerule.alwaysSpawnDragonEgg.description": "Defines if the Dragon Egg always spawns when the Ender Dragon is killed",
   "gamerule.anvilDamage": "Deal anvil damage",
+  "gamerule.canCopperOxide": "Can copper oxide",
+  "gamerule.canCopperOxide.description": "Defines if normal copper can oxidize",
   "gamerule.canPlayerSleep": "Can player sleep",
   "gamerule.canPlayerSleep.description": "Defines if players can enter bed",
   "gamerule.disableChat": "Disable player chat",

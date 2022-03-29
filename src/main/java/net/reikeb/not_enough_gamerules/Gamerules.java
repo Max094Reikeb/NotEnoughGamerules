@@ -10,6 +10,9 @@ public class Gamerules {
     public static final GameRules.Key<GameRules.BooleanValue> ANVIL_DAMAGE = GameRules
             .register("anvilDamage", GameRules.Category.PLAYER, NotEnoughGamerules.create(true));
 
+    public static final GameRules.Key<GameRules.BooleanValue> CAN_COPPER_OXIDE = GameRules
+            .register("canCopperOxide", GameRules.Category.UPDATES, NotEnoughGamerules.create(true));
+
     public static final GameRules.Key<GameRules.BooleanValue> CAN_PLAYER_SLEEP = GameRules
             .register("canPlayerSleep", GameRules.Category.PLAYER, NotEnoughGamerules.create(true));
 

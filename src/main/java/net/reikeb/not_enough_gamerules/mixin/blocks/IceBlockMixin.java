@@ -1,4 +1,4 @@
-package net.reikeb.not_enough_gamerules.mixin;
+package net.reikeb.not_enough_gamerules.mixin.blocks;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.Level;
