@@ -11,6 +11,7 @@ public class Gamerules {
     public static GameRules.Key<GameRules.BooleanRule> ANVIL_DAMAGE;
     public static GameRules.Key<GameRules.BooleanRule> CAN_COPPER_OXIDE;
     public static GameRules.Key<GameRules.BooleanRule> CAN_PLAYER_SLEEP;
+    public static GameRules.Key<GameRules.BooleanRule> CAN_PLAYER_TAKE_DAMAGE;
     public static GameRules.Key<GameRules.BooleanRule> DISABLE_CHAT;
     public static GameRules.Key<GameRules.BooleanRule> DISABLE_DIMENSION_CHANGE;
     public static GameRules.Key<GameRules.BooleanRule> DISABLE_KNOCKBACK;
@@ -36,6 +37,7 @@ public class Gamerules {
         ANVIL_DAMAGE = GameRuleRegistry.register("anvilDamage", GameRules.Category.PLAYER, GameRuleFactory.createBooleanRule(true));
         CAN_COPPER_OXIDE = GameRuleRegistry.register("canCopperOxide", GameRules.Category.UPDATES, GameRuleFactory.createBooleanRule(true));
         CAN_PLAYER_SLEEP = GameRuleRegistry.register("canPlayerSleep", GameRules.Category.PLAYER, GameRuleFactory.createBooleanRule(true));
+        CAN_PLAYER_TAKE_DAMAGE = GameRuleRegistry.register("canPlayerTakeDamage", GameRules.Category.PLAYER, GameRuleFactory.createBooleanRule(true));
         DISABLE_CHAT = GameRuleRegistry.register("disableChat", GameRules.Category.PLAYER, GameRuleFactory.createBooleanRule(false));
         DISABLE_DIMENSION_CHANGE = GameRuleRegistry.register("disableDimensionChange", GameRules.Category.PLAYER, GameRuleFactory.createBooleanRule(false));
         DISABLE_KNOCKBACK = GameRuleRegistry.register("disableKnockback", GameRules.Category.PLAYER, GameRuleFactory.createBooleanRule(false));
