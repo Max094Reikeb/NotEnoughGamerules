@@ -42,6 +42,7 @@ public abstract class PlayerMixin extends LivingEntityMixin {
 
     @Inject(method = "damage", at = @At("HEAD"), cancellable = true)
     private void damage(DamageSource source, float amount, CallbackInfoReturnable<Boolean> cir) {
+        if (!this.world.getGameRules().getBoolean(Gamerules.CAN_PLAYER_TAKE_DAMAGE)) cir.cancel();
         Entity entity = this.world.getEntityById(this.getId());
         assert entity != null;
         NotEnoughGamerules.damageGamerule(entity, source, cir);

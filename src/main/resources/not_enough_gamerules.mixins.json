@@ -9,7 +9,6 @@
     "EnderDragonFightMixin",
     "ServerWorldMixin",
     "StatusEffectMixin",
-    "WorldMixin",
     "blocks.IceBlockMixin",
     "blocks.OxidizableBlockMixin",
     "blocks.PistonMixin",
