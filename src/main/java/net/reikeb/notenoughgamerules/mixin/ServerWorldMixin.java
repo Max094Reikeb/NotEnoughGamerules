@@ -8,8 +8,6 @@ import net.minecraft.world.biome.Biome;
 
 import net.reikeb.notenoughgamerules.Gamerules;
 
-import org.jetbrains.annotations.NotNull;
-
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -17,10 +15,15 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 
 @Mixin(ServerWorld.class)
 public abstract class ServerWorldMixin {
-    @Shadow @NotNull public abstract MinecraftServer getServer();
+    @Shadow public abstract MinecraftServer getServer();
 
     @Redirect(method = "tickChunk", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/biome/Biome;canSetIce(Lnet/minecraft/world/WorldView;Lnet/minecraft/util/math/BlockPos;)Z"))
-    private boolean tickChunk(Biome instance, WorldView world, BlockPos blockPos) {
+    private boolean tickChunkIceRedirection(Biome instance, WorldView world, BlockPos blockPos) {
         return instance.canSetIce(world, blockPos) && this.getServer().getGameRules().getBoolean(Gamerules.DO_ICE_FORM);
+    }
+
+    @Redirect(method = "tickChunk", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/biome/Biome;canSetSnow(Lnet/minecraft/world/WorldView;Lnet/minecraft/util/math/BlockPos;)Z"))
+    private boolean tickChunkSnowRedirection(Biome instance, WorldView world, BlockPos blockPos) {
+        return instance.canSetSnow(world, blockPos) && this.getServer().getGameRules().getBoolean(Gamerules.DO_SNOW_MELT);
     }
 }

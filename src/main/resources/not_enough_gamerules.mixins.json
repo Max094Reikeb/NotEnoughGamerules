@@ -12,6 +12,7 @@
     "blocks.IceBlockMixin",
     "blocks.OxidizableBlockMixin",
     "blocks.PistonMixin",
+    "blocks.SnowBlockMixin",
     "entities.AnimalMixin",
     "entities.EntityMixin",
     "entities.FoxBreadMixin",
