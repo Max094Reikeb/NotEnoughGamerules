@@ -22,4 +22,9 @@ public abstract class ServerLevelMixin {
     private boolean tickChunk(Biome instance, LevelReader levelReader, BlockPos blockPos) {
         return instance.shouldFreeze(levelReader, blockPos) && this.getLevel().getGameRules().getBoolean(Gamerules.DO_ICE_FORM);
     }
+
+    @Redirect(method = "tickChunk", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/biome/Biome;shouldSnow(Lnet/minecraft/world/level/LevelReader;Lnet/minecraft/core/BlockPos;)Z"))
+    private boolean tickSnowChunk(Biome instance, LevelReader levelReader, BlockPos blockPos) {
+        return instance.shouldSnow(levelReader, blockPos) && this.getLevel().getGameRules().getBoolean(Gamerules.DO_SNOW_FORM);
+    }
 }

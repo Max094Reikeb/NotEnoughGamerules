@@ -40,6 +40,12 @@ public class Gamerules {
     public static final GameRules.Key<GameRules.BooleanValue> DO_ICE_MELT = GameRules
             .register("doIceMelt", GameRules.Category.UPDATES, NotEnoughGamerules.create(true));
 
+    public static final GameRules.Key<GameRules.BooleanValue> DO_SNOW_FORM = GameRules
+            .register("doSnowForm", GameRules.Category.UPDATES, NotEnoughGamerules.create(true));
+
+    public static final GameRules.Key<GameRules.BooleanValue> DO_SNOW_MELT = GameRules
+            .register("doSnowMelt", GameRules.Category.UPDATES, NotEnoughGamerules.create(true));
+
     public static final GameRules.Key<GameRules.BooleanValue> DO_TRANSFORMATIONS = GameRules
             .register("doTransformations", GameRules.Category.MOBS, NotEnoughGamerules.create(true));
 
