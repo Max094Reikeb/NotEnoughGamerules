@@ -9,6 +9,7 @@ public class Gamerules {
 
     public static GameRules.Key<GameRules.BooleanRule> ALWAYS_SPAWN_DRAGON_EGG;
     public static GameRules.Key<GameRules.BooleanRule> ANVIL_DAMAGE;
+    public static GameRules.Key<GameRules.BooleanRule> CAN_COPPER_OXIDE;
     public static GameRules.Key<GameRules.BooleanRule> CAN_PLAYER_SLEEP;
     public static GameRules.Key<GameRules.BooleanRule> DISABLE_CHAT;
     public static GameRules.Key<GameRules.BooleanRule> DISABLE_DIMENSION_CHANGE;
@@ -31,6 +32,7 @@ public class Gamerules {
     public static void setupGamerules() {
         ALWAYS_SPAWN_DRAGON_EGG = GameRuleRegistry.register("alwaysSpawnDragonEgg", GameRules.Category.MOBS, GameRuleFactory.createBooleanRule(false));
         ANVIL_DAMAGE = GameRuleRegistry.register("anvilDamage", GameRules.Category.PLAYER, GameRuleFactory.createBooleanRule(true));
+        CAN_COPPER_OXIDE = GameRuleRegistry.register("canCopperOxide", GameRules.Category.UPDATES, GameRuleFactory.createBooleanRule(true));
         CAN_PLAYER_SLEEP = GameRuleRegistry.register("canPlayerSleep", GameRules.Category.PLAYER, GameRuleFactory.createBooleanRule(true));
         DISABLE_CHAT = GameRuleRegistry.register("disableChat", GameRules.Category.PLAYER, GameRuleFactory.createBooleanRule(false));
         DISABLE_DIMENSION_CHANGE = GameRuleRegistry.register("disableDimensionChange", GameRules.Category.PLAYER, GameRuleFactory.createBooleanRule(false));
