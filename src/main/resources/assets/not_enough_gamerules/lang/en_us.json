@@ -8,6 +8,8 @@
   "gamerule.canCopperOxide.description": "Defines if normal copper can oxidize",
   "gamerule.canPlayerSleep": "Can player sleep",
   "gamerule.canPlayerSleep.description": "Defines if players can enter bed",
+  "gamerule.canPlayerTakeDamage": "Can player take damages",
+  "gamerule.canPlayerTakeDamage.description": "Defines if player can take any type of damage",
   "gamerule.disableChat": "Disable player chat",
   "gamerule.disableDimensionChange": "Disable dimension change",
   "gamerule.disableKnockback": "Disable knockback",

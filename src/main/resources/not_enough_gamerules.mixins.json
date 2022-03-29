@@ -9,6 +9,7 @@
     "ServerLevelMixin",
     "blocks.ChangeBlockMixin",
     "blocks.IceBlockMixin",
+    "entity.EntityMixin",
     "player.PlayerListMixin",
     "player.PlayerMixin",
     "player.ServerPlayerMixin"
