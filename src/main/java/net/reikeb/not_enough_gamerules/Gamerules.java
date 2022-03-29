@@ -28,6 +28,12 @@ public class Gamerules {
     public static final GameRules.Key<GameRules.BooleanValue> DO_BABIES_SPAWN = GameRules
             .register("doBabiesSpawn", GameRules.Category.SPAWNING, NotEnoughGamerules.create(true));
 
+    public static final GameRules.Key<GameRules.BooleanValue> DO_ICE_FORM = GameRules
+            .register("doIceForm", GameRules.Category.UPDATES, NotEnoughGamerules.create(true));
+
+    public static final GameRules.Key<GameRules.BooleanValue> DO_ICE_MELT = GameRules
+            .register("doIceMelt", GameRules.Category.UPDATES, NotEnoughGamerules.create(true));
+
     public static final GameRules.Key<GameRules.BooleanValue> DO_TRANSFORMATIONS = GameRules
             .register("doTransformations", GameRules.Category.MOBS, NotEnoughGamerules.create(true));
 

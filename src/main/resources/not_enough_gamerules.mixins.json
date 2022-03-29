@@ -5,7 +5,9 @@
   "refmap": "not_enough_gamerules.refmap.json",
   "mixins": [
     "EndDragonFightMixin",
+    "IceBlockMixin",
     "MobEffectMixin",
+    "ServerLevelMixin",
     "player.PlayerListMixin",
     "player.PlayerMixin",
     "player.ServerPlayerMixin"
