@@ -1,4 +1,4 @@
-package net.reikeb.notenoughgamerules.mixin;
+package net.reikeb.notenoughgamerules.mixin.blocks;
 
 import net.minecraft.block.PistonBlock;
 import net.minecraft.util.math.BlockPos;
