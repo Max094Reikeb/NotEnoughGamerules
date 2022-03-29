@@ -15,7 +15,8 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 
 @Mixin(ServerWorld.class)
 public abstract class ServerWorldMixin {
-    @Shadow public abstract MinecraftServer getServer();
+    @Shadow
+    public abstract MinecraftServer getServer();
 
     @Redirect(method = "tickChunk", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/biome/Biome;canSetIce(Lnet/minecraft/world/WorldView;Lnet/minecraft/util/math/BlockPos;)Z"))
     private boolean tickChunkIceRedirection(Biome instance, WorldView world, BlockPos blockPos) {
