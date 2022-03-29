@@ -19,6 +19,8 @@ public class Gamerules {
     public static GameRules.Key<GameRules.BooleanRule> DO_BABIES_SPAWN;
     public static GameRules.Key<GameRules.BooleanRule> DO_ICE_FORM;
     public static GameRules.Key<GameRules.BooleanRule> DO_ICE_MELT;
+    public static GameRules.Key<GameRules.BooleanRule> DO_SNOW_FORM;
+    public static GameRules.Key<GameRules.BooleanRule> DO_SNOW_MELT;
     public static GameRules.Key<GameRules.BooleanRule> DO_TRANSFORMATIONS;
     public static GameRules.Key<GameRules.IntRule> DRAGON_BREATH_DAMAGE;
     public static GameRules.Key<GameRules.IntRule> EXPLOSION_DAMAGE;
@@ -45,6 +47,8 @@ public class Gamerules {
         DO_BABIES_SPAWN = GameRuleRegistry.register("doBabiesSpawn", GameRules.Category.SPAWNING, GameRuleFactory.createBooleanRule(true));
         DO_ICE_FORM = GameRuleRegistry.register("doIceForm", GameRules.Category.UPDATES, GameRuleFactory.createBooleanRule(true));
         DO_ICE_MELT = GameRuleRegistry.register("doIceMelt", GameRules.Category.UPDATES, GameRuleFactory.createBooleanRule(true));
+        DO_SNOW_FORM = GameRuleRegistry.register("doSnowForm", GameRules.Category.UPDATES, GameRuleFactory.createBooleanRule(true));
+        DO_SNOW_MELT = GameRuleRegistry.register("doSnowMelt", GameRules.Category.UPDATES, GameRuleFactory.createBooleanRule(true));
         DO_TRANSFORMATIONS = GameRuleRegistry.register("doTransformations", GameRules.Category.MOBS, GameRuleFactory.createBooleanRule(true));
         DRAGON_BREATH_DAMAGE = GameRuleRegistry.register("dragonBreathDamage", GameRules.Category.PLAYER, GameRuleFactory.createIntRule(-1));
         EXPLOSION_DAMAGE = GameRuleRegistry.register("explosionDamage", GameRules.Category.PLAYER, GameRuleFactory.createIntRule(-1));
