@@ -1,8 +1,8 @@
 ---
-name: Bug report
-about: Create a report to help us improve
+name: Fabric bug report
+about: Create a report to help us improve our Fabric version
 title: "[BUG]"
-labels: bug
+labels: bug, fabric
 assignees: ''
 
 ---
@@ -22,9 +22,9 @@ A clear and concise description of what you expected to happen.
 If applicable, add screenshots to help explain your problem.
 
 **Mod informations (please complete the following information):**
- - Mod Version [e.g. r1.4.1]
- - Minecraft Version [e.g. 1.18.2]
- - Fabric Version [e.g. 0.48.0]
+- Mod Version [e.g. r1.4.1]
+- Minecraft Version [e.g. 1.18.2]
+- Fabric Version [e.g. 0.48.0]
 
 **Additional context**
 Add any other context about the problem here.
