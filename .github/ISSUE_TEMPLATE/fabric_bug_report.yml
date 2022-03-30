@@ -1,0 +1,90 @@
+name: Fabric Bug Report
+description: Report a Bug on the Fabric Version
+labels:
+  - bug
+  - fabric
+assignees:
+  - FirstMegaGame4
+body:
+  - type: textarea
+    id: bug_desc
+    attributes:
+      label: |
+        **Describe the Bug**
+      placeholder: A clear and concise description of what the bug is.
+    validations:
+      required: true
+  - type: textarea
+    id: to_reproduce
+    attributes:
+      label: |
+        **To Reproduce**
+      placeholder: |
+        Steps to reproduce the behavior:
+          1. Do '...'
+          2. Use '...
+    validations:
+      required: true
+  - type: textarea
+    id: expected_behavior
+    attributes:
+      label: |
+        **Expected Behavior**
+      placeholder: A clear and concise description of what you expected to happen.
+    validations:
+      required: true
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: |
+        **Screenshots**
+      placeholder: If applicable, add screenshots to help explain your problem.
+    validations:
+      required: false
+  - type: markdown
+    attributes:
+      value: |
+        # Mod Informations
+  - type: dropdown
+    id: mod_ver
+    attributes:
+      label: Mod Version
+      options:
+        - 1.4.1
+    validations:
+      required: true
+  - type: dropdown
+    id: mc_ver
+    attributes:
+      label: Minecraft Version
+      options:
+        - 1.18.2
+    validations:
+      required: true
+  - type: dropdown
+    id: fb_loader_ver
+    attributes:
+      label: Fabric Loader Version
+      options:
+        - 0.13.3
+    validations:
+      required: true
+  - type: dropdown
+    id: fb_api_ver
+    attributes:
+      label: Fabric API Version
+      options:
+        - 0.48.0
+        - 0.47.10
+        - 0.47.9
+        - 0.47.8
+    validations:
+      required: true
+  - type: textarea
+    id: additional_ctx
+    attributes:
+      label: |
+        **Additional Context**
+      placeholder: Add any other context about the problem here.
+    validations:
+      required: false
