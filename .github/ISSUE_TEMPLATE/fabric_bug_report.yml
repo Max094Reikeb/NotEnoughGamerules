@@ -48,36 +48,40 @@ body:
   - type: dropdown
     id: mod_ver
     attributes:
-      label: Mod Version
+      label: |
+        ### Mod Version
       options:
-        - 1.4.1
+        - "1.4.1"
     validations:
       required: true
   - type: dropdown
     id: mc_ver
     attributes:
-      label: Minecraft Version
+      label: |
+        ### Minecraft Version
       options:
-        - 1.18.2
+        - "1.18.2"
     validations:
       required: true
   - type: dropdown
     id: fb_loader_ver
     attributes:
-      label: Fabric Loader Version
+      label: |
+        ### Fabric Loader Version
       options:
-        - 0.13.3
+        - "0.13.3"
     validations:
       required: true
   - type: dropdown
     id: fb_api_ver
     attributes:
-      label: Fabric API Version
+      label: |
+        ### Fabric API Version
       options:
-        - 0.48.0
-        - 0.47.10
-        - 0.47.9
-        - 0.47.8
+        - "0.48.0"
+        - "0.47.10"
+        - "0.47.9"
+        - "0.47.8"
     validations:
       required: true
   - type: textarea
