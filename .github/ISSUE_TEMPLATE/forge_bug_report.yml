@@ -41,13 +41,15 @@ body:
       placeholder: If applicable, add screenshots to help explain your problem.
     validations:
       required: false
-  - |
-      # Mod Informations
+  - type: markdown
+    attributes:
+      value: |
+        # Mod Informations
   - type: dropdown
     id: mod_ver
     attributes:
       label: |
-        Mod Version
+        ### Mod Version
       options:
         - "1.4.1"
         - "1.4"
@@ -68,7 +70,7 @@ body:
     id: mc_ver
     attributes:
       label: |
-        Minecraft Version
+        ### Minecraft Version
       options:
         - "1.18.1"
         - "1.17.1"
@@ -79,7 +81,7 @@ body:
     id: forge_ver
     attributes:
       label: |
-        Forge Version
+        ### Forge Version
       placeholder: X.X.X
     validations:
       required: true

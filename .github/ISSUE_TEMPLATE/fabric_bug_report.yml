@@ -41,13 +41,15 @@ body:
       placeholder: If applicable, add screenshots to help explain your problem.
     validations:
       required: false
-  - |
-      # Mod Informations
+  - type: markdown
+    attributes:
+      value: |
+        # Mod Informations
   - type: dropdown
     id: mod_ver
     attributes:
       label: |
-        Mod Version
+        ### Mod Version
       options:
         - "1.4.1"
     validations:
@@ -56,7 +58,7 @@ body:
     id: mc_ver
     attributes:
       label: |
-        Minecraft Version
+        ### Minecraft Version
       options:
         - "1.18.2"
     validations:
@@ -65,7 +67,7 @@ body:
     id: fb_loader_ver
     attributes:
       label: |
-        Fabric Loader Version
+        ### Fabric Loader Version
       options:
         - "0.13.3"
     validations:
@@ -74,7 +76,7 @@ body:
     id: fb_api_ver
     attributes:
       label: |
-        Fabric API Version
+        ### Fabric API Version
       options:
         - "0.48.0"
         - "0.47.10"
