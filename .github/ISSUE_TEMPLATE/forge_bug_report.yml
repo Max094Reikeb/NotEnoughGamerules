@@ -1,10 +1,10 @@
-name: Fabric Bug Report
-description: Report a Bug on the Fabric Version
+name: Forge Bug Report
+description: Report a Bug on the Forge Version
 labels:
-  - fabric
+  - forge
   - bug
 assignees:
-  - FirstMegaGame4
+  - Max094Reikeb
 body:
   - type: textarea
     id: bug_desc
@@ -58,26 +58,14 @@ body:
     attributes:
       label: Minecraft Version
       options:
-        - 1.18.2
+        - 1.18.1
     validations:
       required: true
-  - type: dropdown
-    id: fb_loader_ver
+  - type: input
+    id: forge_ver
     attributes:
-      label: Fabric Loader Version
-      options:
-        - 0.13.3
-    validations:
-      required: true
-  - type: dropdown
-    id: fb_api_ver
-    attributes:
-      label: Fabric API Version
-      options:
-        - 0.48.0
-        - 0.47.10
-        - 0.47.9
-        - 0.47.8
+      label: Forge Version
+      placeholder: X.X.X
     validations:
       required: true
   - type: textarea
