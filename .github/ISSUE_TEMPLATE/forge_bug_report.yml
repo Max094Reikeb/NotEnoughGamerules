@@ -1,0 +1,95 @@
+name: Forge Bug Report
+description: Report a Bug on the Forge Version
+labels:
+  - forge
+  - bug
+assignees:
+  - Max094Reikeb
+body:
+  - type: textarea
+    id: bug_desc
+    attributes:
+      label: |
+        **Describe the Bug**
+      placeholder: A clear and concise description of what the bug is.
+    validations:
+      required: true
+  - type: textarea
+    id: to_reproduce
+    attributes:
+      label: |
+        **To Reproduce**
+      placeholder: |
+        Steps to reproduce the behavior:
+          1. Do '...'
+          2. Use '...
+    validations:
+      required: true
+  - type: textarea
+    id: expected_behavior
+    attributes:
+      label: |
+        **Expected Behavior**
+      placeholder: A clear and concise description of what you expected to happen.
+    validations:
+      required: true
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: |
+        **Screenshots**
+      placeholder: If applicable, add screenshots to help explain your problem.
+    validations:
+      required: false
+  - type: markdown
+    attributes:
+      value: |
+        # Mod Informations
+  - type: dropdown
+    id: mod_ver
+    attributes:
+      label: |
+        Mod Version
+      options:
+        - "1.4.1"
+        - "1.4"
+        - "1.3.4"
+        - "1.3.3"
+        - "1.3.2"
+        - "1.3.1"
+        - "1.3"
+        - "1.2.2"
+        - "1.2.1"
+        - "1.2"
+        - "1.1.1"
+        - "1.1"
+        - "1.0"
+    validations:
+      required: true
+  - type: dropdown
+    id: mc_ver
+    attributes:
+      label: |
+        Minecraft Version
+      options:
+        - "1.18.1"
+        - "1.17.1"
+        - "1.16.5"
+    validations:
+      required: true
+  - type: input
+    id: forge_ver
+    attributes:
+      label: |
+        Forge Version
+      placeholder: X.X.X
+    validations:
+      required: true
+  - type: textarea
+    id: additional_ctx
+    attributes:
+      label: |
+        **Additional Context**
+      placeholder: Add any other context about the problem here.
+    validations:
+      required: false
