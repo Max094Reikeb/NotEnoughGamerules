@@ -43,8 +43,8 @@ body:
       required: false
   - type: markdown
     attributes:
-      value: "# Mod Informations"
-      preview_only: false
+      value: |
+        # Mod Informations
   - type: dropdown
     id: mod_ver
     attributes:
