@@ -41,10 +41,9 @@ body:
       placeholder: If applicable, add screenshots to help explain your problem.
     validations:
       required: false
-  - type: checkboxes
+  - type: markdown
     attributes:
-      id: mod_infos
-      label: |
+      value: |
         # Mod Informations
   - type: dropdown
     id: mod_ver
