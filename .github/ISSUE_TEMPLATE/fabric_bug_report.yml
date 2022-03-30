@@ -45,6 +45,7 @@ body:
     attributes:
       value: |
         # Mod Informations
+      preview_only: false
   - type: dropdown
     id: mod_ver
     attributes:
