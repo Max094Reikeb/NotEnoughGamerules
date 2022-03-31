@@ -6,6 +6,8 @@
   "gamerule.anvilDamage": "Deal anvil damage",
   "gamerule.canCopperOxide": "Can copper oxide",
   "gamerule.canCopperOxide.description": "Defines if normal copper can oxidize",
+  "gamerule.canHurtPetMobs": "Can player hurt his pet mobs",
+  "gamerule.canHurtPetMobs.description": "Defines if a player can hurt his own pets",
   "gamerule.canPlayerSleep": "Can player sleep",
   "gamerule.canPlayerSleep.description": "Defines if players can enter bed",
   "gamerule.canPlayerTakeDamage": "Can player take damages",

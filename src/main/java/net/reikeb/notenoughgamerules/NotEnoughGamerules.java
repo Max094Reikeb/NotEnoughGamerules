@@ -6,6 +6,7 @@ import net.fabricmc.fabric.api.entity.event.v1.ServerPlayerEvents;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.passive.TameableEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.world.GameRules;
 
@@ -19,6 +20,10 @@ public class NotEnoughGamerules implements ModInitializer {
     public static void damageGamerule(Entity entity, DamageSource source, CallbackInfoReturnable<Boolean> cir) {
         if (entity == null) return;
         GameRules gameRules = entity.getWorld().getGameRules();
+        if ((!gameRules.getBoolean(Gamerules.CAN_HURT_PET_MOBS)) && (source.getSource() instanceof PlayerEntity) &&
+                (entity instanceof TameableEntity tameableEntity) && (tameableEntity.isTamed()) && (tameableEntity.getOwner() == source.getSource())) {
+            cir.cancel();
+        }
         if ((!gameRules.getBoolean(Gamerules.PVP)) && (entity instanceof PlayerEntity) && (source.getSource() instanceof PlayerEntity)) {
             cir.cancel();
         }
