@@ -1,7 +1,6 @@
 package net.reikeb.notenoughgamerules.mixin.entities;
 
 import net.minecraft.entity.mob.ZombieEntity;
-import net.minecraft.server.world.ServerWorld;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.GameRules;
 
@@ -26,14 +25,13 @@ public abstract class ZombieMixin extends MobEntityMixin {
         }
     }
 
-    @Redirect(method = "onKilledOther", at = @At(value = "INVOKE", target = "Lnet/minecraft/server/world/ServerWorld;getDifficulty()Lnet/minecraft/world/Difficulty;", ordinal = 2))
-    private Difficulty changeDifficulty(ServerWorld instance) {
-        return Difficulty.EASY;
-    }
-
     @Redirect(method = "onKilledOther", at = @At(value = "INVOKE", target = "Ljava/util/Random;nextBoolean()Z"))
     private boolean changeBoolean(Random instance) {
+        float randomFloat = instance.nextFloat();
         float villagerConversion = (float) this.world.getGameRules().getInt(Gamerules.VILLAGER_CONVERSION) / 100;
-        return (instance.nextFloat() < villagerConversion) || (this.world.getDifficulty() == Difficulty.EASY);
+        if (world.getDifficulty() == Difficulty.NORMAL) {
+            return randomFloat >= villagerConversion;
+        }
+        return randomFloat < villagerConversion;
     }
 }
