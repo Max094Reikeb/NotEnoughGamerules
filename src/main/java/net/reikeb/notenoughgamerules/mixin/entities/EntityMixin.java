@@ -4,6 +4,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.LightningEntity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.text.Text;
 import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
 
@@ -35,6 +36,8 @@ public abstract class EntityMixin {
 
     @Shadow
     public abstract double getY();
+
+    @Shadow public abstract Text getDisplayName();
 
     @Inject(method = "onStruckByLightning", at = @At("HEAD"), cancellable = true)
     private void onStruckByLightning(ServerWorld world, LightningEntity lightning, CallbackInfo ci) {
