@@ -26,14 +26,14 @@ public abstract class ZombieMixin extends MobEntityMixin {
         }
     }
 
-    @Redirect(method = "onKilledOther", at = @At(value = "INVOKE", target = "Lnet/minecraft/server/world/ServerWorld;getDifficulty()Lnet/minecraft/world/Difficulty;"))
+    @Redirect(method = "onKilledOther", at = @At(value = "INVOKE", target = "Lnet/minecraft/server/world/ServerWorld;getDifficulty()Lnet/minecraft/world/Difficulty;", ordinal = 2))
     private Difficulty changeDifficulty(ServerWorld instance) {
-        return Difficulty.NORMAL;
+        return Difficulty.EASY;
     }
 
     @Redirect(method = "onKilledOther", at = @At(value = "INVOKE", target = "Ljava/util/Random;nextBoolean()Z"))
     private boolean changeBoolean(Random instance) {
-        float villagerConversionPercentage = (float) this.world.getGameRules().getInt(Gamerules.VILLAGER_CONVERSION);
-        return !(instance.nextFloat() < (villagerConversionPercentage / 100F)) && this.world.getDifficulty() != Difficulty.EASY;
+        float villagerConversion = (float) this.world.getGameRules().getInt(Gamerules.VILLAGER_CONVERSION) / 100;
+        return (instance.nextFloat() < villagerConversion) || (this.world.getDifficulty() == Difficulty.EASY);
     }
 }
