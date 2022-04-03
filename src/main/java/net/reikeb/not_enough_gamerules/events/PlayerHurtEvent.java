@@ -1,7 +1,8 @@
 package net.reikeb.not_enough_gamerules.events;
 
 import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.TamableAnimal;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.GameRules;
 
@@ -19,9 +20,13 @@ public class PlayerHurtEvent {
     @SubscribeEvent
     public static void onEntityAttacked(LivingAttackEvent event) {
         if (event != null && event.getEntity() != null) {
-            Entity entity = event.getEntity();
-            Entity sourceentity = event.getSource().getEntity();
+            LivingEntity entity = (LivingEntity) event.getEntity();
+            LivingEntity sourceentity = (LivingEntity) event.getSource().getEntity();
             GameRules gamerules = entity.level.getLevelData().getGameRules();
+            if ((!gamerules.getBoolean(Gamerules.CAN_HURT_PET_MOBS)) && (sourceentity instanceof Player) &&
+                    (entity instanceof TamableAnimal tamedEntity) && (tamedEntity.isTame()) && (tamedEntity.getOwner() == sourceentity)) {
+                event.setCanceled(event.isCancelable());
+            }
             if ((!gamerules.getBoolean(Gamerules.PVP)) && (entity instanceof Player) && (sourceentity instanceof Player)) {
                 event.setCanceled(event.isCancelable());
             }

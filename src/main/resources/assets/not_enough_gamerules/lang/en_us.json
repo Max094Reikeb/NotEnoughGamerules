@@ -6,6 +6,8 @@
   "gamerule.anvilDamage": "Deal anvil damage",
   "gamerule.canCopperOxide": "Can copper oxide",
   "gamerule.canCopperOxide.description": "Defines if normal copper can oxidize",
+  "gamerule.canHurtPetMobs": "Can player hurt his pet mobs",
+  "gamerule.canHurtPetMobs.description": "Defines if a player can hurt his own pets",
   "gamerule.canPlayerSleep": "Can player sleep",
   "gamerule.canPlayerSleep.description": "Defines if players can enter bed",
   "gamerule.canPlayerTakeDamage": "Can player take damages",
@@ -45,5 +47,7 @@
   "gamerule.skyHigh": "SkyHigh",
   "gamerule.skyHigh.description": "Defines the minimal high the player has to be before taking damages",
   "gamerule.tntExplodes": "TNT explosions",
+  "gamerule.villagerConversion": "Villager conversion",
+  "gamerule.villagerConversion.description": "Defines the percentage of chance a Villager has to turn into a Zombie Villager",
   "message.not_enough_gamerules.sky_high_warning": "WARNING: You\u0027re not high enough! You will take damages every 10 seconds."
 }

@@ -11,6 +11,7 @@
     "blocks.IceBlockMixin",
     "blocks.SnowLayerMixin",
     "entity.EntityMixin",
+    "entity.ZombieMixin",
     "player.PlayerListMixin",
     "player.PlayerMixin",
     "player.ServerPlayerMixin"

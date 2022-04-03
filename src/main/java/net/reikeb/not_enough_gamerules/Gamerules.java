@@ -13,6 +13,9 @@ public class Gamerules {
     public static final GameRules.Key<GameRules.BooleanValue> CAN_COPPER_OXIDE = GameRules
             .register("canCopperOxide", GameRules.Category.UPDATES, NotEnoughGamerules.create(true));
 
+    public static final GameRules.Key<GameRules.BooleanValue> CAN_HURT_PET_MOBS = GameRules
+            .register("canHurtPetMobs", GameRules.Category.MOBS, NotEnoughGamerules.create(true));
+
     public static final GameRules.Key<GameRules.BooleanValue> CAN_PLAYER_SLEEP = GameRules
             .register("canPlayerSleep", GameRules.Category.PLAYER, NotEnoughGamerules.create(true));
 
@@ -81,4 +84,7 @@ public class Gamerules {
 
     public static final GameRules.Key<GameRules.BooleanValue> TNT_EXPLODES = GameRules
             .register("tntExplodes", GameRules.Category.MISC, NotEnoughGamerules.create(true));
+
+    public static final GameRules.Key<GameRules.IntegerValue> VILLAGER_CONVERSION = GameRules
+            .register("villagerConversion", GameRules.Category.MOBS, NotEnoughGamerules.create(50));
 }
