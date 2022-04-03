@@ -34,6 +34,7 @@ public class Gamerules {
     public static GameRules.Key<GameRules.IntRule> RAW_MEAT_HUNGER;
     public static GameRules.Key<GameRules.IntRule> SKY_HIGH;
     public static GameRules.Key<GameRules.BooleanRule> TNT_EXPLODES;
+    public static GameRules.Key<GameRules.IntRule> VILLAGER_CONVERSION;
 
     public static void setupGamerules() {
         ALWAYS_SPAWN_DRAGON_EGG = GameRuleRegistry.register("alwaysSpawnDragonEgg", GameRules.Category.MOBS, GameRuleFactory.createBooleanRule(false));
@@ -63,6 +64,7 @@ public class Gamerules {
         RAW_MEAT_HUNGER = GameRuleRegistry.register("rawMeatHunger", GameRules.Category.PLAYER, GameRuleFactory.createIntRule(30));
         SKY_HIGH = GameRuleRegistry.register("skyHigh", GameRules.Category.MISC, GameRuleFactory.createIntRule(-64));
         TNT_EXPLODES = GameRuleRegistry.register("tntExplodes", GameRules.Category.MISC, GameRuleFactory.createBooleanRule(true));
+        VILLAGER_CONVERSION = GameRuleRegistry.register("villagerConversion", GameRules.Category.MOBS, GameRuleFactory.createIntRule(50));
     }
 
 }
