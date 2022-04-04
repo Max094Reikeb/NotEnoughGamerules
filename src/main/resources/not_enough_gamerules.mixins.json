@@ -11,6 +11,8 @@
     "blocks.IceBlockMixin",
     "blocks.SnowLayerMixin",
     "entity.EntityMixin",
+    "entity.IronGolemMixin",
+    "entity.TargetingConditionsMixin",
     "entity.ZombieMixin",
     "player.PlayerListMixin",
     "player.PlayerMixin",
