@@ -38,6 +38,8 @@
   "gamerule.keepXp.description": "Keeps only player's experience after death",
   "gamerule.lightningDamage": "Deal lightning damage",
   "gamerule.naturalHunger": "Food degeneration",
+  "gamerule.onlyGolemsOwnerFriendly": "Iron Golems owner friendly",
+  "gamerule.onlyGolemsOwnerFriendly.description": "Defines if Iron Golems spawned by a player also attacks other players except its owner",
   "gamerule.poisonHealth": "Poison health",
   "gamerule.poisonHealth.description": "Number of life points let by poison effect",
   "gamerule.pvp": "PVP",
