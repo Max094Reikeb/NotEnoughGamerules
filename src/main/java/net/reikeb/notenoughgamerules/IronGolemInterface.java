@@ -1,4 +1,4 @@
-package net.reikeb.notenoughgamerules.mixin;
+package net.reikeb.notenoughgamerules;
 
 import net.minecraft.entity.player.PlayerEntity;
 

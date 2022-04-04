@@ -4,7 +4,7 @@ import net.minecraft.entity.passive.IronGolemEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.nbt.NbtCompound;
 
-import net.reikeb.notenoughgamerules.mixin.IronGolemInterface;
+import net.reikeb.notenoughgamerules.IronGolemInterface;
 
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
