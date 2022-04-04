@@ -18,6 +18,7 @@ public class Gamerules {
     public static GameRules.Key<GameRules.BooleanRule> DISABLE_KNOCKBACK;
     public static GameRules.Key<GameRules.BooleanRule> DISABLE_PISTONS;
     public static GameRules.Key<GameRules.BooleanRule> DO_BABIES_SPAWN;
+    public static GameRules.Key<GameRules.BooleanRule> DO_CORAL_NEED_WATER;
     public static GameRules.Key<GameRules.BooleanRule> DO_ICE_FORM;
     public static GameRules.Key<GameRules.BooleanRule> DO_ICE_MELT;
     public static GameRules.Key<GameRules.BooleanRule> DO_SNOW_FORM;
@@ -49,6 +50,7 @@ public class Gamerules {
         DISABLE_KNOCKBACK = GameRuleRegistry.register("disableKnockback", GameRules.Category.PLAYER, GameRuleFactory.createBooleanRule(false));
         DISABLE_PISTONS = GameRuleRegistry.register("disablePistons", GameRules.Category.UPDATES, GameRuleFactory.createBooleanRule(false));
         DO_BABIES_SPAWN = GameRuleRegistry.register("doBabiesSpawn", GameRules.Category.SPAWNING, GameRuleFactory.createBooleanRule(true));
+        DO_CORAL_NEED_WATER = GameRuleRegistry.register("doCoralNeedWater", GameRules.Category.UPDATES, GameRuleFactory.createBooleanRule(true));
         DO_ICE_FORM = GameRuleRegistry.register("doIceForm", GameRules.Category.UPDATES, GameRuleFactory.createBooleanRule(true));
         DO_ICE_MELT = GameRuleRegistry.register("doIceMelt", GameRules.Category.UPDATES, GameRuleFactory.createBooleanRule(true));
         DO_SNOW_FORM = GameRuleRegistry.register("doSnowForm", GameRules.Category.UPDATES, GameRuleFactory.createBooleanRule(true));
