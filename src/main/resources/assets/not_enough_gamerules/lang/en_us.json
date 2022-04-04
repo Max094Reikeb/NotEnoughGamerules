@@ -18,6 +18,8 @@
   "gamerule.disablePistons": "Disable pistons",
   "gamerule.doBabiesSpawn": "Baby spawning",
   "gamerule.doBabiesSpawn.description": "Defines if babies can spawn",
+  "gamerule.doCoralNeedWater": "Coral watering",
+  "gamerule.doCoralNeedWater.description": "Defines if coral dies without water",
   "gamerule.doIceForm": "Do ice form",
   "gamerule.doIceForm.description" : "Defines if ice can form in cold biomes",
   "gamerule.doIceMelt": "Do ice melt",
