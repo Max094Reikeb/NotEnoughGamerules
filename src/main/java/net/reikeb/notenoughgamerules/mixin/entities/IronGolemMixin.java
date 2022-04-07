@@ -6,6 +6,7 @@ import net.minecraft.nbt.NbtCompound;
 import net.reikeb.notenoughgamerules.IronGolemInterface;
 
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -18,16 +19,15 @@ public abstract class IronGolemMixin extends EntityMixin implements IronGolemInt
     @Unique
     public UUID neg$owner;
 
+    @Shadow
+    public abstract boolean isPlayerCreated();
+
     public UUID getNeg$owner() {
         return this.neg$owner;
     }
 
     public void setNeg$owner(UUID uuid) {
         this.neg$owner = uuid;
-    }
-
-    public boolean isPlayerCreated() {
-        return this.isPlayerCreated();
     }
 
     @Inject(method = "writeCustomDataToNbt", at = @At("TAIL"))

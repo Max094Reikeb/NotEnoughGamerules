@@ -1,6 +1,5 @@
 package net.reikeb.notenoughgamerules.mixin.blocks;
 
-import net.minecraft.advancement.criterion.Criteria;
 import net.minecraft.advancement.criterion.SummonedEntityCriterion;
 import net.minecraft.block.CarvedPumpkinBlock;
 import net.minecraft.entity.Entity;
@@ -32,7 +31,7 @@ public class CarvedPumpkinBlockMixin implements IronGolemInterface {
     private void changeCriteria(SummonedEntityCriterion instance, ServerPlayerEntity serverPlayer, Entity entity) {
         if (entity instanceof LivingEntity livingEntity) {
             if (livingEntity instanceof IronGolemInterface ironGolemEntity) {
-                Criteria.SUMMONED_ENTITY.trigger(serverPlayer, livingEntity);
+                instance.trigger(serverPlayer, livingEntity);
                 ironGolemEntity.setNeg$owner(serverPlayer.getUuid());
             }
         }
