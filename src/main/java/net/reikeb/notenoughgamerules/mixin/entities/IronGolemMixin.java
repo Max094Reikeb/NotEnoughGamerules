@@ -1,8 +1,10 @@
 package net.reikeb.notenoughgamerules.mixin.entities;
 
+import net.minecraft.entity.EntityType;
 import net.minecraft.entity.passive.IronGolemEntity;
 import net.minecraft.nbt.NbtCompound;
 
+import net.reikeb.notenoughgamerules.Gamerules;
 import net.reikeb.notenoughgamerules.IronGolemInterface;
 
 import org.spongepowered.asm.mixin.Mixin;
@@ -11,16 +13,20 @@ import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import java.util.UUID;
 
 @Mixin(IronGolemEntity.class)
-public abstract class IronGolemMixin implements IronGolemInterface {
+public abstract class IronGolemMixin extends EntityMixin implements IronGolemInterface {
     @Unique
     public UUID neg$owner;
 
     @Shadow
     public abstract boolean isPlayerCreated();
+
+    @Shadow
+    public abstract boolean canTarget(EntityType<?> type);
 
     public UUID getNeg$owner() {
         return this.neg$owner;
@@ -28,6 +34,16 @@ public abstract class IronGolemMixin implements IronGolemInterface {
 
     public void setNeg$owner(UUID uuid) {
         this.neg$owner = uuid;
+    }
+
+    @Inject(method = "canTarget", at = @At("TAIL"), cancellable = true)
+    private void changeTarget(EntityType<?> type, CallbackInfoReturnable<Boolean> cir) {
+        if ((this.isPlayerCreated() && type == EntityType.PLAYER
+                && (!this.world.getGameRules().getBoolean(Gamerules.ONLY_GOLEMS_OWNER_FRIENDLY)))
+                || (type == EntityType.CREEPER)) {
+            cir.setReturnValue(false);
+        }
+        cir.setReturnValue(((IronGolemEntity) (Object) this).canTarget(type));
     }
 
     @Inject(method = "writeCustomDataToNbt", at = @At("TAIL"))
