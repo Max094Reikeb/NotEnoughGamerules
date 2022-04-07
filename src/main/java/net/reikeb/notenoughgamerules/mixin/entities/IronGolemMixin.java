@@ -25,9 +25,6 @@ public abstract class IronGolemMixin extends EntityMixin implements IronGolemInt
     @Shadow
     public abstract boolean isPlayerCreated();
 
-    @Shadow
-    public abstract boolean canTarget(EntityType<?> type);
-
     public UUID getNeg$owner() {
         return this.neg$owner;
     }
