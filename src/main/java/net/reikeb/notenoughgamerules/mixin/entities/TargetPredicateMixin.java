@@ -2,7 +2,6 @@ package net.reikeb.notenoughgamerules.mixin.entities;
 
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.TargetPredicate;
-import net.minecraft.entity.passive.IronGolemEntity;
 import net.minecraft.entity.player.PlayerEntity;
 
 import net.reikeb.notenoughgamerules.Gamerules;
@@ -13,15 +12,27 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
+import java.util.UUID;
+
 @Mixin(TargetPredicate.class)
 public abstract class TargetPredicateMixin implements IronGolemInterface {
 
+    public UUID getNeg$owner() {
+        return null;
+    }
+
+    public void setNeg$owner(UUID uuid) {}
+
+    public boolean isPlayerCreated() {
+        return false;
+    }
+
     @Inject(method = "test", at = @At("HEAD"))
     private void test(LivingEntity baseEntity, LivingEntity targetEntity, CallbackInfoReturnable<Boolean> cir) {
-        if (!(baseEntity instanceof IronGolemEntity ironGolemEntity)) return;
-        if (!(targetEntity instanceof PlayerEntity playerEntity)) return;
-        if (playerEntity.world.getGameRules().getBoolean(Gamerules.ONLY_GOLEMS_OWNER_FRIENDLY) &&
-                ironGolemEntity.isPlayerCreated() && playerEntity.getUuid() == this.getNeg$owner().getUuid())
-            cir.setReturnValue(false);
+        if ((baseEntity instanceof IronGolemInterface ironGolemEntity) && (targetEntity instanceof PlayerEntity playerEntity)) {
+            if (playerEntity.world.getGameRules().getBoolean(Gamerules.ONLY_GOLEMS_OWNER_FRIENDLY) &&
+                    ironGolemEntity.isPlayerCreated() && playerEntity.getUuid() == ironGolemEntity.getNeg$owner())
+                cir.setReturnValue(false);
+        }
     }
 }

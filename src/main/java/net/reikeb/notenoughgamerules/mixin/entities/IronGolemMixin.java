@@ -1,7 +1,6 @@
 package net.reikeb.notenoughgamerules.mixin.entities;
 
 import net.minecraft.entity.passive.IronGolemEntity;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.nbt.NbtCompound;
 
 import net.reikeb.notenoughgamerules.IronGolemInterface;
@@ -19,26 +18,21 @@ public abstract class IronGolemMixin extends EntityMixin implements IronGolemInt
     @Unique
     public UUID neg$owner;
 
-    public UUID getNeg$ownerUuid() {
+    public UUID getNeg$owner() {
         return this.neg$owner;
-    }
-
-    public PlayerEntity getNeg$owner() {
-        if (this.world.getServer() == null) return null;
-        return this.world.getServer().getPlayerManager().getPlayer(this.neg$owner);
     }
 
     public void setNeg$owner(UUID uuid) {
         this.neg$owner = uuid;
     }
 
-    public void setNeg$owner(PlayerEntity playerEntity) {
-        this.neg$owner = playerEntity.getUuid();
+    public boolean isPlayerCreated() {
+        return this.isPlayerCreated();
     }
 
     @Inject(method = "writeCustomDataToNbt", at = @At("TAIL"))
     private void writeCustomDataToNbt(NbtCompound nbt, CallbackInfo ci) {
-        nbt.putUuid("Owner", this.getNeg$ownerUuid());
+        nbt.putUuid("Owner", this.getNeg$owner());
     }
 
     @Inject(method = "readCustomDataFromNbt", at = @At("TAIL"))
