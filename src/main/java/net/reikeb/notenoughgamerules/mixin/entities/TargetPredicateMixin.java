@@ -27,7 +27,7 @@ public abstract class TargetPredicateMixin implements IronGolemInterface {
         return false;
     }
 
-    @Inject(method = "test", at = @At("HEAD"))
+    @Inject(method = "test", at = @At("HEAD"), cancellable = true)
     private void test(LivingEntity baseEntity, LivingEntity targetEntity, CallbackInfoReturnable<Boolean> cir) {
         if ((baseEntity instanceof IronGolemInterface ironGolemEntity) && (targetEntity instanceof PlayerEntity playerEntity)) {
             if (playerEntity.world.getGameRules().getBoolean(Gamerules.ONLY_GOLEMS_OWNER_FRIENDLY) &&

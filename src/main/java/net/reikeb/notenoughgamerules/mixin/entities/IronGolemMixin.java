@@ -15,7 +15,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import java.util.UUID;
 
 @Mixin(IronGolemEntity.class)
-public abstract class IronGolemMixin extends EntityMixin implements IronGolemInterface {
+public abstract class IronGolemMixin implements IronGolemInterface {
     @Unique
     public UUID neg$owner;
 
