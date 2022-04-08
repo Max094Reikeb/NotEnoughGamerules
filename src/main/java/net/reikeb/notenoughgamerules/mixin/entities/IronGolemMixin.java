@@ -18,7 +18,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import java.util.UUID;
 
 @Mixin(IronGolemEntity.class)
-public abstract class IronGolemMixin extends EntityMixin implements IronGolemInterface {
+public abstract class IronGolemMixin extends MobEntityMixin implements IronGolemInterface {
     @Unique
     public UUID neg$owner;
 
@@ -33,14 +33,14 @@ public abstract class IronGolemMixin extends EntityMixin implements IronGolemInt
         this.neg$owner = uuid;
     }
 
-    @Inject(method = "canTarget", at = @At("TAIL"), cancellable = true)
+    @Inject(method = "canTarget", at = @At("HEAD"), cancellable = true)
     private void changeTarget(EntityType<?> type, CallbackInfoReturnable<Boolean> cir) {
         if ((this.isPlayerCreated() && type == EntityType.PLAYER
                 && (!this.world.getGameRules().getBoolean(Gamerules.ONLY_GOLEMS_OWNER_FRIENDLY)))
                 || (type == EntityType.CREEPER)) {
             cir.setReturnValue(false);
         }
-        cir.setReturnValue(((IronGolemEntity) (Object) this).canTarget(type));
+        cir.setReturnValue(super.canTargetEntity(type));
     }
 
     @Inject(method = "writeCustomDataToNbt", at = @At("TAIL"))
