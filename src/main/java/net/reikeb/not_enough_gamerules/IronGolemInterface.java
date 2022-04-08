@@ -1,10 +1,12 @@
 package net.reikeb.not_enough_gamerules;
 
-import net.minecraft.world.entity.player.Player;
+import java.util.UUID;
 
 public interface IronGolemInterface {
 
-    Player getNeg$owner();
+    UUID getNeg$owner();
 
-    void setNeg$owner(Player player);
+    void setNeg$owner(UUID uuid);
+
+    boolean isPlayerCreated();
 }
