@@ -1,4 +1,4 @@
-package net.reikeb.notenoughgamerules.mixin.entities;
+package net.reikeb.notenoughgamerules.mixin.entities.iron_golem;
 
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.passive.IronGolemEntity;
@@ -6,6 +6,7 @@ import net.minecraft.nbt.NbtCompound;
 
 import net.reikeb.notenoughgamerules.Gamerules;
 import net.reikeb.notenoughgamerules.IronGolemInterface;
+import net.reikeb.notenoughgamerules.mixin.entities.EntityMixin;
 
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;

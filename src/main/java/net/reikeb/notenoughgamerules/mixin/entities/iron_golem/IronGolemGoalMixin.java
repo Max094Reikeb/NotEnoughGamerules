@@ -1,4 +1,4 @@
-package net.reikeb.notenoughgamerules.mixin.entities;
+package net.reikeb.notenoughgamerules.mixin.entities.iron_golem;
 
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
@@ -11,6 +11,7 @@ import net.minecraft.util.math.Vec3d;
 
 import net.reikeb.notenoughgamerules.Gamerules;
 import net.reikeb.notenoughgamerules.IronGolemInterface;
+import net.reikeb.notenoughgamerules.mixin.entities.WanderGoalMixin;
 
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -45,16 +46,14 @@ public abstract class IronGolemGoalMixin extends WanderGoalMixin implements Iron
 
     @Inject(method = "findVillagerPos", at = @At("HEAD"), cancellable = true)
     private void findVillagerPos(CallbackInfoReturnable<Vec3d> cir) {
-        if (this.mob.world.getGameRules().getBoolean(Gamerules.ONLY_GOLEMS_OWNER_FRIENDLY)) {
+        if ((this.mob instanceof IronGolemInterface ironGolem) && this.mob.world.getGameRules().getBoolean(Gamerules.ONLY_GOLEMS_OWNER_FRIENDLY)
+                && ironGolem.isPlayerCreated()) {
             ServerWorld serverWorld = (ServerWorld) this.mob.world;
             List<PlayerEntity> playerList = serverWorld.getEntitiesByType(EntityType.PLAYER, this.mob.getBoundingBox().expand(32.0), this::isPlayerOwner);
             List<VillagerEntity> villagerList = serverWorld.getEntitiesByType(EntityType.VILLAGER, this.mob.getBoundingBox().expand(32.0), this::canVillagerSummonGolem);
-            List<LivingEntity> list = new ArrayList<>();
-            list.addAll(playerList);
+            List<LivingEntity> list = new ArrayList<>(playerList);
             list.addAll(villagerList);
-            if (list.isEmpty()) {
-                cir.setReturnValue(null);
-            }
+            if (list.isEmpty()) cir.setReturnValue(null);
             LivingEntity livingEntity = list.get(this.mob.world.random.nextInt(list.size()));
             cir.setReturnValue(FuzzyTargeting.findTo(this.mob, 10, 7, livingEntity.getPos()));
         }
