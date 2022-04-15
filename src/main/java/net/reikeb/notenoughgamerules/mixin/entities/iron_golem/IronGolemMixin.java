@@ -21,6 +21,9 @@ import java.util.UUID;
 
 @Mixin(IronGolemEntity.class)
 public abstract class IronGolemMixin extends EntityMixin implements IronGolemInterface {
+
+    private EntityType<?> entityType;
+
     @Unique
     public UUID neg$owner;
 
@@ -35,17 +38,21 @@ public abstract class IronGolemMixin extends EntityMixin implements IronGolemInt
         this.neg$owner = uuid;
     }
 
-    @Inject(method = "canTarget", at = @At("HEAD"), cancellable = true)
-    private void changeTarget(EntityType<?> type, CallbackInfoReturnable<Boolean> cir) {
-        if (this.isPlayerCreated() && type == EntityType.PLAYER
-                && (!this.world.getGameRules().getBoolean(Gamerules.ONLY_GOLEMS_OWNER_FRIENDLY))) {
-            cir.setReturnValue(false);
-        }
+    @Inject(method = "canTarget", at = @At("HEAD"))
+    private void canTarget(EntityType<?> type, CallbackInfoReturnable<Boolean> cir) {
+        this.entityType = type;
     }
 
     @Redirect(method = "canTarget", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/passive/IronGolemEntity;isPlayerCreated()Z"))
     private boolean changeIsPlayerCreated(IronGolemEntity instance) {
-        return false;
+        if (this.entityType != EntityType.PLAYER) {
+            return true;
+        } else {
+            if (instance.isPlayerCreated()) {
+                return !instance.getWorld().getGameRules().getBoolean(Gamerules.ONLY_GOLEMS_OWNER_FRIENDLY);
+            }
+            return false;
+        }
     }
 
     @Inject(method = "writeCustomDataToNbt", at = @At("TAIL"))

@@ -29,11 +29,9 @@ public class CarvedPumpkinBlockMixin implements IronGolemInterface {
 
     @Redirect(method = "trySpawnEntity", at = @At(value = "INVOKE", target = "Lnet/minecraft/advancement/criterion/SummonedEntityCriterion;trigger(Lnet/minecraft/server/network/ServerPlayerEntity;Lnet/minecraft/entity/Entity;)V"))
     private void changeCriteria(SummonedEntityCriterion instance, ServerPlayerEntity serverPlayer, Entity entity) {
-        if (entity instanceof LivingEntity livingEntity) {
-            if (livingEntity instanceof IronGolemInterface ironGolemEntity) {
-                instance.trigger(serverPlayer, livingEntity);
-                ironGolemEntity.setNeg$owner(serverPlayer.getUuid());
-            }
+        if ((entity instanceof LivingEntity livingEntity) && (livingEntity instanceof IronGolemInterface ironGolemEntity)) {
+            instance.trigger(serverPlayer, livingEntity);
+            ironGolemEntity.setNeg$owner(serverPlayer.getUuid());
         }
     }
 }

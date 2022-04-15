@@ -51,8 +51,9 @@ public abstract class IronGolemGoalMixin extends WanderGoalMixin implements Iron
             ServerWorld serverWorld = (ServerWorld) this.mob.world;
             List<PlayerEntity> playerList = serverWorld.getEntitiesByType(EntityType.PLAYER, this.mob.getBoundingBox().expand(32.0), this::isPlayerOwner);
             List<VillagerEntity> villagerList = serverWorld.getEntitiesByType(EntityType.VILLAGER, this.mob.getBoundingBox().expand(32.0), this::canVillagerSummonGolem);
-            List<LivingEntity> list = new ArrayList<>(playerList);
-            list.addAll(villagerList);
+            List<LivingEntity> list = new ArrayList<>();
+            if (!playerList.isEmpty()) list.addAll(playerList);
+            if (!villagerList.isEmpty()) list.addAll(villagerList);
             if (list.isEmpty()) cir.setReturnValue(null);
             LivingEntity livingEntity = list.get(this.mob.world.random.nextInt(list.size()));
             cir.setReturnValue(FuzzyTargeting.findTo(this.mob, 10, 7, livingEntity.getPos()));

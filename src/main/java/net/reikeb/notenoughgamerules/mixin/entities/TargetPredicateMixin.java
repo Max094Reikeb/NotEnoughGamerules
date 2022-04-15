@@ -29,10 +29,10 @@ public abstract class TargetPredicateMixin implements IronGolemInterface {
 
     @Inject(method = "test", at = @At("HEAD"), cancellable = true)
     private void test(LivingEntity baseEntity, LivingEntity targetEntity, CallbackInfoReturnable<Boolean> cir) {
-        if ((baseEntity instanceof IronGolemInterface ironGolemEntity) && (targetEntity instanceof PlayerEntity playerEntity)) {
-            if (playerEntity.world.getGameRules().getBoolean(Gamerules.ONLY_GOLEMS_OWNER_FRIENDLY) &&
-                    ironGolemEntity.isPlayerCreated() && playerEntity.getUuid() == ironGolemEntity.getNeg$owner())
-                cir.setReturnValue(false);
+        if ((baseEntity instanceof IronGolemInterface ironGolemEntity) && (targetEntity instanceof PlayerEntity playerEntity)
+                && (playerEntity.world.getGameRules().getBoolean(Gamerules.ONLY_GOLEMS_OWNER_FRIENDLY)
+                && ironGolemEntity.isPlayerCreated() && (playerEntity.getUuid() == ironGolemEntity.getNeg$owner()))) {
+            if (playerEntity.world.getGameRules().getBoolean(Gamerules.ONLY_GOLEMS_OWNER_FRIENDLY)) cir.setReturnValue(false);
         }
     }
 }
