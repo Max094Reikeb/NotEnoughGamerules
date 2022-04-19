@@ -37,20 +37,13 @@ public abstract class IronGolemGoalMixin extends WanderGoalMixin implements Iron
         return false;
     }
 
-    @Shadow
-    protected abstract boolean canVillagerSummonGolem(VillagerEntity villager);
-
-    private boolean isPlayerOwner(PlayerEntity player) {
-        return player.getUuid() == this.getNeg$owner();
-    }
-
     @Inject(method = "findVillagerPos", at = @At("HEAD"), cancellable = true)
     private void findVillagerPos(CallbackInfoReturnable<Vec3d> cir) {
         if ((this.mob instanceof IronGolemInterface ironGolem) && this.mob.world.getGameRules().getBoolean(Gamerules.ONLY_GOLEMS_OWNER_FRIENDLY)
                 && ironGolem.isPlayerCreated()) {
             ServerWorld serverWorld = (ServerWorld) this.mob.world;
-            List<PlayerEntity> playerList = serverWorld.getEntitiesByType(EntityType.PLAYER, this.mob.getBoundingBox().expand(32.0), this::isPlayerOwner);
-            List<VillagerEntity> villagerList = serverWorld.getEntitiesByType(EntityType.VILLAGER, this.mob.getBoundingBox().expand(32.0), this::canVillagerSummonGolem);
+            List<PlayerEntity> playerList = serverWorld.getEntitiesByType(EntityType.PLAYER, this.mob.getBoundingBox().expand(32.0), player -> player.getUuid() == this.getNeg$owner());
+            List<VillagerEntity> villagerList = serverWorld.getEntitiesByType(EntityType.VILLAGER, this.mob.getBoundingBox().expand(32.0), villager -> villager.canSummonGolem(this.mob.world.getTime()));
             List<LivingEntity> list = new ArrayList<>();
             if (!playerList.isEmpty()) list.addAll(playerList);
             if (!villagerList.isEmpty()) list.addAll(villagerList);

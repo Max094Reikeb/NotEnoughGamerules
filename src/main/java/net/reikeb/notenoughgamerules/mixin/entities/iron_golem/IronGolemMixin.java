@@ -49,7 +49,7 @@ public abstract class IronGolemMixin extends EntityMixin implements IronGolemInt
             return true;
         } else {
             if (instance.isPlayerCreated()) {
-                return !instance.getWorld().getGameRules().getBoolean(Gamerules.ONLY_GOLEMS_OWNER_FRIENDLY);
+                return instance.getWorld().getGameRules().getBoolean(Gamerules.ONLY_GOLEMS_OWNER_FRIENDLY);
             }
             return false;
         }
