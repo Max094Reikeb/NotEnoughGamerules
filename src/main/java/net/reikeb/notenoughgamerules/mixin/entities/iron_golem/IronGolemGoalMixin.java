@@ -13,11 +13,10 @@ import net.reikeb.notenoughgamerules.Gamerules;
 import net.reikeb.notenoughgamerules.IronGolemInterface;
 import net.reikeb.notenoughgamerules.mixin.entities.WanderGoalMixin;
 
+import org.jetbrains.annotations.Nullable;
+
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Shadow;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+import org.spongepowered.asm.mixin.Overwrite;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,19 +36,26 @@ public abstract class IronGolemGoalMixin extends WanderGoalMixin implements Iron
         return false;
     }
 
-    @Inject(method = "findVillagerPos", at = @At("HEAD"), cancellable = true)
-    private void findVillagerPos(CallbackInfoReturnable<Vec3d> cir) {
+    /**
+     * @author Mojang
+     */
+    @Overwrite
+    public @Nullable Vec3d findVillagerPos() {
+        ServerWorld serverWorld = (ServerWorld) this.mob.world;
+        List<VillagerEntity> villagerList = serverWorld.getEntitiesByType(EntityType.VILLAGER, this.mob.getBoundingBox().expand(32.0), villager -> villager.canSummonGolem(this.mob.world.getTime()));
         if ((this.mob instanceof IronGolemInterface ironGolem) && this.mob.world.getGameRules().getBoolean(Gamerules.ONLY_GOLEMS_OWNER_FRIENDLY)
                 && ironGolem.isPlayerCreated()) {
-            ServerWorld serverWorld = (ServerWorld) this.mob.world;
             List<PlayerEntity> playerList = serverWorld.getEntitiesByType(EntityType.PLAYER, this.mob.getBoundingBox().expand(32.0), player -> player.getUuid() == this.getNeg$owner());
-            List<VillagerEntity> villagerList = serverWorld.getEntitiesByType(EntityType.VILLAGER, this.mob.getBoundingBox().expand(32.0), villager -> villager.canSummonGolem(this.mob.world.getTime()));
             List<LivingEntity> list = new ArrayList<>();
             if (!playerList.isEmpty()) list.addAll(playerList);
             if (!villagerList.isEmpty()) list.addAll(villagerList);
-            if (list.isEmpty()) cir.setReturnValue(null);
+            if (list.isEmpty()) return null;
             LivingEntity livingEntity = list.get(this.mob.world.random.nextInt(list.size()));
-            cir.setReturnValue(FuzzyTargeting.findTo(this.mob, 10, 7, livingEntity.getPos()));
+            return FuzzyTargeting.findTo(this.mob, 10, 7, livingEntity.getPos());
+        } else {
+            if (villagerList.isEmpty()) return null;
+            VillagerEntity villagerEntity = villagerList.get(this.mob.world.random.nextInt(villagerList.size()));
+            return FuzzyTargeting.findTo(this.mob, 10, 7, villagerEntity.getPos());
         }
     }
 }
