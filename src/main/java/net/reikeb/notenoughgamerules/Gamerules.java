@@ -30,7 +30,6 @@ public class Gamerules {
     public static GameRules.Key<GameRules.BooleanRule> KEEP_XP;
     public static GameRules.Key<GameRules.IntRule> LIGHTNING_DAMAGE;
     public static GameRules.Key<GameRules.IntRule> NATURAL_HUNGER;
-    public static GameRules.Key<GameRules.BooleanRule> ONLY_GOLEMS_OWNER_FRIENDLY;
     public static GameRules.Key<GameRules.IntRule> POISON_HEALTH;
     public static GameRules.Key<GameRules.BooleanRule> PVP;
     public static GameRules.Key<GameRules.IntRule> RAW_MEAT_HUNGER;
@@ -62,7 +61,6 @@ public class Gamerules {
         KEEP_XP = GameRuleRegistry.register("keepXp", GameRules.Category.PLAYER, GameRuleFactory.createBooleanRule(false));
         LIGHTNING_DAMAGE = GameRuleRegistry.register("lightningDamage", GameRules.Category.PLAYER, GameRuleFactory.createIntRule(-1));
         NATURAL_HUNGER = GameRuleRegistry.register("naturalHunger", GameRules.Category.PLAYER, GameRuleFactory.createIntRule(-1));
-        ONLY_GOLEMS_OWNER_FRIENDLY = GameRuleRegistry.register("onlyGolemsOwnerFriendly", GameRules.Category.MOBS, GameRuleFactory.createBooleanRule(false));
         POISON_HEALTH = GameRuleRegistry.register("poisonHealth", GameRules.Category.PLAYER, GameRuleFactory.createIntRule(1));
         PVP = GameRuleRegistry.register("pvp", GameRules.Category.PLAYER, GameRuleFactory.createBooleanRule(true));
         RAW_MEAT_HUNGER = GameRuleRegistry.register("rawMeatHunger", GameRules.Category.PLAYER, GameRuleFactory.createIntRule(30));
