@@ -73,9 +73,6 @@ public class Gamerules {
     public static final GameRules.Key<GameRules.IntegerValue> NATURAL_HUNGER = GameRules
             .register("naturalHunger", GameRules.Category.PLAYER, NotEnoughGamerules.create(-1));
 
-    public static final GameRules.Key<GameRules.BooleanValue> ONLY_GOLEMS_OWNER_FRIENDLY = GameRules
-            .register("onlyGolemsOwnerFriendly", GameRules.Category.MOBS, NotEnoughGamerules.create(false));
-
     public static final GameRules.Key<GameRules.IntegerValue> POISON_HEALTH = GameRules
             .register("poisonHealth", GameRules.Category.PLAYER, NotEnoughGamerules.create(1));
 
