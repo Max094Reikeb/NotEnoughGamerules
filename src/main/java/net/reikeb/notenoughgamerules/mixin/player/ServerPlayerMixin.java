@@ -1,6 +1,7 @@
 package net.reikeb.notenoughgamerules.mixin.player;
 
 import net.minecraft.entity.Entity;
+import net.minecraft.screen.NamedScreenHandlerFactory;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.world.GameRules;
@@ -16,6 +17,8 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+
+import java.util.OptionalInt;
 
 @Mixin(ServerPlayerEntity.class)
 public abstract class ServerPlayerMixin extends PlayerMixin {
@@ -42,6 +45,11 @@ public abstract class ServerPlayerMixin extends PlayerMixin {
             this.totalExperience = oldPlayer.totalExperience;
             this.experienceProgress = oldPlayer.experienceProgress;
         }
+    }
+
+    @Inject(method = "openHandledScreen", at = @At(value = "HEAD"), cancellable = true)
+    private void openHandledScreen(NamedScreenHandlerFactory factory, CallbackInfoReturnable<OptionalInt> cir) {
+        if (!this.world.getGameRules().getBoolean(Gamerules.CAN_PLAYER_INTERACT_WITH_BLOCK)) cir.setReturnValue(OptionalInt.empty());
     }
 
     @Redirect(method = "copyFrom", at = @At(value = "FIELD", target = "Lnet/minecraft/server/network/ServerPlayerEntity;experienceLevel:I", opcode = Opcodes.PUTFIELD, ordinal = 1))

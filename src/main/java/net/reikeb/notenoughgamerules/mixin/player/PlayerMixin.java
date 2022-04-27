@@ -6,6 +6,7 @@ import net.minecraft.entity.player.HungerManager;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
+import net.minecraft.util.ActionResult;
 import net.minecraft.world.GameRules;
 
 import net.reikeb.notenoughgamerules.DamageSources;
@@ -63,6 +64,11 @@ public abstract class PlayerMixin extends LivingEntityMixin {
                 this.damage(DamageSources.SKY_HIGH, (float) 10);
             }
         }
+    }
+
+    @Inject(method = "interact", at = @At("HEAD"), cancellable = true)
+    private void interact(CallbackInfoReturnable<ActionResult> cir) {
+        if (!this.world.getGameRules().getBoolean(Gamerules.CAN_PLAYER_INTERACT_WITH_ENTITY)) cir.setReturnValue(ActionResult.FAIL);
     }
 
     @Redirect(method = "getXpToDrop", at = @At(value = "FIELD", target = "Lnet/minecraft/world/GameRules;KEEP_INVENTORY:Lnet/minecraft/world/GameRules$Key;", opcode = Opcodes.GETSTATIC))

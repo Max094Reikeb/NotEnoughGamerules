@@ -11,6 +11,9 @@ public class Gamerules {
     public static GameRules.Key<GameRules.BooleanRule> ANVIL_DAMAGE;
     public static GameRules.Key<GameRules.BooleanRule> CAN_COPPER_OXIDE;
     public static GameRules.Key<GameRules.BooleanRule> CAN_HURT_PET_MOBS;
+    public static GameRules.Key<GameRules.BooleanRule> CAN_PLAYER_INTERACT_WITH_BLOCK;
+    public static GameRules.Key<GameRules.BooleanRule> CAN_PLAYER_INTERACT_WITH_ENTITY;
+    public static GameRules.Key<GameRules.BooleanRule> CAN_PLAYER_INTERACT_WITH_WORLD;
     public static GameRules.Key<GameRules.BooleanRule> CAN_PLAYER_SLEEP;
     public static GameRules.Key<GameRules.BooleanRule> CAN_PLAYER_TAKE_DAMAGE;
     public static GameRules.Key<GameRules.BooleanRule> DISABLE_CHAT;
@@ -42,6 +45,9 @@ public class Gamerules {
         ANVIL_DAMAGE = GameRuleRegistry.register("anvilDamage", GameRules.Category.PLAYER, GameRuleFactory.createBooleanRule(true));
         CAN_COPPER_OXIDE = GameRuleRegistry.register("canCopperOxide", GameRules.Category.UPDATES, GameRuleFactory.createBooleanRule(true));
         CAN_HURT_PET_MOBS = GameRuleRegistry.register("canHurtPetMobs", GameRules.Category.MOBS, GameRuleFactory.createBooleanRule(true));
+        CAN_PLAYER_INTERACT_WITH_BLOCK = GameRuleRegistry.register("canPlayerInteractWithAction", GameRules.Category.PLAYER, GameRuleFactory.createBooleanRule(true));
+        CAN_PLAYER_INTERACT_WITH_ENTITY = GameRuleRegistry.register("canPlayerInteractWithEntity", GameRules.Category.PLAYER, GameRuleFactory.createBooleanRule(true));
+        CAN_PLAYER_INTERACT_WITH_WORLD = GameRuleRegistry.register("canPlayerInteractWithWorld", GameRules.Category.PLAYER, GameRuleFactory.createBooleanRule(true));
         CAN_PLAYER_SLEEP = GameRuleRegistry.register("canPlayerSleep", GameRules.Category.PLAYER, GameRuleFactory.createBooleanRule(true));
         CAN_PLAYER_TAKE_DAMAGE = GameRuleRegistry.register("canPlayerTakeDamage", GameRules.Category.PLAYER, GameRuleFactory.createBooleanRule(true));
         DISABLE_CHAT = GameRuleRegistry.register("disableChat", GameRules.Category.PLAYER, GameRuleFactory.createBooleanRule(false));
