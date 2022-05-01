@@ -10,10 +10,10 @@ public class Gamerules {
     public static GameRules.Key<GameRules.BooleanRule> ALWAYS_SPAWN_DRAGON_EGG;
     public static GameRules.Key<GameRules.BooleanRule> ANVIL_DAMAGE;
     public static GameRules.Key<GameRules.BooleanRule> CAN_COPPER_OXIDE;
-    public static GameRules.Key<GameRules.BooleanRule> CAN_HURT_PET_MOBS;
     public static GameRules.Key<GameRules.BooleanRule> CAN_ENTITY_INTERACT_WITH_BLOCK;
     public static GameRules.Key<GameRules.BooleanRule> CAN_ENTITY_INTERACT_WITH_ENTITY;
     public static GameRules.Key<GameRules.BooleanRule> CAN_ENTITY_INTERACT_WITH_WORLD;
+    public static GameRules.Key<GameRules.BooleanRule> CAN_HURT_PET_MOBS;
     public static GameRules.Key<GameRules.BooleanRule> CAN_PLAYER_SLEEP;
     public static GameRules.Key<GameRules.BooleanRule> CAN_PLAYER_TAKE_DAMAGE;
     public static GameRules.Key<GameRules.BooleanRule> DISABLE_CHAT;
