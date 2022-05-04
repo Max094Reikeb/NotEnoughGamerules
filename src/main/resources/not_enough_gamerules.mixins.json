@@ -9,6 +9,7 @@
     "EnderDragonFightMixin",
     "ServerWorldMixin",
     "StatusEffectMixin",
+    "blocks.AbstractBlockStateMixin",
     "blocks.CoralBlockBlockMixin",
     "blocks.CoralBlockMixin",
     "blocks.CoralFanMixin",
