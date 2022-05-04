@@ -7,7 +7,6 @@
     "EndDragonFightMixin",
     "MobEffectMixin",
     "ServerLevelMixin",
-    "blocks.ChangeBlockMixin",
     "blocks.CoralBlockMixin",
     "blocks.CoralFanBlockMixin",
     "blocks.CoralPlantBlockMixin",
