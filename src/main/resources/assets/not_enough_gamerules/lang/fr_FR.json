@@ -17,11 +17,9 @@
   "gamerule.explosionDamage.description": "Mettre à -1 pour utiliser les valeurs par défaut",
   "gamerule.lightningDamage": "Dégâts de foudre",
   "gamerule.naturalHunger": "Régénération de la nourriture",
-  "gamerule.pvp": "PVP",
   "gamerule.pvp.description": "Définit si deux joueurs peuvent se blesser",
   "gamerule.rawMeatHunger": "Ne mangez pas de la viande crue !",
   "gamerule.rawMeatHunger.description": "Définit le pourcentage de chance d'avoir faim si vous mangez de la viande crue",
-  "gamerule.skyHigh": "SkyHigh",
   "gamerule.skyHigh.description": "Définit la hauteur minimale requise avant de prendre des dégâts",
   "gamerule.tntExplodes": "Explosions de TNT",
   "message.not_enough_gamerules.sky_high_warning": "AVERTISSEMENT : Vous n'êtes pas assez haut ! Vous subirez des dégâts toutes les 10 secondes."
