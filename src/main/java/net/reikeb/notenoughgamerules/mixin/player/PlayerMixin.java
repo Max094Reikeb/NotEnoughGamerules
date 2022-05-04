@@ -68,7 +68,7 @@ public abstract class PlayerMixin extends LivingEntityMixin {
 
     @Inject(method = "interact", at = @At("HEAD"), cancellable = true)
     private void interact(CallbackInfoReturnable<ActionResult> cir) {
-        if (!this.world.getGameRules().getBoolean(Gamerules.CAN_ENTITY_INTERACT_WITH_ENTITY)) cir.setReturnValue(ActionResult.PASS);
+        if (!this.world.getGameRules().getBoolean(Gamerules.CAN_ENTITY_INTERACT_WITH_ENTITIES)) cir.setReturnValue(ActionResult.PASS);
     }
 
     @Redirect(method = "getXpToDrop", at = @At(value = "FIELD", target = "Lnet/minecraft/world/GameRules;KEEP_INVENTORY:Lnet/minecraft/world/GameRules$Key;", opcode = Opcodes.GETSTATIC))

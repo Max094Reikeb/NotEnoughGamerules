@@ -7,7 +7,7 @@
   "gamerule.canCopperOxide": "Can copper oxide",
   "gamerule.canCopperOxide.description": "Defines if normal copper can oxidize",
   "gamerule.canEntityInteractWithBlock": "Can entity interact with blocks",
-  "gamerule.canEntityInteractWithEntity": "Can entity interact with another entities",
+  "gamerule.canEntityInteractWithEntities": "Can entity interact with other entities",
   "gamerule.canEntityInteractWithWorld": "Can entity interact with world",
   "gamerule.canHurtPetMobs": "Can player hurt his pet mobs",
   "gamerule.canHurtPetMobs.description": "Defines if a player can hurt his own pets",

@@ -11,7 +11,7 @@ public class Gamerules {
     public static GameRules.Key<GameRules.BooleanRule> ANVIL_DAMAGE;
     public static GameRules.Key<GameRules.BooleanRule> CAN_COPPER_OXIDE;
     public static GameRules.Key<GameRules.BooleanRule> CAN_ENTITY_INTERACT_WITH_BLOCK;
-    public static GameRules.Key<GameRules.BooleanRule> CAN_ENTITY_INTERACT_WITH_ENTITY;
+    public static GameRules.Key<GameRules.BooleanRule> CAN_ENTITY_INTERACT_WITH_ENTITIES;
     public static GameRules.Key<GameRules.BooleanRule> CAN_ENTITY_INTERACT_WITH_WORLD;
     public static GameRules.Key<GameRules.BooleanRule> CAN_HURT_PET_MOBS;
     public static GameRules.Key<GameRules.BooleanRule> CAN_PLAYER_SLEEP;
@@ -45,7 +45,7 @@ public class Gamerules {
         ANVIL_DAMAGE = GameRuleRegistry.register("anvilDamage", GameRules.Category.PLAYER, GameRuleFactory.createBooleanRule(true));
         CAN_COPPER_OXIDE = GameRuleRegistry.register("canCopperOxide", GameRules.Category.UPDATES, GameRuleFactory.createBooleanRule(true));
         CAN_ENTITY_INTERACT_WITH_BLOCK = GameRuleRegistry.register("canEntityInteractWithBlock", GameRules.Category.MOBS, GameRuleFactory.createBooleanRule(true));
-        CAN_ENTITY_INTERACT_WITH_ENTITY = GameRuleRegistry.register("canEntityInteractWithEntity", GameRules.Category.MOBS, GameRuleFactory.createBooleanRule(true));
+        CAN_ENTITY_INTERACT_WITH_ENTITIES = GameRuleRegistry.register("canEntityInteractWithEntities", GameRules.Category.MOBS, GameRuleFactory.createBooleanRule(true));
         CAN_ENTITY_INTERACT_WITH_WORLD = GameRuleRegistry.register("canEntityInteractWithWorld", GameRules.Category.MOBS, GameRuleFactory.createBooleanRule(true));
         CAN_HURT_PET_MOBS = GameRuleRegistry.register("canHurtPetMobs", GameRules.Category.MOBS, GameRuleFactory.createBooleanRule(true));
         CAN_PLAYER_SLEEP = GameRuleRegistry.register("canPlayerSleep", GameRules.Category.PLAYER, GameRuleFactory.createBooleanRule(true));
