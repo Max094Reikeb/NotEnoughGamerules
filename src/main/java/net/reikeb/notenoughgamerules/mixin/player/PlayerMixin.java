@@ -8,14 +8,11 @@ import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.util.ActionResult;
 import net.minecraft.world.GameRules;
-
 import net.reikeb.notenoughgamerules.DamageSources;
 import net.reikeb.notenoughgamerules.Gamerules;
 import net.reikeb.notenoughgamerules.NotEnoughGamerules;
 import net.reikeb.notenoughgamerules.mixin.entities.LivingEntityMixin;
-
 import org.objectweb.asm.Opcodes;
-
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -68,7 +65,8 @@ public abstract class PlayerMixin extends LivingEntityMixin {
 
     @Inject(method = "interact", at = @At("HEAD"), cancellable = true)
     private void interact(CallbackInfoReturnable<ActionResult> cir) {
-        if (!this.world.getGameRules().getBoolean(Gamerules.CAN_ENTITY_INTERACT_WITH_ENTITIES)) cir.setReturnValue(ActionResult.PASS);
+        if (!this.world.getGameRules().getBoolean(Gamerules.CAN_ENTITY_INTERACT_WITH_ENTITIES))
+            cir.setReturnValue(ActionResult.PASS);
     }
 
     @Redirect(method = "getXpToDrop", at = @At(value = "FIELD", target = "Lnet/minecraft/world/GameRules;KEEP_INVENTORY:Lnet/minecraft/world/GameRules$Key;", opcode = Opcodes.GETSTATIC))

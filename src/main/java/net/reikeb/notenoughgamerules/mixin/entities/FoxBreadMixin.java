@@ -1,10 +1,7 @@
 package net.reikeb.notenoughgamerules.mixin.entities;
 
 import net.minecraft.entity.passive.FoxEntity;
-import net.minecraft.world.GameRules;
-
 import net.reikeb.notenoughgamerules.Gamerules;
-
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -20,7 +17,6 @@ public class FoxBreadMixin {
 
     @Inject(method = "breed", at = @At("HEAD"), cancellable = true)
     private void bread(CallbackInfo ci) {
-        GameRules gameRules = this.field_17973.world.getGameRules();
-        if (!gameRules.getBoolean(Gamerules.DO_BABIES_SPAWN)) ci.cancel();
+        if (!this.field_17973.world.getGameRules().getBoolean(Gamerules.DO_BABIES_SPAWN)) ci.cancel();
     }
 }

@@ -8,11 +8,8 @@ import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
-import net.minecraft.world.GameRules;
-
 import net.reikeb.notenoughgamerules.Gamerules;
 import net.reikeb.notenoughgamerules.NotEnoughGamerules;
-
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -34,15 +31,13 @@ public abstract class LivingEntityMixin extends EntityMixin {
 
     @Inject(method = "takeKnockback", at = @At("HEAD"), cancellable = true)
     private void takeKnockback(double strength, double x, double z, CallbackInfo ci) {
-        GameRules gameRules = this.world.getGameRules();
-        if (gameRules.getBoolean(Gamerules.DISABLE_KNOCKBACK)) ci.cancel();
+        if (this.world.getGameRules().getBoolean(Gamerules.DISABLE_KNOCKBACK)) ci.cancel();
     }
 
     @Inject(method = "consumeItem", at = @At(value = "INVOKE", target = "Lnet/minecraft/item/ItemStack;finishUsing(Lnet/minecraft/world/World;Lnet/minecraft/entity/LivingEntity;)Lnet/minecraft/item/ItemStack;", shift = At.Shift.AFTER))
     private void consumeItem(CallbackInfo ci) {
         ItemStack itemStack = this.activeItemStack;
-        Entity entity = this.world.getEntityById(this.getId());
-        if (entity instanceof PlayerEntity playerEntity) {
+        if (this.world.getEntityById(this.getId()) instanceof PlayerEntity playerEntity) {
             if ((Math.random() <= ((float) (this.world.getGameRules().getInt(Gamerules.RAW_MEAT_HUNGER) / 100)))
                     && ((itemStack.getItem() == Items.BEEF) || (itemStack.getItem() == Items.CHICKEN)
                     || (itemStack.getItem() == Items.COD) || (itemStack.getItem() == Items.MUTTON)

@@ -4,11 +4,8 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.LightningEntity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.server.world.ServerWorld;
-import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
-
 import net.reikeb.notenoughgamerules.Gamerules;
-
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -27,8 +24,7 @@ public abstract class EntityMixin {
     public abstract int getId();
 
     @Shadow
-    public void onStruckByLightning(ServerWorld world, LightningEntity lightning) {
-    }
+    public void onStruckByLightning(ServerWorld world, LightningEntity lightning) {}
 
     @Shadow
     public abstract boolean damage(DamageSource source, float amount);
@@ -38,9 +34,9 @@ public abstract class EntityMixin {
 
     @Inject(method = "onStruckByLightning", at = @At("HEAD"), cancellable = true)
     private void onStruckByLightning(ServerWorld world, LightningEntity lightning, CallbackInfo ci) {
-        GameRules gameRules = lightning.getWorld().getGameRules();
-        if (gameRules.getInt(Gamerules.LIGHTNING_DAMAGE) > -1) {
-            this.damage(DamageSource.LIGHTNING_BOLT, (float) gameRules.getInt(Gamerules.LIGHTNING_DAMAGE));
+        int lightningDamage = lightning.getWorld().getGameRules().getInt(Gamerules.LIGHTNING_DAMAGE);
+        if (lightningDamage > -1) {
+            this.damage(DamageSource.LIGHTNING_BOLT, (float) lightningDamage);
             ci.cancel();
         }
     }

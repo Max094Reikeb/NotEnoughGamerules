@@ -2,9 +2,7 @@ package net.reikeb.notenoughgamerules.mixin;
 
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffect;
-
 import net.reikeb.notenoughgamerules.Gamerules;
-
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Constant;

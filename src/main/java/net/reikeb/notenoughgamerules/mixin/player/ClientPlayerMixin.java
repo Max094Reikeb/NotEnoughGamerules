@@ -3,10 +3,8 @@ package net.reikeb.notenoughgamerules.mixin.player;
 import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.damage.DamageSource;
-
 import net.reikeb.notenoughgamerules.NotEnoughGamerules;
 import net.reikeb.notenoughgamerules.mixin.entities.LivingEntityMixin;
-
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
