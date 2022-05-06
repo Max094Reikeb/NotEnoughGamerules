@@ -2,12 +2,8 @@ package net.reikeb.not_enough_gamerules.mixin.player;
 
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.level.GameRules;
-
 import net.reikeb.not_enough_gamerules.Gamerules;
-
 import org.objectweb.asm.Opcodes;
-
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -23,8 +19,7 @@ public abstract class ServerPlayerMixin extends PlayerMixin {
 
     @Inject(method = "restoreFrom", at = @At("TAIL"))
     private void restoreFrom(ServerPlayer serverPlayer, boolean alive, CallbackInfo ci) {
-        GameRules gameRules = this.getLevel().getGameRules();
-        if (gameRules.getBoolean(Gamerules.KEEP_XP)) {
+        if (this.getLevel().getGameRules().getBoolean(Gamerules.KEEP_XP)) {
             this.experienceLevel = serverPlayer.experienceLevel;
             this.totalExperience = serverPlayer.totalExperience;
             this.experienceProgress = serverPlayer.experienceProgress;

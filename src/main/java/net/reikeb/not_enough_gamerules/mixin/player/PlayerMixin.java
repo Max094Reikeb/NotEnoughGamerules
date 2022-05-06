@@ -3,12 +3,9 @@ package net.reikeb.not_enough_gamerules.mixin.player;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.GameRules;
-
 import net.reikeb.not_enough_gamerules.Gamerules;
 import net.reikeb.not_enough_gamerules.mixin.entity.EntityMixin;
-
 import org.objectweb.asm.Opcodes;
-
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;

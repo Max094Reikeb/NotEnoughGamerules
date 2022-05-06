@@ -2,9 +2,7 @@ package net.reikeb.not_enough_gamerules.mixin.entity;
 
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.entity.monster.Zombie;
-
 import net.reikeb.not_enough_gamerules.Gamerules;
-
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
