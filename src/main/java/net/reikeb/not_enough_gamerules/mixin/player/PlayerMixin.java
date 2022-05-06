@@ -1,6 +1,9 @@
 package net.reikeb.not_enough_gamerules.mixin.player;
 
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.GameRules;
 import net.reikeb.not_enough_gamerules.Gamerules;
@@ -12,6 +15,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(Player.class)
 public class PlayerMixin extends EntityMixin {
@@ -24,6 +28,12 @@ public class PlayerMixin extends EntityMixin {
 
     @Shadow
     public int totalExperience;
+
+    @Inject(method = "interactOn", at = @At("HEAD"), cancellable = true)
+    private void interactOn(Entity entity, InteractionHand hand, CallbackInfoReturnable<InteractionResult> cir) {
+        if (!this.level.getGameRules().getBoolean(Gamerules.CAN_ENTITY_INTERACT_WITH_ENTITIES))
+            cir.setReturnValue(InteractionResult.PASS);
+    }
 
     @Redirect(method = "getExperienceReward", at = @At(value = "FIELD", target = "Lnet/minecraft/world/level/GameRules;RULE_KEEPINVENTORY:Lnet/minecraft/world/level/GameRules$Key;", opcode = Opcodes.GETSTATIC))
     private GameRules.Key<GameRules.BooleanValue> getXpToDrop() {

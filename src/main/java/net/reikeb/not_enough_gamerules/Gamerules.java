@@ -10,6 +10,15 @@ public class Gamerules {
     public static final GameRules.Key<GameRules.BooleanValue> ANVIL_DAMAGE = GameRules
             .register("anvilDamage", GameRules.Category.PLAYER, GameRules.BooleanValue.create(true));
 
+    public static final GameRules.Key<GameRules.BooleanValue> CAN_ENTITY_INTERACT_WITH_BLOCK = GameRules
+            .register("canEntityInteractWithBlock", GameRules.Category.MOBS, GameRules.BooleanValue.create(true));
+
+    public static final GameRules.Key<GameRules.BooleanValue> CAN_ENTITY_INTERACT_WITH_ENTITIES = GameRules
+            .register("canEntityInteractWithEntities", GameRules.Category.MOBS, GameRules.BooleanValue.create(true));
+
+    public static final GameRules.Key<GameRules.BooleanValue> CAN_ENTITY_INTERACT_WITH_WORLD = GameRules
+            .register("canEntityInteractWithWorld", GameRules.Category.MOBS, GameRules.BooleanValue.create(true));
+
     public static final GameRules.Key<GameRules.BooleanValue> CAN_HURT_PET_MOBS = GameRules
             .register("canHurtPetMobs", GameRules.Category.MOBS, GameRules.BooleanValue.create(true));
 
