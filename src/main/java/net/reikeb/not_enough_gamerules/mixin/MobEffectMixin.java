@@ -2,9 +2,7 @@ package net.reikeb.not_enough_gamerules.mixin;
 
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.entity.LivingEntity;
-
 import net.reikeb.not_enough_gamerules.Gamerules;
-
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Constant;

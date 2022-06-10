@@ -1,6 +1,6 @@
 package net.reikeb.not_enough_gamerules.events;
 
-import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -24,7 +24,7 @@ public class PlayerTickEvent {
                 }
             }
             if (entity.getY() < entity.level.getLevelData().getGameRules().getInt(Gamerules.SKY_HIGH)) {
-                entity.displayClientMessage(new TranslatableComponent("message.not_enough_gamerules.sky_high_warning"), true);
+                entity.displayClientMessage(Component.translatable("message.not_enough_gamerules.sky_high_warning"), true);
 
                 if (entity.level.getGameTime() % 200 == 0 && entity.tickCount > 199) {
                     entity.hurt(DamageSources.SKY_HIGH, (float) 10);

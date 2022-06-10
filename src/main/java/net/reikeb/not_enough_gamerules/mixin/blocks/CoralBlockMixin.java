@@ -2,6 +2,7 @@ package net.reikeb.not_enough_gamerules.mixin.blocks;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.block.CoralBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.reikeb.not_enough_gamerules.Gamerules;
@@ -10,13 +11,11 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-import java.util.Random;
-
 @Mixin(CoralBlock.class)
 public class CoralBlockMixin {
 
     @Inject(method = "tick", at = @At("HEAD"), cancellable = true)
-    private void tick(BlockState state, ServerLevel level, BlockPos pos, Random random, CallbackInfo ci) {
+    private void tick(BlockState state, ServerLevel level, BlockPos pos, RandomSource source, CallbackInfo ci) {
         if (!level.getGameRules().getBoolean(Gamerules.DO_CORAL_NEED_WATER)) ci.cancel();
     }
 }

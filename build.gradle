@@ -25,7 +25,7 @@ java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
 println('Java: ' + System.getProperty('java.version') + ' JVM: ' + System.getProperty('java.vm.version') + '(' + System.getProperty('java.vendor') + ') Arch: ' + System.getProperty('os.arch'))
 minecraft {
-    mappings channel: 'official', version: '1.18.2'
+    mappings channel: 'official', version: "${mappings_version}"
 
     accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
 
@@ -113,20 +113,3 @@ publishing {
         }
     }
 }
-
-// Jar signing
-import net.minecraftforge.gradle.common.tasks.SignJar
-
-task signJar(type: SignJar, dependsOn: jar) {
-    onlyIf {
-        project.hasProperty('keyStore')
-    }
-    keyStore = project.findProperty('keyStore')
-    alias = project.findProperty('keyStoreAlias')
-    storePass = project.findProperty('keyStorePass')
-    keyPass = project.findProperty('keyStoreKeyPass')
-    inputFile = jar.archivePath
-    outputFile = jar.archivePath
-}
-
-build.dependsOn signJar
