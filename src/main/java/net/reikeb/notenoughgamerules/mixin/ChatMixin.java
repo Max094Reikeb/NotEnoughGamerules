@@ -1,6 +1,7 @@
 package net.reikeb.notenoughgamerules.mixin;
 
-import net.minecraft.server.filter.TextStream;
+import net.minecraft.network.packet.c2s.play.ChatMessageC2SPacket;
+import net.minecraft.server.filter.FilteredMessage;
 import net.minecraft.server.network.ServerPlayNetworkHandler;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.reikeb.notenoughgamerules.Gamerules;
@@ -16,8 +17,8 @@ public class ChatMixin {
     public ServerPlayerEntity player;
 
     @Inject(method = "handleMessage", at = @At("HEAD"), cancellable = true)
-    private void handleMessage(TextStream.Message message, CallbackInfo ci) {
-        if ((!message.getRaw().startsWith("/")) && (this.player.getWorld().getGameRules().getBoolean(Gamerules.DISABLE_CHAT)))
+    private void handleMessage(ChatMessageC2SPacket packet, FilteredMessage<String> message, CallbackInfo ci) {
+        if ((!packet.getChatMessage().startsWith("/")) && (this.player.getWorld().getGameRules().getBoolean(Gamerules.DISABLE_CHAT)))
             ci.cancel();
     }
 }
