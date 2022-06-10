@@ -5,7 +5,6 @@ import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.player.HungerManager;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.ActionResult;
 import net.minecraft.world.GameRules;
 import net.reikeb.notenoughgamerules.DamageSources;
@@ -55,7 +54,7 @@ public abstract class PlayerMixin extends LivingEntityMixin {
             this.hungerManager.setFoodLevel(20);
         }
         if (this.getY() < this.world.getGameRules().getInt(Gamerules.SKY_HIGH)) {
-            this.sendMessage(new TranslatableText("message.not_enough_gamerules.sky_high_warning"), true);
+            this.sendMessage(Text.translatable("message.not_enough_gamerules.sky_high_warning"), true);
 
             if (this.world.getTime() % 200 == 0 && this.age > 199) {
                 this.damage(DamageSources.SKY_HIGH, (float) 10);
