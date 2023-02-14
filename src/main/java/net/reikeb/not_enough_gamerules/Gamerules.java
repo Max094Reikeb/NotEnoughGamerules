@@ -67,14 +67,17 @@ public class Gamerules {
     public static final GameRules.Key<GameRules.IntegerValue> EXPLOSION_DAMAGE = GameRules
             .register("explosionDamage", GameRules.Category.PLAYER, GameRules.IntegerValue.create(-1));
 
-    public static final GameRules.Key<GameRules.IntegerValue> LIGHTNING_DAMAGE = GameRules
-            .register("lightningDamage", GameRules.Category.PLAYER, GameRules.IntegerValue.create(-1));
+    public static final GameRules.Key<GameRules.BooleanValue> FALLING_BLOCKS_DAMAGE = GameRules
+            .register("fallingBlocksDamage", GameRules.Category.PLAYER, GameRules.BooleanValue.create(true));
 
     public static final GameRules.Key<GameRules.BooleanValue> KEEP_EFFECTS = GameRules
             .register("keepEffects", GameRules.Category.PLAYER, GameRules.BooleanValue.create(false));
 
     public static final GameRules.Key<GameRules.BooleanValue> KEEP_XP = GameRules
             .register("keepXp", GameRules.Category.PLAYER, GameRules.BooleanValue.create(false));
+
+    public static final GameRules.Key<GameRules.IntegerValue> LIGHTNING_DAMAGE = GameRules
+            .register("lightningDamage", GameRules.Category.PLAYER, GameRules.IntegerValue.create(-1));
 
     public static final GameRules.Key<GameRules.IntegerValue> NATURAL_HUNGER = GameRules
             .register("naturalHunger", GameRules.Category.PLAYER, GameRules.IntegerValue.create(-1));
@@ -90,6 +93,9 @@ public class Gamerules {
 
     public static final GameRules.Key<GameRules.IntegerValue> SKY_HIGH = GameRules
             .register("skyHigh", GameRules.Category.MISC, GameRules.IntegerValue.create(-64));
+
+    public static final GameRules.Key<GameRules.BooleanValue> STALACTITE_DAMAGE = GameRules
+            .register("stalactiteDamage", GameRules.Category.PLAYER, GameRules.BooleanValue.create(true));
 
     public static final GameRules.Key<GameRules.BooleanValue> TNT_EXPLODES = GameRules
             .register("tntExplodes", GameRules.Category.MISC, GameRules.BooleanValue.create(true));

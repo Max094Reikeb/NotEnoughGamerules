@@ -35,6 +35,12 @@ public class PlayerHurtEvent {
             if ((!gamerules.getBoolean(Gamerules.ANVIL_DAMAGE)) && (event.getSource() == DamageSource.anvil(entity))) {
                 event.setCanceled(event.isCancelable());
             }
+            if ((!gamerules.getBoolean(Gamerules.FALLING_BLOCKS_DAMAGE)) && (event.getSource() == DamageSource.fallingBlock(entity))) {
+                event.setCanceled(event.isCancelable());
+            }
+            if ((!gamerules.getBoolean(Gamerules.STALACTITE_DAMAGE)) && (event.getSource() == DamageSource.STALAGMITE)) {
+                event.setCanceled(event.isCancelable());
+            }
             if ((gamerules.getInt(Gamerules.DRAGON_BREATH_DAMAGE) > -1) && (event.getSource() == DamageSource.DRAGON_BREATH)) {
                 event.setCanceled(event.isCancelable());
                 entity.hurt(DamageSource.DRAGON_BREATH, (float) gamerules.getInt(Gamerules.DRAGON_BREATH_DAMAGE));
