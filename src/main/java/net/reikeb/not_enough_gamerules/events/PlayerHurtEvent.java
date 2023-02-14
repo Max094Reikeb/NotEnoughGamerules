@@ -19,14 +19,15 @@ public class PlayerHurtEvent {
     public static void onEntityAttacked(LivingAttackEvent event) {
         if (event != null && event.getEntity() != null) {
             LivingEntity entity = event.getEntity();
-            LivingEntity sourceentity = (LivingEntity) event.getSource().getEntity();
             GameRules gamerules = entity.level.getLevelData().getGameRules();
-            if ((!gamerules.getBoolean(Gamerules.CAN_HURT_PET_MOBS)) && (sourceentity instanceof Player) &&
-                    (entity instanceof TamableAnimal tamedEntity) && (tamedEntity.isTame()) && (tamedEntity.getOwner() == sourceentity)) {
-                event.setCanceled(event.isCancelable());
-            }
-            if ((!gamerules.getBoolean(Gamerules.PVP)) && (entity instanceof Player) && (sourceentity instanceof Player)) {
-                event.setCanceled(event.isCancelable());
+            if (event.getSource().getEntity() instanceof LivingEntity sourceentity) {
+                if ((!gamerules.getBoolean(Gamerules.CAN_HURT_PET_MOBS)) && (sourceentity instanceof Player) &&
+                        (entity instanceof TamableAnimal tamedEntity) && (tamedEntity.isTame()) && (tamedEntity.getOwner() == sourceentity)) {
+                    event.setCanceled(event.isCancelable());
+                }
+                if ((!gamerules.getBoolean(Gamerules.PVP)) && (entity instanceof Player) && (sourceentity instanceof Player)) {
+                    event.setCanceled(event.isCancelable());
+                }
             }
             if ((gamerules.getInt(Gamerules.EXPLOSION_DAMAGE) > -1) && (event.getSource().isExplosion())) {
                 event.setCanceled(event.isCancelable());
