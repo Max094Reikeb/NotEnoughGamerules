@@ -18,7 +18,7 @@ public class PlayerHurtEvent {
     @SubscribeEvent
     public static void onEntityAttacked(LivingAttackEvent event) {
         if (event != null && event.getEntity() != null) {
-            LivingEntity entity = (LivingEntity) event.getEntity();
+            LivingEntity entity = event.getEntity();
             LivingEntity sourceentity = (LivingEntity) event.getSource().getEntity();
             GameRules gamerules = entity.level.getLevelData().getGameRules();
             if ((!gamerules.getBoolean(Gamerules.CAN_HURT_PET_MOBS)) && (sourceentity instanceof Player) &&
@@ -32,7 +32,7 @@ public class PlayerHurtEvent {
                 event.setCanceled(event.isCancelable());
                 entity.hurt(DamageSources.EXPLOSION, (float) gamerules.getInt(Gamerules.EXPLOSION_DAMAGE));
             }
-            if ((!gamerules.getBoolean(Gamerules.ANVIL_DAMAGE)) && (event.getSource() == DamageSource.ANVIL)) {
+            if ((!gamerules.getBoolean(Gamerules.ANVIL_DAMAGE)) && (event.getSource() == DamageSource.anvil(entity))) {
                 event.setCanceled(event.isCancelable());
             }
             if ((gamerules.getInt(Gamerules.DRAGON_BREATH_DAMAGE) > -1) && (event.getSource() == DamageSource.DRAGON_BREATH)) {
