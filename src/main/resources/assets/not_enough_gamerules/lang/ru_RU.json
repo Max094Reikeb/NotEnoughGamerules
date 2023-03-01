@@ -1,1 +1,8 @@
-{}
+{
+  "death.attack.explosion": "%1$s был взорван",
+  "gamerule.alwaysSpawnDragonEgg": "Всегда спавнить яйцо дракона",
+  "gamerule.canHurtPetMobs": "Причинение вреда своим питомцам",
+  "gamerule.canHurtPetMobs.description": "Определяет, может ли игрок причинить вред своим питомцам",
+  "gamerule.canPlayerSleep": "Возможность сна",
+  "gamerule.canPlayerSleep.description": "Определяет, может ли игрок ложиться в кровать"
+}
