@@ -47,6 +47,7 @@ body:
       label: |
         Mod Version
       options:
+        - "1.5.3"
         - "1.5.2"
         - "1.5.1"
         - "1.5"
@@ -72,6 +73,7 @@ body:
       label: |
         Minecraft Version
       options:
+        - "1.19.4"
         - "1.19.3"
         - "1.19.2"
         - "1.19"

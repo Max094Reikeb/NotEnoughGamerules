@@ -47,6 +47,7 @@ body:
       label: |
         Mod Version
       options:
+        - "1.5.1"
         - "1.5"
         - "1.4.2"
         - "1.4.1"
@@ -58,6 +59,7 @@ body:
       label: |
         Minecraft Version
       options:
+        - "1.19.2"
         - "1.19"
         - "1.18.2"
     validations:
@@ -68,6 +70,7 @@ body:
       label: |
         Fabric Loader Version
       options:
+        - "0.14.14"
         - "0.13.3"
     validations:
       required: true
