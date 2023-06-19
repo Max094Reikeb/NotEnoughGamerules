@@ -13,21 +13,19 @@ public class PlayerTickEvent {
 
     @SubscribeEvent
     public static void onPlayerTick(TickEvent.PlayerTickEvent event) {
-        if (event.phase == TickEvent.Phase.END && !event.player.level.isClientSide) {
-            Player entity = event.player;
+        if (event.phase != TickEvent.Phase.END || event.player.level.isClientSide) return;
 
-            int naturalHunger = entity.level.getLevelData().getGameRules().getInt(Gamerules.NATURAL_HUNGER);
-            if (naturalHunger > -1) {
-                if (entity.getFoodData().getFoodLevel() < naturalHunger) {
-                    entity.getFoodData().setFoodLevel(20);
-                }
-            }
-            if (entity.getY() < entity.level.getLevelData().getGameRules().getInt(Gamerules.SKY_HIGH)) {
-                entity.displayClientMessage(Component.translatable("message.not_enough_gamerules.sky_high_warning"), true);
+        Player player = event.player;
+        int naturalHunger = player.level.getLevelData().getGameRules().getInt(Gamerules.NATURAL_HUNGER);
 
-                if (entity.level.getGameTime() % 200 == 0 && entity.tickCount > 199) {
-                    entity.hurt(NotEnoughGamerules.damageSource(entity.level, "sky_high"), (float) 10);
-                }
+        if (naturalHunger > -1 && player.getFoodData().getFoodLevel() < naturalHunger)
+            player.getFoodData().setFoodLevel(20);
+
+        if (player.getY() < player.level.getLevelData().getGameRules().getInt(Gamerules.SKY_HIGH)) {
+            player.displayClientMessage(Component.translatable("message.not_enough_gamerules.sky_high_warning"), true);
+
+            if (player.level.getGameTime() % 200 == 0 && player.tickCount > 199) {
+                player.hurt(NotEnoughGamerules.damageSource(player.level, "sky_high"), (float) 10);
             }
         }
     }
