@@ -12,6 +12,7 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 
 @Mixin(EnderDragonFight.class)
 public class EnderDragonFightMixin {
+
     @Shadow
     private boolean previouslyKilled;
 

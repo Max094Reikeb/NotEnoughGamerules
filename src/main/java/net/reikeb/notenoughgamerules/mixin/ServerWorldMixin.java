@@ -13,6 +13,7 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 
 @Mixin(ServerWorld.class)
 public abstract class ServerWorldMixin {
+
     @Shadow
     public abstract MinecraftServer getServer();
 

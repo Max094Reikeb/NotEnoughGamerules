@@ -15,6 +15,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(ServerPlayerEntity.class)
 public abstract class ServerPlayerMixin extends PlayerMixin {
+
     @Shadow
     public abstract ServerWorld getWorld();
 

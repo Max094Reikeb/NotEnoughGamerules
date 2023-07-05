@@ -8,6 +8,7 @@ import org.spongepowered.asm.mixin.Shadow;
 
 @Mixin(WanderAroundGoal.class)
 public class WanderGoalMixin {
+
     @Final
     @Shadow
     protected PathAwareEntity mob;

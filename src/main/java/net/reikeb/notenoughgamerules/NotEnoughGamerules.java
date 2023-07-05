@@ -24,21 +24,27 @@ public class NotEnoughGamerules implements ModInitializer {
     public static void damageGamerule(Entity entity, DamageSource source, CallbackInfoReturnable<Boolean> cir) {
         if (entity == null) return;
         GameRules gameRules = entity.getWorld().getGameRules();
-        if ((!gameRules.getBoolean(Gamerules.CAN_HURT_PET_MOBS)) && (source.getSource() instanceof PlayerEntity) &&
-                (entity instanceof TameableEntity tameableEntity) && (tameableEntity.isTamed()) && (tameableEntity.getOwner() == source.getSource())) {
+        if (!gameRules.getBoolean(Gamerules.CAN_HURT_PET_MOBS) && source.getSource() instanceof PlayerEntity &&
+                entity instanceof TameableEntity tameableEntity && tameableEntity.isTamed() && tameableEntity.getOwner() == source.getSource()) {
             cir.cancel();
         }
-        if ((!gameRules.getBoolean(Gamerules.PVP)) && (entity instanceof PlayerEntity) && (source.getSource() instanceof PlayerEntity)) {
+        if (!gameRules.getBoolean(Gamerules.PVP) && entity instanceof PlayerEntity && source.getSource() instanceof PlayerEntity) {
             cir.cancel();
         }
-        if ((gameRules.getInt(Gamerules.EXPLOSION_DAMAGE) > -1) && (source.isExplosive())) {
+        if (gameRules.getInt(Gamerules.EXPLOSION_DAMAGE) > -1 && source.isExplosive()) {
             entity.damage(DamageSources.EXPLOSION, (float) gameRules.getInt(Gamerules.EXPLOSION_DAMAGE));
             cir.cancel();
         }
-        if ((!gameRules.getBoolean(Gamerules.ANVIL_DAMAGE)) && (source == DamageSource.ANVIL)) {
+        if (!gameRules.getBoolean(Gamerules.ANVIL_DAMAGE) && source.getName().equals(DamageSource.anvil(source.getSource()).getName())) {
             cir.cancel();
         }
-        if ((gameRules.getInt(Gamerules.DRAGON_BREATH_DAMAGE) > -1) && (source == DamageSource.DRAGON_BREATH)) {
+        if (!gameRules.getBoolean(Gamerules.FALLING_BLOCKS_DAMAGE) && source.getName().equals(DamageSource.fallingBlock(source.getSource()).getName())) {
+            cir.cancel();
+        }
+        if (!gameRules.getBoolean(Gamerules.STALACTITE_DAMAGE) && source.getName().equals(DamageSource.fallingStalactite(source.getSource()).getName())) {
+            cir.cancel();
+        }
+        if (gameRules.getInt(Gamerules.DRAGON_BREATH_DAMAGE) > -1 && source == DamageSource.DRAGON_BREATH) {
             entity.damage(DamageSource.DRAGON_BREATH, (float) gameRules.getInt(Gamerules.DRAGON_BREATH_DAMAGE));
             cir.cancel();
         }

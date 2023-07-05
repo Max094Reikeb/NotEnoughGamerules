@@ -11,13 +11,21 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(ServerPlayNetworkHandler.class)
-public class ChatMixin {
+public abstract class ChatMixin {
+
     @Shadow
     public ServerPlayerEntity player;
 
+    @Shadow
+    private static boolean hasIllegalCharacter(String message) {
+        return false;
+    }
+
     @Inject(method = "onChatMessage", at = @At("HEAD"), cancellable = true)
     private void onChatMessage(ChatMessageC2SPacket packet, CallbackInfo ci) {
-        if ((!packet.chatMessage().startsWith("/")) && (this.player.getWorld().getGameRules().getBoolean(Gamerules.DISABLE_CHAT)))
-            ci.cancel();
+        if (!hasIllegalCharacter(packet.chatMessage())) {
+            if (!packet.chatMessage().startsWith("/") && (this.player.getWorld().getGameRules().getBoolean(Gamerules.DISABLE_CHAT)))
+                ci.cancel();
+        }
     }
 }
