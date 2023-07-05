@@ -6,8 +6,8 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 
 @Mixin(Entity.class)
-public class EntityMixin {
+public abstract class EntityMixin {
 
     @Shadow
-    public Level level;
+    public abstract Level level();
 }

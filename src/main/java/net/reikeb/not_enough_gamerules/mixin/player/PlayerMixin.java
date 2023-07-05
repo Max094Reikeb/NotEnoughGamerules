@@ -18,7 +18,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(Player.class)
-public class PlayerMixin extends EntityMixin {
+public abstract class PlayerMixin extends EntityMixin {
 
     @Shadow
     public float experienceProgress;
@@ -31,7 +31,7 @@ public class PlayerMixin extends EntityMixin {
 
     @Inject(method = "interactOn", at = @At("HEAD"), cancellable = true)
     private void interactOn(Entity entity, InteractionHand hand, CallbackInfoReturnable<InteractionResult> cir) {
-        if (!this.level.getGameRules().getBoolean(Gamerules.CAN_ENTITY_INTERACT_WITH_ENTITIES))
+        if (!this.level().getGameRules().getBoolean(Gamerules.CAN_ENTITY_INTERACT_WITH_ENTITIES))
             cir.setReturnValue(InteractionResult.PASS);
     }
 
@@ -42,6 +42,6 @@ public class PlayerMixin extends EntityMixin {
 
     @Inject(method = "actuallyHurt", at = @At("HEAD"), cancellable = true)
     private void actuallyHurt(DamageSource damageSource, float f, CallbackInfo ci) {
-        if (!this.level.getGameRules().getBoolean(Gamerules.CAN_PLAYER_TAKE_DAMAGE)) ci.cancel();
+        if (!this.level().getGameRules().getBoolean(Gamerules.CAN_PLAYER_TAKE_DAMAGE)) ci.cancel();
     }
 }

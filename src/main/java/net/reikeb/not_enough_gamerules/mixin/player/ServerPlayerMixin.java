@@ -15,11 +15,11 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public abstract class ServerPlayerMixin extends PlayerMixin {
 
     @Shadow
-    public abstract ServerLevel getLevel();
+    public abstract ServerLevel serverLevel();
 
     @Inject(method = "restoreFrom", at = @At("TAIL"))
     private void restoreFrom(ServerPlayer serverPlayer, boolean alive, CallbackInfo ci) {
-        if (this.getLevel().getGameRules().getBoolean(Gamerules.KEEP_XP)) {
+        if (this.serverLevel().getGameRules().getBoolean(Gamerules.KEEP_XP)) {
             this.experienceLevel = serverPlayer.experienceLevel;
             this.totalExperience = serverPlayer.totalExperience;
             this.experienceProgress = serverPlayer.experienceProgress;
