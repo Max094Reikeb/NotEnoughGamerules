@@ -2,17 +2,18 @@
   "schemaVersion": 1,
   "id": "not_enough_gamerules",
   "version": "${version}",
-
   "name": "Not Enough Gamerules",
   "description": "Not Enough Gamerules is a very simple mod that adds Gamerules.",
   "authors": [
     "Max094_Reikeb"
   ],
-  "contact": {},
-
+  "contact": {
+    "homepage": "https://modrinth.com/mod/not-enough-gamerules",
+    "sources": "https://github.com/Max094Reikeb/NotEnoughGamerules",
+    "issues": "https://github.com/Max094Reikeb/NotEnoughGamerules/issues"
+  },
   "license": "All-Rights-Reserved",
   "icon": "assets/not_enough_gamerules/icon.png",
-
   "environment": "*",
   "entrypoints": {
     "main": [
@@ -22,7 +23,6 @@
   "mixins": [
     "not_enough_gamerules.mixins.json"
   ],
-
   "depends": {
     "fabricloader": ">=0.14.21",
     "fabric": "*",

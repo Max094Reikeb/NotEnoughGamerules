@@ -35,7 +35,13 @@ public class NotEnoughGamerules implements ModInitializer {
             entity.damage(DamageSources.EXPLOSION, (float) gameRules.getInt(Gamerules.EXPLOSION_DAMAGE));
             cir.cancel();
         }
-        if (!gameRules.getBoolean(Gamerules.ANVIL_DAMAGE) && source == DamageSource.anvil(source.getSource())) {
+        if (!gameRules.getBoolean(Gamerules.ANVIL_DAMAGE) && source.getName().equals(DamageSource.anvil(source.getSource()).getName())) {
+            cir.cancel();
+        }
+        if (!gameRules.getBoolean(Gamerules.FALLING_BLOCKS_DAMAGE) && source.getName().equals(DamageSource.fallingBlock(source.getSource()).getName())) {
+            cir.cancel();
+        }
+        if (!gameRules.getBoolean(Gamerules.STALACTITE_DAMAGE) && source.getName().equals(DamageSource.fallingStalactite(source.getSource()).getName())) {
             cir.cancel();
         }
         if (gameRules.getInt(Gamerules.DRAGON_BREATH_DAMAGE) > -1 && source == DamageSource.DRAGON_BREATH) {

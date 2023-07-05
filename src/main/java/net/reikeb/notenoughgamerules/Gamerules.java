@@ -28,6 +28,7 @@ public class Gamerules {
     public static GameRules.Key<GameRules.BooleanRule> DO_TRANSFORMATIONS;
     public static GameRules.Key<GameRules.IntRule> DRAGON_BREATH_DAMAGE;
     public static GameRules.Key<GameRules.IntRule> EXPLOSION_DAMAGE;
+    public static GameRules.Key<GameRules.BooleanRule> FALLING_BLOCKS_DAMAGE;
     public static GameRules.Key<GameRules.BooleanRule> KEEP_EFFECTS;
     public static GameRules.Key<GameRules.BooleanRule> KEEP_XP;
     public static GameRules.Key<GameRules.IntRule> LIGHTNING_DAMAGE;
@@ -36,6 +37,7 @@ public class Gamerules {
     public static GameRules.Key<GameRules.BooleanRule> PVP;
     public static GameRules.Key<GameRules.IntRule> RAW_MEAT_HUNGER;
     public static GameRules.Key<GameRules.IntRule> SKY_HIGH;
+    public static GameRules.Key<GameRules.BooleanRule> STALACTITE_DAMAGE;
     public static GameRules.Key<GameRules.BooleanRule> TNT_EXPLODES;
     public static GameRules.Key<GameRules.IntRule> VILLAGER_CONVERSION;
 
@@ -62,6 +64,7 @@ public class Gamerules {
         DO_TRANSFORMATIONS = GameRuleRegistry.register("doTransformations", GameRules.Category.MOBS, GameRuleFactory.createBooleanRule(true));
         DRAGON_BREATH_DAMAGE = GameRuleRegistry.register("dragonBreathDamage", GameRules.Category.PLAYER, GameRuleFactory.createIntRule(-1));
         EXPLOSION_DAMAGE = GameRuleRegistry.register("explosionDamage", GameRules.Category.PLAYER, GameRuleFactory.createIntRule(-1));
+        FALLING_BLOCKS_DAMAGE = GameRuleRegistry.register("fallingBlocksDamage", GameRules.Category.PLAYER, GameRuleFactory.createBooleanRule(true));
         KEEP_EFFECTS = GameRuleRegistry.register("keepEffects", GameRules.Category.PLAYER, GameRuleFactory.createBooleanRule(false));
         KEEP_XP = GameRuleRegistry.register("keepXp", GameRules.Category.PLAYER, GameRuleFactory.createBooleanRule(false));
         LIGHTNING_DAMAGE = GameRuleRegistry.register("lightningDamage", GameRules.Category.PLAYER, GameRuleFactory.createIntRule(-1));
@@ -70,6 +73,7 @@ public class Gamerules {
         PVP = GameRuleRegistry.register("pvp", GameRules.Category.PLAYER, GameRuleFactory.createBooleanRule(true));
         RAW_MEAT_HUNGER = GameRuleRegistry.register("rawMeatHunger", GameRules.Category.PLAYER, GameRuleFactory.createIntRule(30));
         SKY_HIGH = GameRuleRegistry.register("skyHigh", GameRules.Category.MISC, GameRuleFactory.createIntRule(-64));
+        STALACTITE_DAMAGE = GameRuleRegistry.register("stalactiteDamage", GameRules.Category.PLAYER, GameRuleFactory.createBooleanRule(true));
         TNT_EXPLODES = GameRuleRegistry.register("tntExplodes", GameRules.Category.MISC, GameRuleFactory.createBooleanRule(true));
         VILLAGER_CONVERSION = GameRuleRegistry.register("villagerConversion", GameRules.Category.MOBS, GameRuleFactory.createIntRule(50));
     }
