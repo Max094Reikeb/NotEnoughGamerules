@@ -12,6 +12,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(ZombieEntity.class)
 public abstract class ZombieMixin extends MobEntityMixin {
+
     @Inject(method = "tick", at = @At("HEAD"), cancellable = true)
     private void tick(CallbackInfo ci) {
         if (!this.world.getGameRules().getBoolean(Gamerules.DO_TRANSFORMATIONS)) {
