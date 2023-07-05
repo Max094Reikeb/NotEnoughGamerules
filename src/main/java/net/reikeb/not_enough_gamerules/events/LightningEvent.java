@@ -11,7 +11,7 @@ public class LightningEvent {
 
     @SubscribeEvent
     public static void onLightning(EntityStruckByLightningEvent event) {
-        int lightningDamage = event.getLightning().level.getLevelData().getGameRules().getInt(Gamerules.LIGHTNING_DAMAGE);
+        int lightningDamage = event.getLightning().level().getLevelData().getGameRules().getInt(Gamerules.LIGHTNING_DAMAGE);
         if (lightningDamage > -1) {
             event.setCanceled(event.isCancelable());
             event.getEntity().hurt(event.getEntity().damageSources().lightningBolt(), (float) lightningDamage);

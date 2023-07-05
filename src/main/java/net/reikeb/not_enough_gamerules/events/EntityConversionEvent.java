@@ -11,7 +11,7 @@ public class EntityConversionEvent {
 
     @SubscribeEvent
     public static void entityTransforms(LivingConversionEvent.Pre event) {
-        if (!event.getEntity().level.getLevelData().getGameRules().getBoolean(Gamerules.DO_TRANSFORMATIONS)) {
+        if (!event.getEntity().level().getLevelData().getGameRules().getBoolean(Gamerules.DO_TRANSFORMATIONS)) {
             event.setCanceled(event.isCancelable());
         }
     }

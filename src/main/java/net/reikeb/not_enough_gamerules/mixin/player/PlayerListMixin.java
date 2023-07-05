@@ -16,7 +16,7 @@ public class PlayerListMixin {
     @Inject(method = "respawn", at = @At("TAIL"))
     private void respawn(ServerPlayer s, boolean f1, CallbackInfoReturnable<ServerPlayer> cir) {
         Player newPlayer = cir.getReturnValue();
-        if (newPlayer.getLevel().getGameRules().getBoolean(Gamerules.KEEP_EFFECTS)) {
+        if (newPlayer.level().getGameRules().getBoolean(Gamerules.KEEP_EFFECTS)) {
             for (int i = 0; i < s.getActiveEffects().size(); i++) {
                 MobEffectInstance effectInstance = s.getActiveEffects().stream().toList().get(i);
                 newPlayer.addEffect(effectInstance, s);

@@ -12,7 +12,7 @@ public class BabySpawnEvent {
     @SubscribeEvent
     public static void onBabySpawn(BabyEntitySpawnEvent event) {
         if (event.getChild() == null) return;
-        if (!event.getChild().level.getLevelData().getGameRules().getBoolean(Gamerules.DO_BABIES_SPAWN)) {
+        if (!event.getChild().level().getLevelData().getGameRules().getBoolean(Gamerules.DO_BABIES_SPAWN)) {
             event.setCanceled(event.isCancelable());
         }
     }

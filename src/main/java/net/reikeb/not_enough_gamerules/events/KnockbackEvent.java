@@ -11,7 +11,7 @@ public class KnockbackEvent {
 
     @SubscribeEvent
     public static void onKnockback(LivingKnockBackEvent event) {
-        if (event.getEntity().level.getLevelData().getGameRules().getBoolean(Gamerules.DISABLE_KNOCKBACK)) {
+        if (event.getEntity().level().getLevelData().getGameRules().getBoolean(Gamerules.DISABLE_KNOCKBACK)) {
             event.setCanceled(event.isCancelable());
         }
     }

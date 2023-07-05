@@ -19,7 +19,7 @@ public class PlayerHurtEvent {
         if (event == null || event.getEntity() == null) return;
 
         LivingEntity entity = event.getEntity();
-        GameRules gamerules = entity.level.getLevelData().getGameRules();
+        GameRules gamerules = entity.level().getLevelData().getGameRules();
 
         if (event.getSource().getEntity() instanceof LivingEntity sourceentity) {
             if ((!gamerules.getBoolean(Gamerules.CAN_HURT_PET_MOBS)) && (sourceentity instanceof Player) &&

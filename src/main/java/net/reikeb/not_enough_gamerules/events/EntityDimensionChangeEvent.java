@@ -11,7 +11,7 @@ public class EntityDimensionChangeEvent {
 
     @SubscribeEvent
     public static void onDimensionChange(EntityTravelToDimensionEvent event) {
-        if (event.getEntity().level.getLevelData().getGameRules().getBoolean(Gamerules.DISABLE_DIMENSION_CHANGE)) {
+        if (event.getEntity().level().getLevelData().getGameRules().getBoolean(Gamerules.DISABLE_DIMENSION_CHANGE)) {
             event.setCanceled(event.isCancelable());
         }
     }

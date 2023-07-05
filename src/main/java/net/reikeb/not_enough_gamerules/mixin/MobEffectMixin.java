@@ -21,6 +21,6 @@ public class MobEffectMixin {
 
     @ModifyConstant(method = "applyEffectTick", constant = @Constant(floatValue = 1.0F, ordinal = 1))
     private float applyUpdateEffectConstantModifier(float constant) {
-        return (float) entity.level.getGameRules().getInt(Gamerules.POISON_HEALTH);
+        return (float) entity.level().getGameRules().getInt(Gamerules.POISON_HEALTH);
     }
 }

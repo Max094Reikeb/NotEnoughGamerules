@@ -19,7 +19,7 @@ public class PlayerUsesItemEvent {
         if (event != null && event.getEntity() != null) {
             ItemStack itemstack = event.getItem();
             if (!(event.getEntity() instanceof Player player)) return;
-            if ((Math.random() <= ((float) (player.level.getLevelData().getGameRules().getInt(Gamerules.RAW_MEAT_HUNGER) / 100)))
+            if ((Math.random() <= ((float) (player.level().getLevelData().getGameRules().getInt(Gamerules.RAW_MEAT_HUNGER) / 100)))
                     && ((itemstack.getItem() == Items.BEEF) || (itemstack.getItem() == Items.CHICKEN)
                     || (itemstack.getItem() == Items.COD) || (itemstack.getItem() == Items.MUTTON)
                     || (itemstack.getItem() == Items.RABBIT) || (itemstack.getItem() == Items.PORKCHOP)

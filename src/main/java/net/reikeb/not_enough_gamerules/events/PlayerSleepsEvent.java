@@ -12,7 +12,7 @@ public class PlayerSleepsEvent {
 
     @SubscribeEvent
     public static void onPlayerSleeps(PlayerSleepInBedEvent event) {
-        if (!event.getEntity().level.getLevelData().getGameRules().getBoolean(Gamerules.CAN_PLAYER_SLEEP)) {
+        if (!event.getEntity().level().getLevelData().getGameRules().getBoolean(Gamerules.CAN_PLAYER_SLEEP)) {
             event.setResult(Player.BedSleepingProblem.NOT_POSSIBLE_NOW);
             event.setCanceled(event.isCancelable());
         }
