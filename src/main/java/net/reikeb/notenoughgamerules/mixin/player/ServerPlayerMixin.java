@@ -24,7 +24,7 @@ public abstract class ServerPlayerMixin extends PlayerMixin {
         if (destination.getGameRules().getBoolean(Gamerules.DISABLE_DIMENSION_CHANGE)) cir.cancel();
     }
 
-    @Inject(method = "teleport", at = @At("HEAD"), cancellable = true)
+    @Inject(method = "teleport(Lnet/minecraft/server/world/ServerWorld;DDDFF)V", at = @At("HEAD"), cancellable = true)
     private void teleport(ServerWorld targetWorld, double x, double y, double z, float yaw, float pitch, CallbackInfo ci) {
         if ((targetWorld != this.getWorld()) && (this.getWorld().getGameRules().getBoolean(Gamerules.DISABLE_DIMENSION_CHANGE)))
             ci.cancel();

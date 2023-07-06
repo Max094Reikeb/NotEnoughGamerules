@@ -5,6 +5,7 @@
   "compatibilityLevel": "JAVA_17",
   "mixins": [
     "ChatMixin",
+    "DamageTypesMixin",
     "EnderDragonFightMixin",
     "ServerWorldMixin",
     "StatusEffectMixin",
@@ -29,7 +30,6 @@
     "entities.TntEntityMixin",
     "entities.TntMinecartEntityMixin",
     "entities.VillagerMixin",
-    "entities.WanderGoalMixin",
     "entities.ZombieMixin",
     "entities.ZombieVillagerMixin",
     "player.ClientPlayerMixin",

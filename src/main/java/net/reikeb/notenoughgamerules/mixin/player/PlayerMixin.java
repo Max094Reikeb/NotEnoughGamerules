@@ -7,7 +7,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.world.GameRules;
-import net.reikeb.notenoughgamerules.DamageSources;
+import net.reikeb.notenoughgamerules.NEGDamageTypes;
 import net.reikeb.notenoughgamerules.Gamerules;
 import net.reikeb.notenoughgamerules.NotEnoughGamerules;
 import net.reikeb.notenoughgamerules.mixin.entities.LivingEntityMixin;
@@ -57,7 +57,7 @@ public abstract class PlayerMixin extends LivingEntityMixin {
             this.sendMessage(Text.translatable("message.not_enough_gamerules.sky_high_warning"), true);
 
             if (this.world.getTime() % 200 == 0 && this.age > 199) {
-                this.damage(DamageSources.SKY_HIGH, (float) 10);
+                this.damage(this.getDamageSources().create(NEGDamageTypes.SKY_HIGH), (float) 10);
             }
         }
     }
