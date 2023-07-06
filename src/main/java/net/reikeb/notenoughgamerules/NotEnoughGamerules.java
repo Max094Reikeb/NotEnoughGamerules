@@ -54,7 +54,7 @@ public class NotEnoughGamerules implements ModInitializer {
     }
 
     public static String id() {
-        return "not-enough-gamerules";
+        return "not_enough_gamerules";
     }
 
     public static Identifier createId(String path) {
