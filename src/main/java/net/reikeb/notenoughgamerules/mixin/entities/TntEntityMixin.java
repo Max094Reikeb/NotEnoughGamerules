@@ -11,6 +11,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public abstract class TntEntityMixin extends EntityMixin {
     @Inject(method = "explode", at = @At("HEAD"), cancellable = true)
     private void explode(CallbackInfo ci) {
-        if (!this.world.getGameRules().getBoolean(Gamerules.TNT_EXPLODES)) ci.cancel();
+        if (!this.getWorld().getGameRules().getBoolean(Gamerules.TNT_EXPLODES)) ci.cancel();
     }
 }

@@ -6,7 +6,6 @@ import net.minecraft.server.world.ServerWorld;
 import net.reikeb.notenoughgamerules.Gamerules;
 import org.objectweb.asm.Opcodes;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.Redirect;
@@ -15,9 +14,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(ServerPlayerEntity.class)
 public abstract class ServerPlayerMixin extends PlayerMixin {
-
-    @Shadow
-    public abstract ServerWorld getWorld();
 
     @Inject(method = "moveToWorld", at = @At("HEAD"), cancellable = true)
     private void moveToWorld(ServerWorld destination, CallbackInfoReturnable<Entity> cir) {
