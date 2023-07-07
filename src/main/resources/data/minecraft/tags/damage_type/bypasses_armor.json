@@ -1,7 +1,7 @@
 {
   "replace": false,
   "values": [
-    "not_enough_gamerules:explosion",
-    "not_enough_gamerules:sky_high"
+    "not_enough_gamerules:sky_high",
+    "not_enough_gamerules:differed_explosion"
   ]
 }

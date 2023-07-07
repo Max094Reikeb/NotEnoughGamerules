@@ -3,6 +3,7 @@ package net.reikeb.notenoughgamerules;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.entity.event.v1.EntitySleepEvents;
 import net.fabricmc.fabric.api.entity.event.v1.ServerPlayerEvents;
+import net.fabricmc.fabric.api.event.registry.DynamicRegistrySetupCallback;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.damage.DamageTypes;
@@ -12,6 +13,7 @@ import net.minecraft.registry.tag.DamageTypeTags;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.GameRules;
 import net.reikeb.notenoughgamerules.events.AfterRespawnListener;
+import net.reikeb.notenoughgamerules.events.DynamicRegistrySetupListener;
 import net.reikeb.notenoughgamerules.events.PlayerSleepsListener;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
@@ -19,6 +21,7 @@ public class NotEnoughGamerules implements ModInitializer {
 
     @Override
     public void onInitialize() {
+        DynamicRegistrySetupCallback.EVENT.register(new DynamicRegistrySetupListener());
         Gamerules.setupGamerules();
         EntitySleepEvents.ALLOW_SLEEPING.register(new PlayerSleepsListener());
         ServerPlayerEvents.AFTER_RESPAWN.register(new AfterRespawnListener());
@@ -35,7 +38,7 @@ public class NotEnoughGamerules implements ModInitializer {
             cir.cancel();
         }
         if (gameRules.getInt(Gamerules.EXPLOSION_DAMAGE) > -1 && source.isIn(DamageTypeTags.IS_EXPLOSION)) {
-            entity.damage(entity.getDamageSources().create(NEGDamageTypes.EXPLOSION), (float) gameRules.getInt(Gamerules.EXPLOSION_DAMAGE));
+            entity.damage(entity.getDamageSources().create(NEGDamageTypes.DIFFERED_EXPLOSION), (float) gameRules.getInt(Gamerules.EXPLOSION_DAMAGE));
             cir.cancel();
         }
         if (!gameRules.getBoolean(Gamerules.ANVIL_DAMAGE) && source.isOf(DamageTypes.FALLING_ANVIL)) {
