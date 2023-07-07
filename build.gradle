@@ -25,7 +25,7 @@ dependencies {
 }
 
 loom {
-    accessWidenerPath = file("src/main/resources/not_enough_gamerules.accesswidener");
+    accessWidenerPath = file("src/main/resources/not_enough_gamerules.accesswidener")
 }
 
 processResources {
