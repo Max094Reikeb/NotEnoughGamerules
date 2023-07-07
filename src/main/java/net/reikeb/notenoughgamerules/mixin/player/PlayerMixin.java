@@ -39,24 +39,24 @@ public abstract class PlayerMixin extends LivingEntityMixin {
 
     @Inject(method = "damage", at = @At("HEAD"), cancellable = true)
     private void damage(DamageSource source, float amount, CallbackInfoReturnable<Boolean> cir) {
-        if (!this.world.getGameRules().getBoolean(Gamerules.CAN_PLAYER_TAKE_DAMAGE)) cir.cancel();
-        Entity entity = this.world.getEntityById(this.getId());
+        if (!this.getWorld().getGameRules().getBoolean(Gamerules.CAN_PLAYER_TAKE_DAMAGE)) cir.cancel();
+        Entity entity = this.getWorld().getEntityById(this.getId());
         assert entity != null;
         NotEnoughGamerules.damageGamerule(entity, source, cir);
     }
 
     @Inject(method = "tick", at = @At("TAIL"), cancellable = true)
     private void tick(CallbackInfo ci) {
-        if (this.world.isClient) ci.cancel();
+        if (this.getWorld().isClient) ci.cancel();
 
-        int naturalHunger = this.world.getGameRules().getInt(Gamerules.NATURAL_HUNGER);
+        int naturalHunger = this.getWorld().getGameRules().getInt(Gamerules.NATURAL_HUNGER);
         if ((naturalHunger > -1) && (this.hungerManager.getFoodLevel() < naturalHunger)) {
             this.hungerManager.setFoodLevel(20);
         }
-        if (this.getY() < this.world.getGameRules().getInt(Gamerules.SKY_HIGH)) {
+        if (this.getY() < this.getWorld().getGameRules().getInt(Gamerules.SKY_HIGH)) {
             this.sendMessage(Text.translatable("message.not_enough_gamerules.sky_high_warning"), true);
 
-            if (this.world.getTime() % 200 == 0 && this.age > 199) {
+            if (this.getWorld().getTime() % 200 == 0 && this.age > 199) {
                 this.damage(this.getDamageSources().create(NEGDamageTypes.SKY_HIGH), (float) 10);
             }
         }
@@ -64,7 +64,7 @@ public abstract class PlayerMixin extends LivingEntityMixin {
 
     @Inject(method = "interact", at = @At("HEAD"), cancellable = true)
     private void interact(CallbackInfoReturnable<ActionResult> cir) {
-        if (!this.world.getGameRules().getBoolean(Gamerules.CAN_ENTITY_INTERACT_WITH_ENTITIES))
+        if (!this.getWorld().getGameRules().getBoolean(Gamerules.CAN_ENTITY_INTERACT_WITH_ENTITIES))
             cir.setReturnValue(ActionResult.PASS);
     }
 

@@ -12,6 +12,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public abstract class TntMinecartEntityMixin extends EntityMixin {
     @Inject(method = "explode(Lnet/minecraft/entity/damage/DamageSource;D)V", at = @At("HEAD"), cancellable = true)
     private void explode(DamageSource damageSource, double power, CallbackInfo ci) {
-        if (!this.world.getGameRules().getBoolean(Gamerules.TNT_EXPLODES)) ci.cancel();
+        if (!this.getWorld().getGameRules().getBoolean(Gamerules.TNT_EXPLODES)) ci.cancel();
     }
 }

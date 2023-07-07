@@ -20,9 +20,6 @@ public abstract class EntityMixin {
     public int age;
 
     @Shadow
-    public World world;
-
-    @Shadow
     public abstract int getId();
 
     @Shadow
@@ -35,6 +32,8 @@ public abstract class EntityMixin {
     public abstract double getY();
 
     @Shadow public abstract DamageSources getDamageSources();
+
+    @Shadow public abstract World getWorld();
 
     @Inject(method = "onStruckByLightning", at = @At("HEAD"), cancellable = true)
     private void onStruckByLightning(ServerWorld world, LightningEntity lightning, CallbackInfo ci) {

@@ -11,6 +11,6 @@ public class FoxBreadMixin extends AnimalMateGoalMixin {
 
     @Inject(method = "breed", at = @At("HEAD"), cancellable = true)
     private void bread(CallbackInfo ci) {
-        if (!this.animal.world.getGameRules().getBoolean(Gamerules.DO_BABIES_SPAWN)) ci.cancel();
+        if (!this.animal.getWorld().getGameRules().getBoolean(Gamerules.DO_BABIES_SPAWN)) ci.cancel();
     }
 }

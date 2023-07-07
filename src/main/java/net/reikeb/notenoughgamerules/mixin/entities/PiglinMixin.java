@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public abstract class PiglinMixin extends MobEntityMixin {
     @Inject(method = "mobTick", at = @At("HEAD"), cancellable = true)
     private void mobTick(CallbackInfo ci) {
-        if (!this.world.getGameRules().getBoolean(Gamerules.DO_TRANSFORMATIONS)) {
+        if (!this.getWorld().getGameRules().getBoolean(Gamerules.DO_TRANSFORMATIONS)) {
             super.mobTick();
             ci.cancel();
         }

@@ -15,7 +15,7 @@ public abstract class ZombieMixin extends MobEntityMixin {
 
     @Inject(method = "tick", at = @At("HEAD"), cancellable = true)
     private void tick(CallbackInfo ci) {
-        if (!this.world.getGameRules().getBoolean(Gamerules.DO_TRANSFORMATIONS)) {
+        if (!this.getWorld().getGameRules().getBoolean(Gamerules.DO_TRANSFORMATIONS)) {
             super.tick();
             ci.cancel();
         }
@@ -24,10 +24,7 @@ public abstract class ZombieMixin extends MobEntityMixin {
     @Redirect(method = "onKilledOther", at = @At(value = "INVOKE", target = "Lnet/minecraft/util/math/random/Random;nextBoolean()Z"))
     private boolean changeBoolean(Random instance) {
         float randomFloat = instance.nextFloat();
-        float villagerConversion = (float) this.world.getGameRules().getInt(Gamerules.VILLAGER_CONVERSION) / 100;
-        if (world.getDifficulty() == Difficulty.NORMAL) {
-            return randomFloat >= villagerConversion;
-        }
-        return randomFloat < villagerConversion;
+        float villagerConversion = (float) this.getWorld().getGameRules().getInt(Gamerules.VILLAGER_CONVERSION) / 100;
+        return this.getWorld().getDifficulty() == Difficulty.NORMAL ? randomFloat >= villagerConversion : randomFloat < villagerConversion;
     }
 }
