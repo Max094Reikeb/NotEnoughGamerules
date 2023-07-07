@@ -23,9 +23,10 @@
   "mixins": [
     "not_enough_gamerules.mixins.json"
   ],
+  "accessWidener" : "not_enough_gamerules.accesswidener",
   "depends": {
     "fabricloader": ">=0.14.21",
     "fabric": "*",
-    "minecraft": "1.19.3"
+    "minecraft": "1.19.4"
   }
 }

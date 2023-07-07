@@ -3,12 +3,17 @@ package net.reikeb.notenoughgamerules;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.entity.event.v1.EntitySleepEvents;
 import net.fabricmc.fabric.api.entity.event.v1.ServerPlayerEvents;
+import net.fabricmc.fabric.api.event.registry.DynamicRegistrySetupCallback;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.damage.DamageTypes;
 import net.minecraft.entity.passive.TameableEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.registry.tag.DamageTypeTags;
+import net.minecraft.util.Identifier;
 import net.minecraft.world.GameRules;
 import net.reikeb.notenoughgamerules.events.AfterRespawnListener;
+import net.reikeb.notenoughgamerules.events.DynamicRegistrySetupListener;
 import net.reikeb.notenoughgamerules.events.PlayerSleepsListener;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
@@ -16,6 +21,7 @@ public class NotEnoughGamerules implements ModInitializer {
 
     @Override
     public void onInitialize() {
+        DynamicRegistrySetupCallback.EVENT.register(new DynamicRegistrySetupListener());
         Gamerules.setupGamerules();
         EntitySleepEvents.ALLOW_SLEEPING.register(new PlayerSleepsListener());
         ServerPlayerEvents.AFTER_RESPAWN.register(new AfterRespawnListener());
@@ -31,22 +37,30 @@ public class NotEnoughGamerules implements ModInitializer {
         if (!gameRules.getBoolean(Gamerules.PVP) && entity instanceof PlayerEntity && source.getSource() instanceof PlayerEntity) {
             cir.cancel();
         }
-        if (gameRules.getInt(Gamerules.EXPLOSION_DAMAGE) > -1 && source.isExplosive()) {
-            entity.damage(DamageSources.EXPLOSION, (float) gameRules.getInt(Gamerules.EXPLOSION_DAMAGE));
+        if (gameRules.getInt(Gamerules.EXPLOSION_DAMAGE) > -1 && source.isIn(DamageTypeTags.IS_EXPLOSION)) {
+            entity.damage(entity.getDamageSources().create(NEGDamageTypes.DIFFERED_EXPLOSION), (float) gameRules.getInt(Gamerules.EXPLOSION_DAMAGE));
             cir.cancel();
         }
-        if (!gameRules.getBoolean(Gamerules.ANVIL_DAMAGE) && source.getName().equals(DamageSource.anvil(source.getSource()).getName())) {
+        if (!gameRules.getBoolean(Gamerules.ANVIL_DAMAGE) && source.isOf(DamageTypes.FALLING_ANVIL)) {
             cir.cancel();
         }
-        if (!gameRules.getBoolean(Gamerules.FALLING_BLOCKS_DAMAGE) && source.getName().equals(DamageSource.fallingBlock(source.getSource()).getName())) {
+        if (!gameRules.getBoolean(Gamerules.FALLING_BLOCKS_DAMAGE) && source.isOf(DamageTypes.FALLING_BLOCK)) {
             cir.cancel();
         }
-        if (!gameRules.getBoolean(Gamerules.STALACTITE_DAMAGE) && source.getName().equals(DamageSource.fallingStalactite(source.getSource()).getName())) {
+        if (!gameRules.getBoolean(Gamerules.STALACTITE_DAMAGE) && source.isOf(DamageTypes.FALLING_STALACTITE)) {
             cir.cancel();
         }
-        if (gameRules.getInt(Gamerules.DRAGON_BREATH_DAMAGE) > -1 && source == DamageSource.DRAGON_BREATH) {
-            entity.damage(DamageSource.DRAGON_BREATH, (float) gameRules.getInt(Gamerules.DRAGON_BREATH_DAMAGE));
+        if (gameRules.getInt(Gamerules.DRAGON_BREATH_DAMAGE) > -1 && source.isOf(DamageTypes.DRAGON_BREATH)) {
+            entity.damage(entity.getDamageSources().dragonBreath(), (float) gameRules.getInt(Gamerules.DRAGON_BREATH_DAMAGE));
             cir.cancel();
         }
+    }
+
+    public static String id() {
+        return "not_enough_gamerules";
+    }
+
+    public static Identifier createId(String path) {
+        return new Identifier(NotEnoughGamerules.id(), path);
     }
 }

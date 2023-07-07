@@ -77,5 +77,4 @@ public class Gamerules {
         TNT_EXPLODES = GameRuleRegistry.register("tntExplodes", GameRules.Category.MISC, GameRuleFactory.createBooleanRule(true));
         VILLAGER_CONVERSION = GameRuleRegistry.register("villagerConversion", GameRules.Category.MOBS, GameRuleFactory.createIntRule(50));
     }
-
 }

@@ -29,7 +29,6 @@
     "entities.TntEntityMixin",
     "entities.TntMinecartEntityMixin",
     "entities.VillagerMixin",
-    "entities.WanderGoalMixin",
     "entities.ZombieMixin",
     "entities.ZombieVillagerMixin",
     "player.ClientPlayerMixin",
